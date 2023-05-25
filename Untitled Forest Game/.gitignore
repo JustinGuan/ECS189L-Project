@@ -132,6 +132,7 @@ obj/
 *.user
 *.unityproj
 *.booproj
+.vscode/
 
 ### Windows ###
 # Windows thumbnail cache files

@@ -57,7 +57,7 @@ public class WoodSpawner : MonoBehaviour
                 // These will be converted into cartesion coordinates.
                 float x = dist * Mathf.Cos(theta);
                 float z = dist * Mathf.Sin(theta);
-                Debug.Log(dist);
+                // Debug.Log(dist);
                 // Instantiate the wood.
                 Instantiate(woodPrefab, new Vector3(x, this.transform.position.y, z), Quaternion.identity);
             }

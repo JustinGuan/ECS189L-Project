@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class WoodCollision : MonoBehaviour
 {
-    [SerializeField] private UnityEngine.UI.Text woodText;
+    [SerializeField] private UnityEngine.UI.Text wood;
     private int branches;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.woodText.text = "Wood";
+        // this.wood.text = "Branch";
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.woodText.text = "x" + (this.branches * 1);
+        // this.wood.text = "x" + (this.branches * 1);
     }
 
     // Detects if it has collided with the box collider of wood and 

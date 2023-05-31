@@ -63,14 +63,4 @@ public class WoodSpawner : MonoBehaviour
             }
         }
     }
-
-    // Detects if it has collided with the box collider of wood and 
-    // destroys it if so.
-    private void OnCollision(Collision collision)
-    {
-        if (collision.gameObject.tag == "Wood")
-        {
-            Destroy(collision.gameObject);
-        }
-    }
 }

@@ -32,7 +32,6 @@ public class WoodSpawner : MonoBehaviour
 
     void Update()
     {
-
     }
 
     // Generate the different regions in our game, 
@@ -62,6 +61,16 @@ public class WoodSpawner : MonoBehaviour
                 // Instantiate the wood.
                 Instantiate(woodPrefab, new Vector3(x, this.transform.position.y, z), Quaternion.identity);
             }
+        }
+    }
+
+    // Detects if it has collided with the box collider of wood and 
+    // destroys it if so.
+    private void OnCollision(Collision collision)
+    {
+        if (collision.gameObject.tag == "Wood")
+        {
+            Destroy(collision.gameObject);
         }
     }
 }

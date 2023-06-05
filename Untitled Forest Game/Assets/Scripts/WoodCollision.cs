@@ -7,12 +7,14 @@ public class WoodCollision : MonoBehaviour
 {
     // [SerializeField] private UnityEngine.UI.Text wood;
     private int branches = 0;
+    private WoodSpawner spawner;
     public TextMeshProUGUI woodText;
 
     // Start is called before the first frame update
     void Start()
     {
         // this.wood.text = "Branch";
+        spawner = GameObject.Find("Floor").GetComponent<WoodSpawner>();
     }
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class WoodCollision : MonoBehaviour
             Debug.Log("Wood Collected.");
             Destroy(collision.gameObject);
             this.branches++;
+            spawner.DestroyWood();
             woodText.text = "Wood: " + branches.ToString();
             Debug.Log(branches);
         }

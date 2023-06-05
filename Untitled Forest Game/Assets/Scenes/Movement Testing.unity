@@ -199,8 +199,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7819b0b1c43651a4b9c1b7c62c834c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1763271772494670603, guid: e8f0904cec55e514a9ef9151f354da64, type: 3}
-  maxEnemies: 5
+  enemyPrefab:
+  - {fileID: 7763609447711820897, guid: 1d9f6164dec987d43a86c41f50294ce3, type: 3}
+  - {fileID: 3336314073268052584, guid: fbe5a3e1f554717469b802629bca080d, type: 3}
+  - {fileID: 8879873221845866147, guid: 7f127a78f3207f84a8aa0c78adafb291, type: 3}
+  - {fileID: 3292827499764839663, guid: 6338690d52256854fb81b063534a0dcb, type: 3}
+  - {fileID: 2555714605965829972, guid: 3acde746b971c964cb81fd4b49872662, type: 3}
 --- !u!1 &351344597
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +585,7 @@ GameObject:
   - component: {fileID: 852545744}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

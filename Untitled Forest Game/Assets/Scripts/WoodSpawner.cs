@@ -22,7 +22,6 @@ public class WoodSpawner : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
         gameAreaSize = meshRenderer.bounds.size; 
         this.maxRadius = gameAreaSize.x / 2;
-        SpawnWood();
     }
 
     void Start()

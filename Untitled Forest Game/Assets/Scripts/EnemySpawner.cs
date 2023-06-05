@@ -4,77 +4,69 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private float maxEnemies;
+    [SerializeField] private List<GameObject> enemyPrefab;
     private LocationTracker tracker;
-    // Keeps track of current number of enemies.
-    private float numEnemies;
-    private float timeSinceSpawn;
     // How far the enemies should spawn around the player.
     private float maxRadius = 10.0f;
-    private float minRadius = 3.0f;
+    // Holds info about the size of our play area.
+    private MeshRenderer meshRenderer;
+    // List to hold our spawners.
+    List<GameObject> spawnPoints;
 
-    private void Start()
+    void Awake()
     {
         tracker = GetComponent<LocationTracker>();
+        meshRenderer = GameObject.Find("Floor").GetComponent<MeshRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        // Dont do anythign if the player is near the fireplace.
-        if(Vector3.Distance(tracker.GetPlayerPos(), tracker.GetFireplacePos()) < 10.0f)
-        {
-            Debug.Log(tracker.GetFireplacePos());
-            return;
-        }
-        // Update our timer first.
-        timeSinceSpawn += Time.deltaTime;
-        // If tehre are no enemies, we spawn in the enemies.
-        if(numEnemies == 0)
-        {
-            SpawnEnemy();
-            timeSinceSpawn = 0;
-        }
-        // If there are enemies, then we spawn via a coroutine.
-        // We spawn enemies until we reach a max number of enemies possible.
-        else if((numEnemies < this.maxEnemies) && (timeSinceSpawn >= 5.0f))
-        {
-            SpawnEnemy();
-            timeSinceSpawn = 0;
-        }
+        spawnPoints = new List<GameObject>();
+        CreateSpawners();
     }
 
-    void SpawnEnemy()
+    // Creates the where the center of our spawnpoints will be at.
+    void CreateSpawners()
     {
-        float r1 = this.maxRadius;
-        float r2 = this.minRadius;
-        // Determine how many enemies to spawn.
-        float enemiesLeft = this.maxEnemies - this.numEnemies;
-        // Spawns the enemy. Let the scaling of the enemies be done in the Enemy script.
-        // Type of enemy being spawned will be determined later.
-        for(int i = 0; i < enemiesLeft; i++)
+        float degreesOfSpawn = (2.0f * 3.14f) / 5.0f;
+        // This gets 1/4 of our width and length, which effectively becomes our radius.
+        float dist = (meshRenderer.bounds.size.x / 4) + (this.maxRadius);
+        // Create our spawnpoints and store them into a list.
+        for(int i = 0; i < 5; i++)
         {
-            // Where to spawn near the player.
-            float dist = Mathf.Sqrt((Mathf.Pow(r1, 2) - Mathf.Pow(r2, 2) + Mathf.Pow(r2, 2)));
-            float theta = Random.Range(0, 360);
-            float x = (dist * Mathf.Cos(theta)) + tracker.GetPlayerPos().x;
-            float z = (dist * Mathf.Sin(theta)) + tracker.GetPlayerPos().z;
-            while(Vector3.Distance(new Vector3(x, 0, z), tracker.GetFireplacePos()) < 10.0f)
+            // Results in the angles being used (in degrees): 0, 72, 144, 216, 288
+            float tempDegree = degreesOfSpawn * i;
+            float newX = dist * Mathf.Cos(tempDegree);
+            float newZ = dist * Mathf.Sin(tempDegree);
+            // Math.
+            if(tempDegree > 90.0f || tempDegree < 270.0f)
             {
-                // Recalculate our values until we get something not in range of the fire.
-                theta = Random.Range(0, 360);
-                x = (dist * Mathf.Cos(theta)) + tracker.GetPlayerPos().x;
-                z = (dist * Mathf.Sin(theta)) + tracker.GetPlayerPos().z;
+                newX *= -1;
             }
-            Instantiate(enemyPrefab, new Vector3(x, -0.446f, z), Quaternion.identity);
-        }        
-        this.numEnemies += enemiesLeft;
+            // Math.
+            if(tempDegree > 180)
+            {
+                newZ *= -1;
+            }
+            Vector3 newPos = new Vector3(newX, tracker.GetFireplacePos().y, newZ);
+            // Create the new Gamobject then update its position.
+            GameObject newSpawnPoint = new GameObject();
+            newSpawnPoint.transform.position = newPos;
+            // Add the spawner to our gameobject.
+            spawnPoints.Add(newSpawnPoint);
+        }
+        int listCount = spawnPoints.Count - 1;
+        // Loop through each spawnpoint and add/modify components to it.
+        foreach (GameObject go in spawnPoints)
+        {
+            // Adds the SphereCollider component onto the newly created gameobject.
+            go.AddComponent(typeof(SphereCollider));
+            // Changes variables within our SphereCollider component.
+            go.GetComponent<SphereCollider>().isTrigger = true;
+            go.GetComponent<SphereCollider>().radius = (meshRenderer.bounds.size.x / 2) - (this.maxRadius);
+            // Add the script that will handle the spawning of our enemies.
+            go.AddComponent<SpawnEnemy>();
+            go.GetComponent<SpawnEnemy>().SetEnemyPrefab(enemyPrefab[listCount--]);
+        }
     }
-
-    // Mainly used for despawning mobs.
-    public void UpdateEnemyCount()
-    {
-        this.numEnemies--;
-    }    
 }

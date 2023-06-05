@@ -2,22 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Embers
+public class Projectile : MonoBehaviour
 {
-    public class Projectile : MonoBehaviour
-    {
-        public Transform projectileSpawnPoint;
-        public GameObject projectilePrefab;
-        public float projectileSpeed = 10;
+    private Rigidbody projectileRigidbody;
 
-        private void Update()
-        {
-            if (Input.GetMouseButtonDown(1)) 
-            {
-                var projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
-                projectile.GetComponent<Rigidbody>().velocity = projectileSpawnPoint.forward * projectileSpeed;
-            }
-        }
+    private void Awake()
+    {
+        projectileRigidbody = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        float speed = 10f;
+        projectileRigidbody.velocity = transform.forward * speed;   
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
     }
 }
-

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class WoodCollision : MonoBehaviour
 {
-    // [SerializeField] private UnityEngine.UI.Text wood;
     private int branches = 0;
     private WoodSpawner spawner;
     public TextMeshProUGUI woodText;
@@ -13,14 +12,12 @@ public class WoodCollision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // this.wood.text = "Branch";
         spawner = GameObject.Find("Floor").GetComponent<WoodSpawner>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // this.wood.text = "x" + (this.branches * 1);
     }
 
     // Detects if it has collided with the box collider of wood and 

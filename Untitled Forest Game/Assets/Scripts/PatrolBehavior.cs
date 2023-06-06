@@ -19,7 +19,7 @@ namespace Embers
 
         public void EnemyPatrol()
         {
-            if (this.currentState == EnemyState.Patrolling && !this.agent.pathPending && this.agent.remainingDistance < 0.1f)
+            if (currentState == EnemyState.Patrolling && !agent.pathPending && agent.remainingDistance < 0.1f)
             {
                 SetDestinationToNextPatrolPoint();
             }

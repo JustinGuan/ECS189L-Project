@@ -18,7 +18,7 @@ namespace Embers
         public bool IsPlayerInRange()
         {
             // Check if the player is within attack range
-            float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+            float distanceToPlayer = Vector3.Distance(this.transform.position, this.playerTransform.position);
             return distanceToPlayer <= attackRange;
         }
 

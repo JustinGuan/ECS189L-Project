@@ -25,7 +25,6 @@ namespace Embers
         private void Start()
         {
             // Get references to the PatrolBehavior, ChaseBehavior, and AttackBehavior components
-            //this.patrolBehavior = GameObject.FindGameObjectWithTag("Script Home").GetComponent<PatrolBehavior>();
             this.patrolBehavior = GetComponent<PatrolBehavior>();
             this.chaseBehavior = GetComponent<ChaseBehavior>();
             this.attackBehavior = GetComponent<AttackBehavior>();
@@ -43,7 +42,7 @@ namespace Embers
             {
                 case EnemyState.Patrolling:
                     // Handle patrolling behavior
-                    this.patrolBehavior.EnemyPatrol();
+                    patrolBehavior.EnemyPatrol();
                     break;
 
                 case EnemyState.Chasing:

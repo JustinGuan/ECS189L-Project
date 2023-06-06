@@ -31,7 +31,11 @@ public class WoodSpawner : MonoBehaviour
 
     void Update()
     {
-
+        // The wood respawns when there are none left.
+        if(numWood == 0f)
+        {
+            SpawnWood();
+        }
     }
 
     // Generate the different regions in our game, 
@@ -57,9 +61,34 @@ public class WoodSpawner : MonoBehaviour
                 // These will be converted into cartesion coordinates.
                 float x = dist * Mathf.Cos(theta);
                 float z = dist * Mathf.Sin(theta);
+                // Generate a new distance everytime the wood would spawn outside our gamearea.
+                while(CheckLocation(x, z)) {
+                    theta = Random.Range(0, 360);
+                    x = dist * Mathf.Cos(theta);
+                    z = dist * Mathf.Sin(theta);
+                }
+                // Debug.Log(dist);
                 // Instantiate the wood.
                 Instantiate(woodPrefab, new Vector3(x, this.transform.position.y, z), Quaternion.identity);
             }
         }
+    }
+
+    // Method is used to prevent wood from spawning outside our intended game field.
+    bool CheckLocation(float x, float z)
+    {
+        Vector3 spawnPos = new Vector3(x, this.transform.position.y, z);
+        // Prevent the wood from spawning outside of our game area.
+        if(Vector3.Distance(this.transform.position, spawnPos) >= this.maxRadius)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    // Updates the number of wood in the scene.
+    public void DestroyWood()
+    {
+        this.numWood--;
     }
 }

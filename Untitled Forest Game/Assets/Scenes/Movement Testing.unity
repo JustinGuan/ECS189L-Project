@@ -286,7 +286,7 @@ Transform:
   - {fileID: 1060148401}
   - {fileID: 853925635}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &212611830
 MonoBehaviour:
@@ -1496,7 +1496,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &718029637
 GameObject:
@@ -1941,8 +1941,11 @@ GameObject:
   - component: {fileID: 852545742}
   - component: {fileID: 852545741}
   - component: {fileID: 852545739}
+  - component: {fileID: 852545746}
+  - component: {fileID: 852545747}
   - component: {fileID: 852545738}
   - component: {fileID: 852545744}
+  - component: {fileID: 852545745}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -2057,7 +2060,7 @@ Transform:
   m_Children:
   - {fileID: 2121302069}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &852545744
 MonoBehaviour:
@@ -2116,6 +2119,7 @@ GameObject:
   - component: {fileID: 853925634}
   - component: {fileID: 853925633}
   - component: {fileID: 853925632}
+  - component: {fileID: 853925636}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged

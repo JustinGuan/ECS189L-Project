@@ -5,52 +5,50 @@ namespace Embers
     public class EnemyController : MonoBehaviour
     {
         // States
-        private PatrolBehavior patrolBehavior;
-        private ChaseBehavior chaseBehavior;
-        protected AttackBehavior attackBehavior;
+        public PatrolBehavior patrolBehavior;
+        public ChaseBehavior chaseBehavior;
+        public AttackBehavior attackBehavior;
         public enum EnemyState
         {
             Patrolling,
             Chasing,
             Idle
         }
-        protected EnemyState currentState;
+        public EnemyState currentState;
 
         // Sight detection
         [SerializeField] public float detectionRange = 10f;
         [SerializeField] public float fieldOfViewAngle = 60f;
-        protected Transform playerTransform;
+        public Transform playerTransform;
         public LayerMask playerLayer;
 
-
-        // Potentially change this to Awake()
         private void Start()
         {
             // Get references to the PatrolBehavior, ChaseBehavior, and AttackBehavior components
-            patrolBehavior = GetComponent<PatrolBehavior>();
-            chaseBehavior = GetComponent<ChaseBehavior>();
-            attackBehavior = GetComponent<AttackBehavior>();
+            //this.patrolBehavior = GameObject.FindGameObjectWithTag("Script Home").GetComponent<PatrolBehavior>();
+            this.patrolBehavior = GetComponent<PatrolBehavior>();
+            this.chaseBehavior = GetComponent<ChaseBehavior>();
+            this.attackBehavior = GetComponent<AttackBehavior>();
 
             // Find the player reference
-            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+            this.playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
             // Activate the patrol behavior by default
-            //ActivatePatrolBehavior();
-            currentState = EnemyState.Patrolling;
+            this.currentState = EnemyState.Patrolling;
         }
 
         private void Update()
         {
-            switch (currentState)
+            switch (this.currentState)
             {
                 case EnemyState.Patrolling:
                     // Handle patrolling behavior
-                    patrolBehavior.EnemyPatrol();
+                    this.patrolBehavior.EnemyPatrol();
                     break;
 
                 case EnemyState.Chasing:
                     // Handle chasing behavior
-                    chaseBehavior.EnemyChase();
+                    this.chaseBehavior.EnemyChase();
                     break;
 
                 case EnemyState.Idle:
@@ -59,13 +57,13 @@ namespace Embers
             }
 
             // Check if the player is within attack range and activate attack behavior
-            if (attackBehavior.CanAttack() && attackBehavior.IsPlayerInRange())
+            if (this.attackBehavior.CanAttack() && this.attackBehavior.IsPlayerInRange() && IsPlayerInSight())
             {
-                attackBehavior.EnemyAttack();
+                this.attackBehavior.EnemyAttack();
             }
         }
 
-        protected bool IsPlayerInSight()
+        public bool IsPlayerInSight()
         {
             // Check if the player is within detection range
             float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);

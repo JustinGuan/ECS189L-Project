@@ -19,7 +19,7 @@ namespace Embers
 
         public void EnemyPatrol()
         {
-            if (currentState == EnemyState.Patrolling && !agent.pathPending && agent.remainingDistance < 0.1f)
+            if (this.currentState == EnemyState.Patrolling && !this.agent.pathPending && this.agent.remainingDistance < 0.1f)
             {
                 SetDestinationToNextPatrolPoint();
             }
@@ -27,7 +27,7 @@ namespace Embers
 
         private void SetDestinationToNextPatrolPoint()
         {
-            if (patrolPoints.Length == 0)
+            if (this.patrolPoints.Length == 0)
             {
                 Debug.LogWarning("No patrol points assigned to the PatrolBehavior!");
                 return;

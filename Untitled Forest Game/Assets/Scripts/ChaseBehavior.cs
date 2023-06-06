@@ -30,6 +30,7 @@ namespace Embers
                 else
                 {
                     timeSincePlayerOutOfSight += Time.deltaTime;
+                    Debug.Log(timeSincePlayerOutOfSight);
 
                     // Check if the player has been out of sight for the specified duration
                     if (timeSincePlayerOutOfSight >= outOfSightDuration)
@@ -40,10 +41,11 @@ namespace Embers
                 }
 
                 // Check if the player is within attack range and activate attack behavior
-                if (attackBehavior.CanAttack() && attackBehavior.IsPlayerInRange())
-                {
-                    attackBehavior.EnemyAttack();
-                }
+            if (attackBehavior.CanAttack() && attackBehavior.IsPlayerInRange() && IsPlayerInSight())
+            {
+                attackBehavior.EnemyAttack();
+                Debug.Log("Attacking");
+            }
             }
         }
     }

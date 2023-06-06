@@ -19,6 +19,7 @@ namespace Embers
 
         public void EnemyPatrol()
         {
+            //Debug.Log(currentState);
             if (currentState == EnemyState.Patrolling && !agent.pathPending && agent.remainingDistance < 0.1f)
             {
                 SetDestinationToNextPatrolPoint();
@@ -47,6 +48,7 @@ namespace Embers
                 // Check if the player is within sight
                 if (IsPlayerInSight())
                 {
+                    Debug.Log("Made it!");
                     currentState = EnemyState.Chasing;
                 }
             }

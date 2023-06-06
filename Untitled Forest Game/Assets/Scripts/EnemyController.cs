@@ -54,12 +54,8 @@ namespace Embers
                     // Handle idle behavior
                     break;
             }
+            Debug.Log(currentState);
 
-            // Check if the player is within attack range and activate attack behavior
-            if (this.attackBehavior.CanAttack() && this.attackBehavior.IsPlayerInRange() && IsPlayerInSight())
-            {
-                this.attackBehavior.EnemyAttack();
-            }
         }
 
         public bool IsPlayerInSight()
@@ -76,8 +72,12 @@ namespace Embers
                 {
                     // Cast a ray towards the player to check for any obstructions
                     RaycastHit hit;
+                    Debug.Log(transform.position);
+
+
                     if (Physics.Raycast(transform.position, directionToPlayer, out hit, detectionRange, playerLayer))
                     {
+                        Debug.Log("Hit!");
                         if (hit.collider.CompareTag("Player"))
                         {
                             // Player is within line of sight

@@ -7,11 +7,11 @@ public class LocationTracker : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject fireplace;
 
-    Vector3 GetPlayerPos() {
+    public Vector3 GetPlayerPos() {
         return player.transform.position;
     }
 
-    Vector3 GetFireplacePos() {
+    public Vector3 GetFireplacePos() {
         return fireplace.transform.position;
     }
 }

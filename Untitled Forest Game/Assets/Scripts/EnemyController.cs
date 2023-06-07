@@ -1,4 +1,13 @@
 using UnityEngine;
+using UnityEngine.AI;
+
+/*
+To-do:
+(Fixed?) Enemy doesn't switch to chase speed in chase mode.
+(Fixed?  Need reference to flame health.) Enemy doesn't avoid flame radius.
+(Needs reference to player health.  Put this in player controller.) Enemy doesn't do damage.
+The patrol points need to be placed around the spawners.
+*/
 
 namespace Embers
 {
@@ -16,7 +25,17 @@ namespace Embers
         }
         public EnemyState currentState;
 
-        // Sight detection
+        public NavMeshAgent agent;
+
+        // Flame detection
+        public float distanceToFlame;
+        public bool patrolLock = false;
+        [SerializeField] public float patrolLockDuration = 3f;
+        public float patrolLockCurrent = 0f;
+        public Transform flameTransform;
+        public float flameRadius;
+
+        // Player detection
         [SerializeField] public float detectionRange = 10f;
         [SerializeField] public float fieldOfViewAngle = 60f;
         public Transform playerTransform;
@@ -25,20 +44,32 @@ namespace Embers
         private void Start()
         {
             // Get references to the PatrolBehavior, ChaseBehavior, and AttackBehavior components
-            this.patrolBehavior = GetComponent<PatrolBehavior>();
-            this.chaseBehavior = GetComponent<ChaseBehavior>();
-            this.attackBehavior = GetComponent<AttackBehavior>();
+            patrolBehavior = GetComponent<PatrolBehavior>();
+            chaseBehavior = GetComponent<ChaseBehavior>();
+            attackBehavior = GetComponent<AttackBehavior>();
 
-            // Find the player reference
-            this.playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+            agent = GetComponent<NavMeshAgent>();
+
+            // Find the player and flame references
+            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+            //flameRadius = GameObject.FindGameObjectWithTag("Flame").currentCapacity / 2f; (Implement)
 
             // Activate the patrol behavior by default
-            this.currentState = EnemyState.Patrolling;
+            currentState = EnemyState.Patrolling;
         }
 
         private void Update()
         {
-            switch (this.currentState)
+            // If enemy is close to flame, it is locked into patrol behavior
+            //flameRadius = GameObject.FindGameObjectWithTag("Flame").currentCapacity / 2f; (Implement)
+            //distanceToFlame = Vector3.Distance(transform.position, flameTransform.position);  (Implement)
+            //if (distanceToFlame <= flameRadius)   (Implement)
+            //{ (Implement)
+                //patrolLock = true;    (Implement)
+                //currentState = EnemyState.Patrolling; (Implement)
+            //} (Implement)
+
+            switch (currentState)
             {
                 case EnemyState.Patrolling:
                     // Handle patrolling behavior
@@ -47,13 +78,16 @@ namespace Embers
 
                 case EnemyState.Chasing:
                     // Handle chasing behavior
-                    this.chaseBehavior.EnemyChase();
+                    chaseBehavior.EnemyChase();
                     break;
 
                 case EnemyState.Idle:
                     // Handle idle behavior
                     break;
             }
+
+            // Possibly unnecessary
+            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
             // Attack when enemy is chasing and player is in range
             if (currentState == EnemyState.Chasing && attackBehavior.CanAttack() && attackBehavior.IsPlayerInRange())

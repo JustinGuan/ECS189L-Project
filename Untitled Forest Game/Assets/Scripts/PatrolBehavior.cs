@@ -8,12 +8,11 @@ namespace Embers
         [SerializeField] private Transform[] patrolPoints;
         private int currentPatrolIndex = 0;
         [SerializeField] private float patrolSpeed = 2f;
-        private NavMeshAgent agent;
 
 
         private void Start()
         {
-            agent = GetComponent<NavMeshAgent>();
+            //agent = GetComponent<NavMeshAgent>();
             SetDestinationToNextPatrolPoint();
         }
 
@@ -23,11 +22,24 @@ namespace Embers
             {
                 SetDestinationToNextPatrolPoint();
             }
+
+            if (patrolLock)
+            {
+                if (patrolLockCurrent >= patrolLockDuration)
+                {
+                    patrolLock = false;
+                    patrolLockCurrent = 0f;
+                }
+                else
+                {
+                    patrolLockCurrent += Time.deltaTime;
+                }
+            }
         }
 
         private void SetDestinationToNextPatrolPoint()
         {
-            if (this.patrolPoints.Length == 0)
+            if (patrolPoints.Length == 0)
             {
                 Debug.LogWarning("No patrol points assigned to the PatrolBehavior!");
                 return;
@@ -41,7 +53,7 @@ namespace Embers
 
         private void OnTriggerStay(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player") && !patrolLock)
             {
                 // Player entered the trigger collider
                 // Check if the player is within sight

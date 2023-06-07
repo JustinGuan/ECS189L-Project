@@ -18,14 +18,14 @@ namespace Embers
         public bool IsPlayerInRange()
         {
             // Check if the player is within attack range
-            float distanceToPlayer = Vector3.Distance(this.transform.position, this.playerTransform.position);
+            float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
             return distanceToPlayer <= attackRange;
         }
 
         public void EnemyAttack()
         {
             // Apply damage to the player or trigger any desired attack behavior
-            // ...
+            //playerHealth -= attackDamage; (Implement)
 
             // Set attack on cooldown
             canAttack = false;

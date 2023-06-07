@@ -40,7 +40,7 @@ namespace Embers
             agent.speed = patrolSpeed;
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
             if (other.CompareTag("Player"))
             {
@@ -48,8 +48,8 @@ namespace Embers
                 // Check if the player is within sight
                 if (IsPlayerInSight())
                 {
-                    Debug.Log("Made it!");
                     currentState = EnemyState.Chasing;
+                    agent.destination = playerTransform.position;
                 }
             }
         }

@@ -22,7 +22,8 @@ namespace Embers
             if (currentState == EnemyState.Chasing)
             {
                 agent.destination = playerTransform.position;
-                
+                Debug.Log("In EnemyChase");
+
                 if (IsPlayerInSight())
                 {
                     timeSincePlayerOutOfSight = 0f;
@@ -30,8 +31,6 @@ namespace Embers
                 else
                 {
                     timeSincePlayerOutOfSight += Time.deltaTime;
-                    Debug.Log(timeSincePlayerOutOfSight);
-
                     // Check if the player has been out of sight for the specified duration
                     if (timeSincePlayerOutOfSight >= outOfSightDuration)
                     {
@@ -44,7 +43,6 @@ namespace Embers
             if (attackBehavior.CanAttack() && attackBehavior.IsPlayerInRange() && IsPlayerInSight())
             {
                 attackBehavior.EnemyAttack();
-                Debug.Log("Attacking");
             }
             }
         }

@@ -43,19 +43,19 @@ namespace Embers
                 case EnemyState.Patrolling:
                     // Handle patrolling behavior
                     patrolBehavior.EnemyPatrol();
+                    //Debug.Log("Patrolling");
                     break;
 
                 case EnemyState.Chasing:
                     // Handle chasing behavior
                     this.chaseBehavior.EnemyChase();
+                    Debug.Log("Chasing");
                     break;
 
                 case EnemyState.Idle:
                     // Handle idle behavior
                     break;
             }
-            Debug.Log(currentState);
-
         }
 
         public bool IsPlayerInSight()
@@ -66,18 +66,16 @@ namespace Embers
             {
                 // Calculate direction to the player
                 Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
-
+                Debug.Log(Vector3.Angle(transform.forward, directionToPlayer));
                 // Check if the player is within the field of view angle
                 if (Vector3.Angle(transform.forward, directionToPlayer) <= fieldOfViewAngle / 2f)
                 {
                     // Cast a ray towards the player to check for any obstructions
                     RaycastHit hit;
-                    Debug.Log(transform.position);
-
 
                     if (Physics.Raycast(transform.position, directionToPlayer, out hit, detectionRange, playerLayer))
                     {
-                        Debug.Log("Hit!");
+                        Debug.Log("hit");
                         if (hit.collider.CompareTag("Player"))
                         {
                             // Player is within line of sight

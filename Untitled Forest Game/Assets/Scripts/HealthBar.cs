@@ -10,6 +10,7 @@ public class HealthBar : MonoBehaviour
     public Image healthBar;
     float health = 100.0f;
     float maxHealth = 100.0f;
+    float lerpSpeed;
 
     // Start is called before the first frame update
     private void Start()
@@ -22,7 +23,9 @@ public class HealthBar : MonoBehaviour
     {
         healthText.text = "Health: " + health + "%";
         HealthBarFiller();
-        
+        lerpSpeed = 5.0f * Time.deltaTime;
+
+        // Testing.
         if(Input.GetButtonDown("Jump"))
         {
             Damage(20.0f);
@@ -40,7 +43,7 @@ public class HealthBar : MonoBehaviour
 
     void HealthBarFiller()
     {
-        healthBar.fillAmount = health/maxHealth;
+        healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, health / maxHealth, lerpSpeed);
     }
 
     public void Damage(float damageAmount)

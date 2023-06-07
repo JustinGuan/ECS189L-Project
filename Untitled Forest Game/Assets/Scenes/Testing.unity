@@ -1305,6 +1305,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2815564574034972766, guid: 2f8e8a7116c57084da8dac7a79458c0e, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3063702646916090214, guid: 2f8e8a7116c57084da8dac7a79458c0e, type: 3}
       propertyPath: attackBehavior
       value: 

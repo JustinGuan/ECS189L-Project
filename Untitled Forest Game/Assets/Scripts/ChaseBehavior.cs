@@ -22,7 +22,6 @@ namespace Embers
             if (currentState == EnemyState.Chasing)
             {
                 agent.destination = playerTransform.position;
-                Debug.Log("In EnemyChase");
 
                 if (IsPlayerInSight())
                 {
@@ -38,12 +37,6 @@ namespace Embers
                         currentState = EnemyState.Patrolling;
                     }
                 }
-
-                // Check if the player is within attack range and activate attack behavior
-            if (attackBehavior.CanAttack() && attackBehavior.IsPlayerInRange() && IsPlayerInSight())
-            {
-                attackBehavior.EnemyAttack();
-            }
             }
         }
     }

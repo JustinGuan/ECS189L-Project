@@ -25,7 +25,7 @@ namespace Embers
         public void EnemyAttack()
         {
             // Apply damage to the player or trigger any desired attack behavior
-            //playerHealth -= attackDamage; (Implement)
+            //UpdatePlayerHealth(-attackDamage); (Implement)
 
             // Set attack on cooldown
             canAttack = false;

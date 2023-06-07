@@ -1321,6 +1321,10 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1848797271}
+    - target: {fileID: 3063702646916090214, guid: 2f8e8a7116c57084da8dac7a79458c0e, type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 257
+      objectReference: {fileID: 0}
     - target: {fileID: 3795559361302821857, guid: 2f8e8a7116c57084da8dac7a79458c0e, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -1341,6 +1345,10 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1848797271}
+    - target: {fileID: 3980444849480359608, guid: 2f8e8a7116c57084da8dac7a79458c0e, type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 257
+      objectReference: {fileID: 0}
     - target: {fileID: 5252504497001278813, guid: 2f8e8a7116c57084da8dac7a79458c0e, type: 3}
       propertyPath: chaseBehavior
       value: 
@@ -1353,6 +1361,10 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1848797271}
+    - target: {fileID: 5252504497001278813, guid: 2f8e8a7116c57084da8dac7a79458c0e, type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 257
+      objectReference: {fileID: 0}
     - target: {fileID: 5252504497001278813, guid: 2f8e8a7116c57084da8dac7a79458c0e, type: 3}
       propertyPath: patrolPoints.Array.data[0]
       value: 

@@ -4,8 +4,8 @@ using UnityEngine.AI;
 /*
 To-do:
 (Fixed?) Enemy doesn't switch to chase speed in chase mode.
-(Fixed?  Need reference to flame health.) Enemy doesn't avoid flame radius.
-(Needs reference to player health.  Put this in player controller.) Enemy doesn't do damage.
+(Fixed?  (Need reference to flame health.) Enemy doesn't avoid flame radius.
+(Fixed?) (Needs reference to player health.  Put this in player controller.) Enemy doesn't do damage.  (Create setter function.)
 The patrol points need to be placed around the spawners.
 */
 

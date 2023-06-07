@@ -25,6 +25,7 @@ namespace Embers
         }
         public EnemyState currentState;
 
+        [SerializeField] public float enemyHealth = 100;
         public NavMeshAgent agent;
 
         // Flame detection
@@ -123,5 +124,26 @@ namespace Embers
 
             return false;
         }
+
+        public void DamageEnemy(int damageAmount)
+        {
+            enemyHealth -= damageAmount;
+            if (enemyHealth <= 0)
+            {
+                // Call a method to handle enemy death or despawning
+                Die();
+            }
+        }
+
+        public void Die()
+        {
+            // Perform any necessary cleanup or death-related logic
+            // For example, we might play an animation, trigger particle effects, or update the game state
+
+            // Destroy the enemy object
+            Destroy(gameObject);
+        }
+
+
     }
 }

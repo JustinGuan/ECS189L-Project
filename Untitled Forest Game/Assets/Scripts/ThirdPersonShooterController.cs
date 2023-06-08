@@ -12,16 +12,14 @@ public class ThirdPersonShooterController : MonoBehaviour
     [SerializeField] private Transform debugTransform;
     [SerializeField] private Transform pfFireProjectile;
     [SerializeField] private Transform spawnFireProjectile;
+    [SerializeField] private KeyCode fireKeyboard = KeyCode.Mouse1;
 
 
-    private ThirdPersonController thirdPersonController;
-    private StarterAssetsInputs starterAssetsInputs;
 
     // Start is called before the first frame update
     private void Awake()
     {
-        thirdPersonController = GetComponent<ThirdPersonController>();
-        starterAssetsInputs = GetComponent<StarterAssetsInputs>();
+  
     }
 
     // Update is called once per frame
@@ -37,11 +35,11 @@ public class ThirdPersonShooterController : MonoBehaviour
             mouseWorldPosition = raycastHit.point;
         }
 
-        if (starterAssetsInputs.fire)
+        if (Input.GetKeyDown(fireKeyboard))
         {
+            // Instantiate the projectile prefab at the desired position and rotation
             Vector3 aimDirection = (mouseWorldPosition - spawnFireProjectile.position).normalized;
             Instantiate(pfFireProjectile, spawnFireProjectile.position, Quaternion.LookRotation(aimDirection, Vector3.up));
-            starterAssetsInputs.fire = false;   
         }
     }
 }

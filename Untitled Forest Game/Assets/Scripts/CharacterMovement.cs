@@ -14,9 +14,10 @@ namespace Embers
 		[SerializeField] private KeyCode sprintJoystick = KeyCode.JoystickButton2;
 		[SerializeField] private KeyCode sprintKeyboard = KeyCode.LeftShift;
 		[SerializeField] private KeyCode jumpKeyboard = KeyCode.Space;
+        
 
 
-		private float turnSpeedMultiplier;
+        private float turnSpeedMultiplier;
 		private float speed = 0f;
 		private float direction = 0f;
 		private bool isSprinting = false;
@@ -32,7 +33,8 @@ namespace Embers
 		// Use this for initialization
 		void Start()
 		{
-			anim = GetComponent<Animator>();
+            Cursor.lockState = CursorLockMode.Locked;
+            anim = GetComponent<Animator>();
 			mainCamera = Camera.main;
 			rb = GetComponent<Rigidbody>();
 		}

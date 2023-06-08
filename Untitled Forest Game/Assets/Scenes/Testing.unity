@@ -702,16 +702,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875848017}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63084af4f15e0f04194cb42628451d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSmoothTime: 0
-  gravityStrength: 0
-  jumpStrength: 0
-  walkSpeed: 0
-  runSpeed: 0
+  moveSmoothTime: 0.64
+  gravityStrength: 0.93
+  jumpStrength: 1.01
+  walkSpeed: 9.59
+  runSpeed: 17.8
 --- !u!143 &875848021
 CharacterController:
   m_ObjectHideFlags: 0

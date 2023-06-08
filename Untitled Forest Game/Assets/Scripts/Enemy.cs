@@ -2,34 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Embers
+public class Enemy : MonoBehaviour
 {
-    public class Enemy : MonoBehaviour
+    [SerializeField] private float maxHealth = 100.0f;
+    [SerializeField] private float damage = 5.0f;
+    [SerializeField] private float maxDistance = 40.0f;
+    // Scales this depending on the distance b/w player and fireplace.
+    private float hpScaling;
+    private float dmgScaling;
+    private LocationTracker locTracker;
+    private GameObject goParent;
+
+    void Awake()
     {
-        public int maxHealth = 100;
-        int currentHealth;
+        locTracker = GameObject.Find("GameArea").GetComponent<LocationTracker>();
+        goParent = this.transform.parent.gameObject;
+    }
 
-        void Start () 
+    // Update is called once per frame
+    void Update()
+    {
+        // Use the two coordinates to determine whether or not to despawn the enemy.
+        float dist = Vector3.Distance(locTracker.GetPlayerPos(), this.transform.position);
+        // If the player runs too far from the enemy, we despawn the enemy.
+        if(dist >= maxDistance)
         {
-            currentHealth = maxHealth;
-        }
-
-        public void TakeDamage(int damage)
-        {
-            //Take damage animation
-            currentHealth -= damage;
-
-            if(currentHealth < 0) 
-            {
-                Die();
-            }
-        }
-
-        void Die() 
-        {
-            Debug.Log("Enemy died!");
-            //Die animation
-            //Remove enemy
+            goParent.GetComponent<SpawnEnemy>().Despawn(this.gameObject);
         }
     }
 }

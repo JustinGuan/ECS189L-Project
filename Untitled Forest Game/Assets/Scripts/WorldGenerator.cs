@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WorldGenerator : MonoBehaviour
 {
-    public int worldSize = 100;
+    [SerializeField] int worldSize = 100;
     public float scale = 0.1f;
     public float heightMultiplier = 10f;
     public int octaves = 4;
@@ -11,11 +11,13 @@ public class WorldGenerator : MonoBehaviour
 
     public GameObject[] objectPrefabs;
     public int maxObjects = 1000;
+    private int mapEdge;
 
     private void Start()
     {
         GenerateTerrain();
         GenerateObjects();
+        mapEdge = (int)(worldSize / 2f);
     }
 
     private void GenerateTerrain()
@@ -29,16 +31,16 @@ public class WorldGenerator : MonoBehaviour
 
         float[,] heightmap = new float[worldSize, worldSize];
 
-        for (int x = 0; x < worldSize; x++)
+        for (int x = -mapEdge; x < mapEdge; x++)
         {
-            for (int z = 0; z < worldSize; z++)
+            for (int z = -mapEdge; z < mapEdge; z++)
             {
                 float height = CalculateHeight(x, z);
                 heightmap[x, z] = height;
             }
         }
 
-        terrainData.SetHeights(0, 0, heightmap);
+        terrainData.SetHeights(-mapEdge, -mapEdge, heightmap);
     }
 
     private float CalculateHeight(int x, int z)
@@ -76,8 +78,8 @@ public class WorldGenerator : MonoBehaviour
 
     private Vector3 GetRandomPosition()
     {
-        float x = Random.Range(0f, worldSize);
-        float z = Random.Range(0f, worldSize);
+        float x = Random.Range(-mapEdge, mapEdge);
+        float z = Random.Range(-mapEdge, mapEdge);
         float y = Terrain.activeTerrain.SampleHeight(new Vector3(x, 0f, z));
 
         return new Vector3(x, y, z);

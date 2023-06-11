@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2305,6 +2305,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 694876276463688976, guid: 2f8e8a7116c57084da8dac7a79458c0e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 694876276463688976, guid: 2f8e8a7116c57084da8dac7a79458c0e, type: 3}
+      propertyPath: m_CullingType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 694876276463688976, guid: 2f8e8a7116c57084da8dac7a79458c0e, type: 3}
+      propertyPath: m_AnimatePhysics
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2815564574034972766, guid: 2f8e8a7116c57084da8dac7a79458c0e, type: 3}
       propertyPath: m_IsKinematic
       value: 1
@@ -2436,8 +2448,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3795559361302821857, guid: 2f8e8a7116c57084da8dac7a79458c0e, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 5332625604181148432}
   m_SourcePrefab: {fileID: 100100000, guid: 2f8e8a7116c57084da8dac7a79458c0e, type: 3}
+--- !u!1 &5332625604181148431 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3795559361302821857, guid: 2f8e8a7116c57084da8dac7a79458c0e, type: 3}
+  m_PrefabInstance: {fileID: 5332625604181148430}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5332625604181148432
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5332625604181148431}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 1
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &6503811062382732100
 PrefabInstance:
   m_ObjectHideFlags: 0

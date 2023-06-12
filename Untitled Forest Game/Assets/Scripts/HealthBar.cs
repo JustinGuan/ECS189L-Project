@@ -21,6 +21,11 @@ public class HealthBar : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (health <= 0)
+        {
+            health = 0;
+            // healthText.text = health + "/100";
+        }
         healthText.text = health + "/100";
         HealthBarFiller();
         lerpSpeed = 5.0f * Time.deltaTime;

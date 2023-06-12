@@ -42,7 +42,7 @@ public class Float : MonoBehaviour
             helper += Time.deltaTime;
             transform.position = Vector3.Lerp(transform.position, pivot.transform.position, 0.1f);
             transform.rotation = Quaternion.Slerp(original_rot.rotation, new_rot.rotation, 0.1f);
-            transform.position = pivot.transform.position + new Vector3(0.0f, 0.0f, Mathf.Sin(Time.time));
+            transform.position = pivot.transform.position + new Vector3(0.0f, Mathf.Sin(Time.time), 0.0f);
         }
 
         if (shooting == true)

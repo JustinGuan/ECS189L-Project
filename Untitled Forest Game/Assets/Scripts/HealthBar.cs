@@ -24,7 +24,6 @@ public class HealthBar : MonoBehaviour
         if (health <= 0)
         {
             health = 0;
-            // healthText.text = health + "/100";
         }
         healthText.text = health + "/100";
         HealthBarFiller();

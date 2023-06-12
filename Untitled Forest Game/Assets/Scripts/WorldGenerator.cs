@@ -9,13 +9,28 @@ public class WorldGenerator : MonoBehaviour
     public float persistence = 0.5f;
     public float lacunarity = 2f;
 
-    public GameObject[] objectPrefabs;
-    public int maxObjects = 1000;
+    
+    public GameObject[] treePrefabs;
+    public GameObject[] rockPrefabs;
+    public GameObject[] mushroomPrefabs;
+    public GameObject[] grassPrefab;
+    public GameObject flamePrefab;
+    public int maxTrees = 100;
+    public int maxRocks = 100;
+    public int maxMushrooms = 100;
+    public int maxGrass = 100;
+    private int mapEdge;
 
     private void Start()
     {
+        mapEdge = (int)(worldSize / 2f);
         GenerateTerrain();
-        GenerateObjects();
+
+        GenerateObjects(treePrefabs, maxTrees);
+        GenerateObjects(rockPrefabs, maxRocks);
+        GenerateObjects(mushroomPrefabs, maxMushrooms);
+        GenerateObjects(grassPrefab, maxGrass);
+        GenerateFlame();
     }
 
     private void GenerateTerrain()
@@ -29,14 +44,12 @@ public class WorldGenerator : MonoBehaviour
 
         float[,] heightmap = new float[worldSize, worldSize];
 
-        int leftEdge = (int)(-worldSize / 2f);
-        int rightEdge = (int)(-worldSize / 2f);
-        for (int x = leftEdge; x < rightEdge; x++)
+        for (int x = -mapEdge; x < mapEdge; x++)
         {
-            for (int z = leftEdge; z < rightEdge; z++)
+            for (int z = -mapEdge; z < mapEdge; z++)
             {
                 float height = CalculateHeight(x, z);
-                heightmap[x, z] = height;
+                heightmap[x + mapEdge, z + mapEdge] = height; // Offset by mapEdge to make starting index 0 instead of -500
             }
         }
 
@@ -64,24 +77,34 @@ public class WorldGenerator : MonoBehaviour
         return height * heightMultiplier;
     }
 
-    private void GenerateObjects()
+    // Can avoid overlaps if you keep an array of all the positions.
+    // If the random position chosen is to close to one that has already been used, choose a new one.
+    private void GenerateObjects(GameObject[] objectArray, int maxObjects)
     {
         for (int i = 0; i < maxObjects; i++)
         {
             Vector3 randomPosition = GetRandomPosition();
-            int randomIndex = Random.Range(0, objectPrefabs.Length);
-            GameObject prefab = objectPrefabs[randomIndex];
+            int randomIndex = Random.Range(0, objectArray.Length);
+            GameObject prefab = objectArray[randomIndex];
 
             Instantiate(prefab, randomPosition, Quaternion.identity);
-        }
+        }        
     }
 
     private Vector3 GetRandomPosition()
     {
-        float x = Random.Range(-worldSize / 2f, worldSize / 2f);
-        float z = Random.Range(-worldSize / 2f, worldSize / 2f);
+        float x = Random.Range(-mapEdge, mapEdge);
+        float z = Random.Range(-mapEdge, mapEdge);
         float y = Terrain.activeTerrain.SampleHeight(new Vector3(x, 0f, z));
 
         return new Vector3(x, y, z);
+    }
+
+    private void GenerateFlame()
+    {
+        float flameHeight = Terrain.activeTerrain.SampleHeight(new Vector3(0f, 0f, 0f));
+        Debug.Log(flameHeight);
+        Vector3 flamePosition = new Vector3(0f, flameHeight, 0f);
+        Instantiate(flamePrefab, flamePosition, Quaternion.identity);
     }
 }

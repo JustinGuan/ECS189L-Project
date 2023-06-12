@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Embers;
 
 public class Enemy : MonoBehaviour
 {
@@ -25,9 +26,11 @@ public class Enemy : MonoBehaviour
         // Use the two coordinates to determine whether or not to despawn the enemy.
         float dist = Vector3.Distance(locTracker.GetPlayerPos(), this.transform.position);
         // If the player runs too far from the enemy, we despawn the enemy.
+        /*
         if(dist >= maxDistance)
         {
             goParent.GetComponent<SpawnEnemy>().Despawn(this.gameObject);
         }
+        */
     }
 }

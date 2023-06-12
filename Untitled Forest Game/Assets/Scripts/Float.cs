@@ -19,14 +19,17 @@ public class Float : MonoBehaviour
     public Transform original_rot;
     public Transform new_rot;
     public GameObject pivot;
+    public Transform pivot2;
     public Vector3 targetAngle = new Vector3(0f, 0f, 5.121f);
     private Vector3 currentAngle;
+    private Vector3 startpos;
 
     // Start is called before the first frame update
     void Start()
     {
         shooting = false;
         currentAngle = transform.eulerAngles;
+        Vector3 startpos = pivot2.transform.position;
     }
 
     // Update is called once per frame
@@ -39,11 +42,22 @@ public class Float : MonoBehaviour
             helper += Time.deltaTime;
             transform.position = Vector3.Lerp(transform.position, pivot.transform.position, 0.1f);
             transform.rotation = Quaternion.Slerp(original_rot.rotation, new_rot.rotation, 0.1f);
+            transform.position = pivot.transform.position + new Vector3(0.0f, Mathf.Sin(Time.time), 0.0f);
         }
 
         if (shooting == true)
         {
-            //insert any action that is performed while shooting
+            transform.RotateAround(pivot2.transform.position, Vector3.up, 700 * Time.deltaTime);
+            transform.Rotate(0f, -1f, 1f, Space.Self);
+        }
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Shoot();
+        }
+        if (Input.GetButtonUp("Fire1"))
+        {
+            StopShoot();
         }
     }
 

@@ -29,9 +29,11 @@ public class WorldGenerator : MonoBehaviour
 
         float[,] heightmap = new float[worldSize, worldSize];
 
-        for (int x = 0; x < worldSize; x++)
+        int leftEdge = (int)(-worldSize / 2f);
+        int rightEdge = (int)(-worldSize / 2f);
+        for (int x = leftEdge; x < rightEdge; x++)
         {
-            for (int z = 0; z < worldSize; z++)
+            for (int z = leftEdge; z < rightEdge; z++)
             {
                 float height = CalculateHeight(x, z);
                 heightmap[x, z] = height;
@@ -76,8 +78,8 @@ public class WorldGenerator : MonoBehaviour
 
     private Vector3 GetRandomPosition()
     {
-        float x = Random.Range(0f, worldSize);
-        float z = Random.Range(0f, worldSize);
+        float x = Random.Range(-worldSize / 2f, worldSize / 2f);
+        float z = Random.Range(-worldSize / 2f, worldSize / 2f);
         float y = Terrain.activeTerrain.SampleHeight(new Vector3(x, 0f, z));
 
         return new Vector3(x, y, z);

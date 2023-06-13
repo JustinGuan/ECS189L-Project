@@ -194,7 +194,7 @@ MonoBehaviour:
   chaseBehavior: {fileID: 0}
   attackBehavior: {fileID: 0}
   currentState: 0
-  agent: {fileID: 0}
+  enemyType: 0
   flameHeath: 0
   distanceToFlame: 0
   patrolLock: 0
@@ -208,7 +208,9 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
+  agent: {fileID: 0}
   patrolPoints:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -229,7 +231,7 @@ MonoBehaviour:
   chaseBehavior: {fileID: -2484955325535349143}
   attackBehavior: {fileID: 0}
   currentState: 0
-  agent: {fileID: 0}
+  enemyType: 0
   flameHeath: 0
   distanceToFlame: 0
   patrolLock: 0
@@ -243,6 +245,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
+  agent: {fileID: 0}
   chaseSpeed: 8.4
   outOfSightDuration: 3
 --- !u!114 &3838817585917314936
@@ -261,7 +264,7 @@ MonoBehaviour:
   chaseBehavior: {fileID: 0}
   attackBehavior: {fileID: 3838817585917314936}
   currentState: 0
-  agent: {fileID: 0}
+  enemyType: 0
   flameHeath: 0
   distanceToFlame: 0
   patrolLock: 0
@@ -275,6 +278,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
+  agent: {fileID: 0}
   attackDamage: 10
   attackCooldown: 2
   attackRange: 2
@@ -294,7 +298,7 @@ MonoBehaviour:
   chaseBehavior: {fileID: 0}
   attackBehavior: {fileID: 0}
   currentState: 0
-  agent: {fileID: 0}
+  enemyType: 0
   flameHeath: 0
   distanceToFlame: 0
   patrolLock: 0
@@ -308,6 +312,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
+  agent: {fileID: 0}
 --- !u!114 &315971233489776985
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -751,7 +751,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346906853}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0689064, y: 3.1589615, z: -2.9293766}
+  m_LocalPosition: {x: 0.8623235, y: 3.1589615, z: -2.9293766}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1116,7 +1116,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495446634}
   m_LocalRotation: {x: 0.32326594, y: 0, z: 0, w: 0.94630814}
-  m_LocalPosition: {x: 1.0689064, y: 3.1589615, z: -2.9293766}
+  m_LocalPosition: {x: 0.8623235, y: 3.1589615, z: -2.9293766}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1622,7 +1622,7 @@ GameObject:
   - component: {fileID: 996485159}
   m_Layer: 5
   m_Name: FlameUI
-  m_TagString: Untagged
+  m_TagString: FlameUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1726,6 +1726,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1ce60e7b3934868901e0abc4e72f0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthText: {fileID: 0}
+  healthBar: {fileID: 0}
+  health: 0
+  maxHealth: 200
 --- !u!1 &1106911811
 GameObject:
   m_ObjectHideFlags: 0
@@ -2130,6 +2134,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7578612851689078403, guid: ee97d85537bc72b4b8160ef9b2d878eb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1461226019}
+    - targetCorrespondingSourceObject: {fileID: 7578612851689078403, guid: ee97d85537bc72b4b8160ef9b2d878eb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1461226021}
   m_SourcePrefab: {fileID: 100100000, guid: ee97d85537bc72b4b8160ef9b2d878eb, type: 3}
 --- !u!4 &1406653549 stripped
 Transform:
@@ -2480,6 +2487,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   woodText: {fileID: 1925657650}
+--- !u!114 &1461226021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461226009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4683138d9a5aa2c48b72bb2687d0e0fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currHealth: 100
 --- !u!1 &1540153367
 GameObject:
   m_ObjectHideFlags: 0
@@ -2721,7 +2742,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708142892}
   m_LocalRotation: {x: 0.122611515, y: -0.55352056, z: 0.08280736, w: 0.819588}
-  m_LocalPosition: {x: 0.34384355, y: 3.2865138, z: -1.8474641}
+  m_LocalPosition: {x: 0.2773904, y: 3.2865138, z: -1.8474641}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3455,6 +3476,7 @@ GameObject:
   - component: {fileID: 1996729594}
   - component: {fileID: 1996729596}
   - component: {fileID: 1996729597}
+  - component: {fileID: 1996729598}
   m_Layer: 0
   m_Name: World Generator
   m_TagString: Untagged
@@ -3509,12 +3531,17 @@ MonoBehaviour:
   - {fileID: 3225090813816685675, guid: bebf0578287738943978c1d1d59e9d12, type: 3}
   grassPrefab:
   - {fileID: 5863130029983618753, guid: 59cd35a0b4eb9174aa11b2010824ac17, type: 3}
+  passivePrefab:
+  - {fileID: 2936771607706991130, guid: 493adc9735795b1418c3000230eb12c3, type: 3}
+  - {fileID: 427965700714601196, guid: 052c4a00897c8d243963c059408df1ad, type: 3}
+  - {fileID: 8644318972552099178, guid: 2727f93be03505c4dbd2ea705c289d99, type: 3}
   flamePrefab: {fileID: 6552518781143865606, guid: bc5937d7b1224914aa3572e9fce3297f, type: 3}
   spawnerDistance: 100
   maxTrees: 200
   maxRocks: 200
   maxMushrooms: 200
   maxGrass: 200
+  maxPassives: 100
 --- !u!4 &1996729593
 Transform:
   m_ObjectHideFlags: 0
@@ -3617,6 +3644,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1461226009}
   fireplace: {fileID: 0}
+--- !u!114 &1996729598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996729591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 8a1e33623b0001a4993cf706dc7b2890, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &2020730191
 GameObject:
   m_ObjectHideFlags: 0

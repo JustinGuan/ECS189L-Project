@@ -40,7 +40,6 @@ public class FlameHealth : MonoBehaviour
             currentTime = 0;
             health = 0;
         }
-        Debug.Log(currentTime);
         healthText.text = (health / maxHealth) * 100 + "%";
         HealthBarFiller();
     }

@@ -133,7 +133,8 @@ public class WorldGenerator : MonoBehaviour
         // Generate enemy spawners
         for (int n = 0; n < enemySpawners.Length; n++)
         {
-            float angle = (float)(n * 72 * Mathf.PI / 180); // 72 degree rotations. A pentagon.
+            float angle = (float)(n * Mathf.PI / 180 * 72); // 72 degree rotations. A pentagon of spawners
+            
             float x = -spawnerDistance * Mathf.Sin(angle);
             float z = spawnerDistance * Mathf.Cos(angle);
             float y = Terrain.activeTerrain.SampleHeight(new Vector3(x, 0f, z));

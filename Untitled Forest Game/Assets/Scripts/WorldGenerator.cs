@@ -1,30 +1,31 @@
 using UnityEngine;
 
-
-// Make ground texture repeat like tiles
 public class WorldGenerator : MonoBehaviour
 {
-    [SerializeField] Transform worldTransform;
+    public Transform worldTransform;
+    // World generation parameters
     public int worldSize = 100;
     public float scale = 0.1f;
     public float heightMultiplier = 10f;
     public int octaves = 4;
     public float persistence = 0.5f;
     public float lacunarity = 2f;
+    // Useful for calculations
+    private int mapEdge;
 
-    
+    // Prefabs to spawn in
     public GameObject[] enemySpawners;
     public GameObject[] treePrefabs;
     public GameObject[] rockPrefabs;
     public GameObject[] mushroomPrefabs;
     public GameObject[] grassPrefab;
+    public GameObject[] passivePrefab;
     public GameObject flamePrefab;
     public int spawnerDistance = 100;
     public int maxTrees = 100;
     public int maxRocks = 100;
     public int maxMushrooms = 100;
     public int maxGrass = 100;
-    private int mapEdge;
 
     private void Start()
     {
@@ -45,6 +46,7 @@ public class WorldGenerator : MonoBehaviour
         Terrain terrain = GetComponent<Terrain>();
         TerrainData terrainData = new TerrainData();
 
+        // Set heightmap resolution and size
         terrainData.heightmapResolution = worldSize + 1;
         terrainData.size = new Vector3(worldSize, 100, worldSize);
         terrain.terrainData = terrainData;
@@ -55,20 +57,24 @@ public class WorldGenerator : MonoBehaviour
         {
             for (int z = -mapEdge; z < mapEdge; z++)
             {
+                // Calculate height using Perlin noise
                 float height = CalculateHeight(x, z);
-                if (x*x < 100 && z*z < 100)
-                {
-                    height = 0f;
-                }
-                heightmap[x + mapEdge, z + mapEdge] = height; // Offset by mapEdge to make starting index 0 instead of -500
+                // Index starts at -500.  We offset by mapEdge to make it start at 0
+                heightmap[x + mapEdge, z + mapEdge] = height; 
             }
         }
-
+        
+        // Set heights of the terrain
         terrainData.SetHeights(0, 0, heightmap);
+
+        // Assign TerrainData to TerrainCollider
+        TerrainCollider terrainCollider = GetComponent<TerrainCollider>();
+        terrainCollider.terrainData = terrainData;
     }
 
     private float CalculateHeight(int x, int z)
     {
+        // Calculate height using Perlin noise
         float height = 0f;
         float amplitude = 1f;
         float frequency = 1f;
@@ -88,10 +94,9 @@ public class WorldGenerator : MonoBehaviour
         return height * heightMultiplier;
     }
 
-    // Could avoid overlaps if you keep an array of all the positions.
-    // If the random position chosen is to close to one that has already been used, choose a new one.
     private void GenerateObjects(GameObject[] objectArray, int maxObjects)
     {
+        // Generate objects (trees, rocks, mushrooms, grass, etc.)
         for (int i = 0; i < maxObjects; i++)
         {
             Vector3 randomPosition = GetRandomPosition();
@@ -104,6 +109,7 @@ public class WorldGenerator : MonoBehaviour
 
     public Vector3 GetRandomPosition()
     {
+        // Get a random position on the terrain
         float x = Random.Range(-mapEdge, mapEdge);
         float z = Random.Range(-mapEdge, mapEdge);
         float y = Terrain.activeTerrain.SampleHeight(new Vector3(x, 0f, z));
@@ -113,6 +119,7 @@ public class WorldGenerator : MonoBehaviour
 
     private void GenerateFlame()
     {
+        // Generate flame object
         float flameHeight = Terrain.activeTerrain.SampleHeight(new Vector3(0f, 0f, 0f));
         Vector3 flamePosition = new Vector3(0f, flameHeight, 0f);
         GameObject go = Instantiate(flamePrefab, flamePosition, Quaternion.identity);
@@ -121,9 +128,10 @@ public class WorldGenerator : MonoBehaviour
 
     private void GenerateSpawners()
     {
+        // Generate enemy spawners
         for (int n = 0; n < enemySpawners.Length; n++)
         {
-            float angle = (float)(n * 72 * Mathf.PI / 180); // 72 degree rotations.  A pentagon.
+            float angle = (float)(n * 72 * Mathf.PI / 180); // 72 degree rotations. A pentagon.
             float x = -spawnerDistance * Mathf.Sin(angle);
             float z = spawnerDistance * Mathf.Cos(angle);
             float y = Terrain.activeTerrain.SampleHeight(new Vector3(x, 0f, z));

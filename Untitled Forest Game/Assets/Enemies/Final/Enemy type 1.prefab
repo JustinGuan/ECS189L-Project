@@ -96,6 +96,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3789586283822372580, guid: da059820cf295ac4a9ca60791e4d9bfa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 45871870954517539}
+    - targetCorrespondingSourceObject: {fileID: 3789586283822372580, guid: da059820cf295ac4a9ca60791e4d9bfa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 315971233489776985}
   m_SourcePrefab: {fileID: 100100000, guid: da059820cf295ac4a9ca60791e4d9bfa, type: 3}
 --- !u!1 &6292633590065271000 stripped
 GameObject:
@@ -190,7 +193,6 @@ MonoBehaviour:
   chaseBehavior: {fileID: 0}
   attackBehavior: {fileID: 0}
   currentState: 0
-  enemyHealth: 100
   agent: {fileID: 0}
   distanceToFlame: 0
   patrolLock: 0
@@ -225,7 +227,6 @@ MonoBehaviour:
   chaseBehavior: {fileID: -2484955325535349143}
   attackBehavior: {fileID: 0}
   currentState: 0
-  enemyHealth: 100
   agent: {fileID: 0}
   distanceToFlame: 0
   patrolLock: 0
@@ -257,7 +258,6 @@ MonoBehaviour:
   chaseBehavior: {fileID: 0}
   attackBehavior: {fileID: 3838817585917314936}
   currentState: 0
-  enemyHealth: 100
   agent: {fileID: 0}
   distanceToFlame: 0
   patrolLock: 0
@@ -290,7 +290,6 @@ MonoBehaviour:
   chaseBehavior: {fileID: 0}
   attackBehavior: {fileID: 0}
   currentState: 0
-  enemyHealth: 100
   agent: {fileID: 0}
   distanceToFlame: 0
   patrolLock: 0
@@ -325,3 +324,17 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &315971233489776985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6292633590065271000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4683138d9a5aa2c48b72bb2687d0e0fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currHealth: 100

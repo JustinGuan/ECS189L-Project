@@ -25,7 +25,7 @@ namespace Embers
         }
         public EnemyState currentState;
 
-        [SerializeField] public float enemyHealth = 100;
+        //[SerializeField] public float enemyHealth = 100;
         public NavMeshAgent agent;
 
         // Flame detection
@@ -125,6 +125,7 @@ namespace Embers
             return false;
         }
 
+        /*
         public void DamageEnemy(int damageAmount)
         {
             enemyHealth -= damageAmount;
@@ -143,6 +144,7 @@ namespace Embers
             // Destroy the enemy object
             Destroy(gameObject);
         }
+        */
 
 
     }

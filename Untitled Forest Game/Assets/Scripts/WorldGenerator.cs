@@ -1,7 +1,10 @@
 using UnityEngine;
 
+
+// Make ground texture repeat like tiles
 public class WorldGenerator : MonoBehaviour
 {
+    [SerializeField] Transform worldTransform;
     public int worldSize = 100;
     public float scale = 0.1f;
     public float heightMultiplier = 10f;
@@ -10,11 +13,13 @@ public class WorldGenerator : MonoBehaviour
     public float lacunarity = 2f;
 
     
+    public GameObject[] enemySpawners;
     public GameObject[] treePrefabs;
     public GameObject[] rockPrefabs;
     public GameObject[] mushroomPrefabs;
     public GameObject[] grassPrefab;
     public GameObject flamePrefab;
+    public int spawnerDistance = 100;
     public int maxTrees = 100;
     public int maxRocks = 100;
     public int maxMushrooms = 100;
@@ -24,6 +29,7 @@ public class WorldGenerator : MonoBehaviour
     private void Start()
     {
         mapEdge = (int)(worldSize / 2f);
+        worldTransform.position = new Vector3(-mapEdge, 0f, -mapEdge);
         GenerateTerrain();
 
         GenerateObjects(treePrefabs, maxTrees);
@@ -31,6 +37,7 @@ public class WorldGenerator : MonoBehaviour
         GenerateObjects(mushroomPrefabs, maxMushrooms);
         GenerateObjects(grassPrefab, maxGrass);
         GenerateFlame();
+        GenerateSpawners();
     }
 
     private void GenerateTerrain()
@@ -49,6 +56,10 @@ public class WorldGenerator : MonoBehaviour
             for (int z = -mapEdge; z < mapEdge; z++)
             {
                 float height = CalculateHeight(x, z);
+                if (x*x < 100 && z*z < 100)
+                {
+                    height = 0f;
+                }
                 heightmap[x + mapEdge, z + mapEdge] = height; // Offset by mapEdge to make starting index 0 instead of -500
             }
         }
@@ -77,7 +88,7 @@ public class WorldGenerator : MonoBehaviour
         return height * heightMultiplier;
     }
 
-    // Can avoid overlaps if you keep an array of all the positions.
+    // Could avoid overlaps if you keep an array of all the positions.
     // If the random position chosen is to close to one that has already been used, choose a new one.
     private void GenerateObjects(GameObject[] objectArray, int maxObjects)
     {
@@ -91,7 +102,7 @@ public class WorldGenerator : MonoBehaviour
         }        
     }
 
-    private Vector3 GetRandomPosition()
+    public Vector3 GetRandomPosition()
     {
         float x = Random.Range(-mapEdge, mapEdge);
         float z = Random.Range(-mapEdge, mapEdge);
@@ -103,8 +114,22 @@ public class WorldGenerator : MonoBehaviour
     private void GenerateFlame()
     {
         float flameHeight = Terrain.activeTerrain.SampleHeight(new Vector3(0f, 0f, 0f));
-        Debug.Log(flameHeight);
         Vector3 flamePosition = new Vector3(0f, flameHeight, 0f);
-        Instantiate(flamePrefab, flamePosition, Quaternion.identity);
+        GameObject go = Instantiate(flamePrefab, flamePosition, Quaternion.identity);
+        GetComponent<LocationTracker>().fireplace = go;
+    }
+
+    private void GenerateSpawners()
+    {
+        for (int n = 0; n < enemySpawners.Length; n++)
+        {
+            float angle = (float)(n * 72 * Mathf.PI / 180); // 72 degree rotations.  A pentagon.
+            float x = -spawnerDistance * Mathf.Sin(angle);
+            float z = spawnerDistance * Mathf.Cos(angle);
+            float y = Terrain.activeTerrain.SampleHeight(new Vector3(x, 0f, z));
+            Vector3 spawnerPosition = new Vector3(x, y, z);
+
+            Instantiate(enemySpawners[n], spawnerPosition, Quaternion.identity);
+        }
     }
 }

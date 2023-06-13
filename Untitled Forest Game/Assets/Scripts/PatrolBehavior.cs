@@ -64,5 +64,12 @@ namespace Embers
                 }
             }
         }
+
+        // Sets the patrol points for the enemy.
+        public void SetPatrol(Transform[] tf)
+        {
+            // Copy and pastes array contents from tf into patrolPoints.
+            System.Array.Copy(tf, this.patrolPoints, 4);
+        }
     }
 }

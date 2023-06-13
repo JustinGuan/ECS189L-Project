@@ -7,12 +7,14 @@ public class FireplaceMechanic : MonoBehaviour
     [SerializeField] private float maxCapacity = 200f;
     [SerializeField] private float extinguishRate = 10f;
     [SerializeField] private float currentCapacity = 0.0f;
-
+    [SerializeField] private float maxRadius = 10.0f;
+    [SerializeField] private float curRadius = 0.0f;
     private float timeSinceCheck = 0;
 
     void Start()
     {
         this.currentCapacity = maxCapacity;
+        this.curRadius = this.maxRadius;
     }
 
     // Update is called once per frame
@@ -55,5 +57,10 @@ public class FireplaceMechanic : MonoBehaviour
         // We update both position and scale of the fireplace.
         this.transform.localScale = new Vector3(xScale, yScale, zScale);
         this.transform.position = new Vector3(this.transform.position.x, yPos, this.transform.position.z);
+    }
+    
+    public float GetFireRadius()
+    {
+        return this.curRadius;
     }
 }

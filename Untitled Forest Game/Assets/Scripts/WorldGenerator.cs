@@ -102,7 +102,7 @@ public class WorldGenerator : MonoBehaviour
         }        
     }
 
-    private Vector3 GetRandomPosition()
+    public Vector3 GetRandomPosition()
     {
         float x = Random.Range(-mapEdge, mapEdge);
         float z = Random.Range(-mapEdge, mapEdge);
@@ -115,7 +115,8 @@ public class WorldGenerator : MonoBehaviour
     {
         float flameHeight = Terrain.activeTerrain.SampleHeight(new Vector3(0f, 0f, 0f));
         Vector3 flamePosition = new Vector3(0f, flameHeight, 0f);
-        Instantiate(flamePrefab, flamePosition, Quaternion.identity);
+        GameObject go = Instantiate(flamePrefab, flamePosition, Quaternion.identity);
+        GetComponent<LocationTracker>().fireplace = go;
     }
 
     private void GenerateSpawners()

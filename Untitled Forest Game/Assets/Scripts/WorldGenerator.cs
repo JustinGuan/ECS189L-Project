@@ -128,7 +128,7 @@ public class WorldGenerator : MonoBehaviour
             float y = Terrain.activeTerrain.SampleHeight(new Vector3(x, 0f, z));
             Vector3 spawnerPosition = new Vector3(x, y, z);
 
-            Instantiate(flamePrefab, spawnerPosition, Quaternion.identity);
+            Instantiate(enemySpawners[n], spawnerPosition, Quaternion.identity);
         }
     }
 }

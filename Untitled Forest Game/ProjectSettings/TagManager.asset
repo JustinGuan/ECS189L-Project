@@ -8,6 +8,7 @@ TagManager:
   - Wood
   - Flame
   - FairyRing
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -90,7 +90,7 @@ namespace Embers
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(euler), turnSpeed * turnSpeedMultiplier * Time.deltaTime);
 			}
 
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+            /*if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
             {
                 if (Input.GetKeyDown(sprintKeyboard))
                 {
@@ -105,7 +105,7 @@ namespace Embers
             {
                 audioManager.StopSoundEffect("Walking");
                 audioManager.StopSoundEffect("Walking");
-            }
+            }*/
 
         }
 

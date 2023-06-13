@@ -39,7 +39,7 @@ namespace Embers
         // Player detection
         [SerializeField] public float detectionRange = 10f;
         [SerializeField] public float fieldOfViewAngle = 60f;
-        public Transform playerTransform;
+        private Transform playerTransform;
         public LayerMask playerLayer;
 
         private void Start()
@@ -48,6 +48,8 @@ namespace Embers
             patrolBehavior = GetComponent<PatrolBehavior>();
             chaseBehavior = GetComponent<ChaseBehavior>();
             attackBehavior = GetComponent<AttackBehavior>();
+
+            //flameTransform = GameObject.FindGameObjectWithTag("Flame").transform; (Implement)
 
             agent = GetComponent<NavMeshAgent>();
 

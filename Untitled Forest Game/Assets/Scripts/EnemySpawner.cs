@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     // Holds info about the size of our play area.
     private MeshRenderer meshRenderer;
     // List to hold our spawners.
-    List<GameObject> spawnPoints;
+    private List<GameObject> spawnPoints;
 
     void Awake()
     {
@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
     // Creates the where the center of our spawnpoints will be at.
     void CreateSpawners()
     {
-        float degreesOfSpawn = (2.0f * 3.14f) / 5.0f;
+        float degreesOfSpawn = (2.0f * Mathf.PI) / 5.0f;
         // This gets 1/4 of our width and length, which effectively becomes our radius.
         float dist = (meshRenderer.bounds.size.x / 4) + (this.maxRadius);
         // Create our spawnpoints and store them into a list.

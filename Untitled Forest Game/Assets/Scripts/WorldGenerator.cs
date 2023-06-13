@@ -26,6 +26,7 @@ public class WorldGenerator : MonoBehaviour
     public int maxRocks = 100;
     public int maxMushrooms = 100;
     public int maxGrass = 100;
+    public int maxPassives = 100;
 
     private void Start()
     {
@@ -37,6 +38,7 @@ public class WorldGenerator : MonoBehaviour
         GenerateObjects(rockPrefabs, maxRocks);
         GenerateObjects(mushroomPrefabs, maxMushrooms);
         GenerateObjects(grassPrefab, maxGrass);
+        GenerateObjects(passivePrefab, maxPassives);
         GenerateFlame();
         GenerateSpawners();
     }

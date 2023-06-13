@@ -1,7 +1,10 @@
 using UnityEngine;
 
+
+// Make ground texture repeat like tiles
 public class WorldGenerator : MonoBehaviour
 {
+    [SerializeField] Transform worldTransform;
     public int worldSize = 100;
     public float scale = 0.1f;
     public float heightMultiplier = 10f;
@@ -26,6 +29,7 @@ public class WorldGenerator : MonoBehaviour
     private void Start()
     {
         mapEdge = (int)(worldSize / 2f);
+        worldTransform.position = new Vector3(-mapEdge, 0f, -mapEdge);
         GenerateTerrain();
 
         GenerateObjects(treePrefabs, maxTrees);
@@ -84,7 +88,7 @@ public class WorldGenerator : MonoBehaviour
         return height * heightMultiplier;
     }
 
-    // Can avoid overlaps if you keep an array of all the positions.
+    // Could avoid overlaps if you keep an array of all the positions.
     // If the random position chosen is to close to one that has already been used, choose a new one.
     private void GenerateObjects(GameObject[] objectArray, int maxObjects)
     {

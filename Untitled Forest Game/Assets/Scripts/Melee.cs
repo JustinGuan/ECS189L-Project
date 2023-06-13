@@ -1,58 +1,84 @@
-using Embers;
+/*using UnityEngine;
+
+public class MeleeAttack : MonoBehaviour
+{
+    public int damage = 40;
+    public LayerMask targetLayer;
+    public float attackRange = 0.5f;
+
+    private bool isAttacking = false;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            isAttacking = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            isAttacking = false;
+        }
+
+        if (isAttacking)
+        {
+            Attack();
+        }
+    }
+
+    private void Attack()
+    {
+        Collider[] hitEnemies = Physics.OverlapSphere(transform.position, attackRange, targetLayer);
+        foreach (Collider enemy in hitEnemies)
+        {
+            Health health = enemy.GetComponent<Health>();
+            if (health != null)
+            {
+                health.TakeDamage(damage);
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+}*/
+
+
 using UnityEngine;
 
-namespace Embers
+public class MeleeAttack : MonoBehaviour
 {
-    public class MeleeAttack : MonoBehaviour
+    public int damage = 40;
+    public LayerMask targetLayer;
+    public float attackRange = 0.5f;
+
+    private void Attack()
     {
-        public Animator animator;
-        [SerializeField] private KeyCode meleeKeyboard = KeyCode.Mouse0;
-
-        public Transform attackPoint;
-        public LayerMask enemyLayers;
-        private bool isAttack = false;
-
-        public float attackRange = 0.5f;
-        public int attackDamage = 40;
-
-        public void Attack()
+        Collider[] hitEnemies = Physics.OverlapSphere(transform.position, attackRange, targetLayer);
+        foreach (Collider enemy in hitEnemies)
         {
-            // Attack animation
-            animator.Play("Attack");
-
-            // Detect enemies in attack range
-            Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
-
-            // Damage enemies
-            foreach (Collider enemy in hitEnemies)
+            Health health = enemy.GetComponent<Health>();
+            if (health != null)
             {
-                // Perform damage on the enemy
-                /*enemy.GetComponent<Enemy>().TakeDamage(attackDamage);*/
+                health.TakeDamage(damage);
             }
         }
+    }
 
-        private void OnDrawGizmosSelected()
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (attackPoint == null)
-                return;
-
-            // Draw a wire sphere to visualize the attack range
-            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+            Attack();
         }
+    }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(meleeKeyboard))
-            {
-                //isAttack = true;
-                Attack();
-            }
-
-            else
-            {
-                //isAttack = false;
-                //animator.SetBool("isAttack", isAttack);
-            }
-        }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

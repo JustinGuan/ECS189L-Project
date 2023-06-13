@@ -39,7 +39,7 @@ namespace Embers
         // Player detection
         [SerializeField] public float detectionRange = 10f;
         [SerializeField] public float fieldOfViewAngle = 60f;
-        private Transform playerTransform;
+        public Transform playerTransform;
         public LayerMask playerLayer;
 
         private void Start()

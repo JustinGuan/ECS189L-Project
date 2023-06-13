@@ -25,24 +25,29 @@ namespace Embers
 		private Camera mainCamera;
 		private float velocity;
 		private Rigidbody rb;
+        private AudioManager audioManager;
 
 
-		// Use this for initialization
-		void Start()
+
+        // Use this for initialization
+        void Start()
 		{
             Cursor.lockState = CursorLockMode.Locked;
             anim = GetComponent<Animator>();
 			mainCamera = Camera.main;
 			rb = GetComponent<Rigidbody>();
+			audioManager = FindObjectOfType<AudioManager>();
+
 		}
 
 		void Update()
 		{
 			input.x = Input.GetAxis("Horizontal");
 			input.y = Input.GetAxis("Vertical");
+            
 
-			// set speed to both vertical and horizontal inputs
-			speed = Mathf.Abs(input.x) + Mathf.Abs(input.y);
+            // set speed to both vertical and horizontal inputs
+            speed = Mathf.Abs(input.x) + Mathf.Abs(input.y);
 
 			speed = Mathf.Clamp(speed, 0f, 1f);
 			speed = Mathf.SmoothDamp(anim.GetFloat("Speed"), speed, ref velocity, 0.1f);
@@ -84,9 +89,27 @@ namespace Embers
 
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(euler), turnSpeed * turnSpeedMultiplier * Time.deltaTime);
 			}
-		}
 
-		public virtual void UpdateTargetDirection()
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+            {
+                if (Input.GetKeyDown(sprintKeyboard))
+                {
+                    audioManager.PlaySoundEffect("Walking");
+                }
+                else
+                {
+                    audioManager.PlaySoundEffect("Walking");
+                }
+            }
+            else
+            {
+                audioManager.StopSoundEffect("Walking");
+                audioManager.StopSoundEffect("Walking");
+            }
+
+        }
+
+        public virtual void UpdateTargetDirection()
 		{
 			turnSpeedMultiplier = 1f;
 			var forward = mainCamera.transform.TransformDirection(Vector3.forward);

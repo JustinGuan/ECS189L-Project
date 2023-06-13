@@ -22,7 +22,7 @@ public class WoodCollision : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
         {
             this.branches++;
-            woodText.text = "x" + branches.ToString();
+            woodText.text = branches.ToString();
         }
     }
 
@@ -36,7 +36,7 @@ public class WoodCollision : MonoBehaviour
             Destroy(collision.gameObject);
             this.branches++;
             spawner.DestroyWood();
-            woodText.text = "x" + branches.ToString();
+            woodText.text = branches.ToString();
             Debug.Log(branches);
         }
     }

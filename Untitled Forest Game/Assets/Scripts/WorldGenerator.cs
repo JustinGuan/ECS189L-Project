@@ -2,26 +2,30 @@ using UnityEngine;
 
 public class WorldGenerator : MonoBehaviour
 {
-    [SerializeField] Transform worldTransform;
+    public Transform worldTransform;
+    // World generation parameters
     public int worldSize = 100;
     public float scale = 0.1f;
     public float heightMultiplier = 10f;
     public int octaves = 4;
     public float persistence = 0.5f;
     public float lacunarity = 2f;
+    // Useful for calculations
+    private int mapEdge;
 
+    // Prefabs to spawn in
     public GameObject[] enemySpawners;
     public GameObject[] treePrefabs;
     public GameObject[] rockPrefabs;
     public GameObject[] mushroomPrefabs;
     public GameObject[] grassPrefab;
+    public GameObject[] passivePrefab;
     public GameObject flamePrefab;
     public int spawnerDistance = 100;
     public int maxTrees = 100;
     public int maxRocks = 100;
     public int maxMushrooms = 100;
     public int maxGrass = 100;
-    private int mapEdge;
 
     private void Start()
     {

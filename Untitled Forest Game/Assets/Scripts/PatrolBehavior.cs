@@ -12,7 +12,6 @@ namespace Embers
 
         private void Start()
         {
-            //agent = GetComponent<NavMeshAgent>();
             SetDestinationToNextPatrolPoint();
         }
 

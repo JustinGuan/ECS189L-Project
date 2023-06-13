@@ -24,11 +24,10 @@ namespace Embers
             Idle
         }
         public EnemyState currentState;
-
-        //[SerializeField] public float enemyHealth = 100;
         public NavMeshAgent agent;
 
         // Flame detection
+        public float flameHeath;
         public float distanceToFlame;
         public bool patrolLock = false;
         [SerializeField] public float patrolLockDuration = 3f;
@@ -53,7 +52,6 @@ namespace Embers
 
             // Find the player and flame references
             playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-            //flameRadius = GameObject.FindGameObjectWithTag("Flame").currentCapacity / 2f; (Implement)
 
             // Activate the patrol behavior by default
             currentState = EnemyState.Patrolling;
@@ -62,13 +60,14 @@ namespace Embers
         private void Update()
         {
             // If enemy is close to flame, it is locked into patrol behavior
-            //flameRadius = GameObject.FindGameObjectWithTag("Flame").currentCapacity / 2f; (Implement)
-            //distanceToFlame = Vector3.Distance(transform.position, flameTransform.position);  (Implement)
-            //if (distanceToFlame <= flameRadius)   (Implement)
-            //{ (Implement)
-                //patrolLock = true;    (Implement)
-                //currentState = EnemyState.Patrolling; (Implement)
-            //} (Implement)
+            flameHeath = GameObject.FindGameObjectWithTag("FlameUI").GetComponent<FlameHealth>().health;
+            flameRadius = flameHeath / 5f;
+            distanceToFlame = Vector3.Distance(transform.position, flameTransform.position);
+            if (distanceToFlame <= flameRadius)
+            {
+                patrolLock = true;
+                currentState = EnemyState.Patrolling;
+            }
 
             switch (currentState)
             {
@@ -126,26 +125,55 @@ namespace Embers
         }
 
         /*
-        public void DamageEnemy(int damageAmount)
+        private void SetPatrolPoints(GameObject enemy)
         {
-            enemyHealth -= damageAmount;
-            if (enemyHealth <= 0)
+            // List to hold our new patrol points.
+            Transform[] patrolPoints = new Transform[4];
+            // get our spawner's and fire's x and z coords.
+            float spawnerX = this.transform.position.x;
+            float spawnerZ = this.transform.position.z;
+            float fireX = tracker.GetFireplacePos().x;
+            float fireZ = tracker.GetFireplacePos().z;
+            // Get the fire's radius.
+            float curFireRadius = fireMechanic.GetFireRadius();
+            // Set the 4 patrol points around the spawner.
+            // The radii will be set at 0, pi/2, pi, and 3pi/2 degrees.
+            for(int i = 0; i < 4; i++)
             {
-                // Call a method to handle enemy death or despawning
-                Die();
+                // There will be 4 patrol points, each at 2/3 of its max radius spawn.
+                float patrolRadius = this.maxRadius * 0.67f;
+                float theta = ((float)i * Mathf.PI) / 2.0f;
+                float x = spawnerX + (patrolRadius * Mathf.Cos(theta));
+                float z = spawnerZ + (patrolRadius * Mathf.Sin(theta));
+                // Edge case: patrol point is within the fire radius, change the value accordingly.
+                Vector3 newPatrolPoint = new Vector3(x, this.transform.position.y, z);
+                // If our patrol point falls within the fire's safe zone, change either x or z value.
+                if(Vector3.Distance(newPatrolPoint, tracker.GetFireplacePos()) <= curFireRadius)
+                {
+                    // Update the patrol radius, so that it's at the edge of the fire radius.
+                    patrolRadius -= curFireRadius;
+                    // Determine which value (x or z) needs to be modfied.
+                    if(Mathf.Abs(fireX - spawnerX) > Mathf.Abs(fireZ - spawnerZ))
+                    {
+                        x = spawnerX + (patrolRadius * Mathf.Cos(theta));
+                    }
+                    else
+                    {
+                        z = spawnerZ + (patrolRadius * Mathf.Sin(theta));
+                    }
+                    // Re-initialize one of our patrol points.
+                    newPatrolPoint = new Vector3(x, this.transform.position.y, z);
+                }
+                // Create a new gameobject, and grab it's transform.
+                var patrolPoint = new GameObject().transform;
+                // Set the new game object's transform to the newly created patrol point.
+                patrolPoint.localPosition = newPatrolPoint;
+                // Store that value into our Transform[].
+                patrolPoints[i] = patrolPoint;
             }
-        }
-
-        public void Die()
-        {
-            // Perform any necessary cleanup or death-related logic
-            // For example, we might play an animation, trigger particle effects, or update the game state
-
-            // Destroy the enemy object
-            Destroy(gameObject);
+            // Initialize the enemy's patrol points.
+            enemy.GetComponent<EnemyController>().patrolBehavior.SetPatrol(patrolPoints);
         }
         */
-
-
     }
 }

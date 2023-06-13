@@ -9,12 +9,6 @@ namespace Embers
         [SerializeField] public float outOfSightDuration = 3f;
         private float timeSincePlayerOutOfSight = 0f;
 
-
-        private void Start()
-        {
-            //agent = GetComponent<NavMeshAgent>();
-        }
-
         public void EnemyChase()
         {
             if (currentState == EnemyState.Chasing)

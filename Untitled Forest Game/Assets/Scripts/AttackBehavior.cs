@@ -25,7 +25,6 @@ namespace Embers
         public void EnemyAttack()
         {
             // Apply damage to the player or trigger any desired attack behavior
-            //DamagePlayer(attackDamage); (Implement)
             GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().TakeDamage(attackDamage);
 
             // Set attack on cooldown

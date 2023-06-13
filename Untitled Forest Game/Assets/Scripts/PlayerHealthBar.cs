@@ -25,6 +25,12 @@ public class PlayerHealthBar : MonoBehaviour
         {
             health = 0;
         }
+
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+
         healthText.text = health + "/100";
         HealthBarFiller();
         lerpSpeed = 5.0f * Time.deltaTime;
@@ -38,11 +44,6 @@ public class PlayerHealthBar : MonoBehaviour
         // {
         //     Heal(10.0f);
         // }
-
-        if (health > maxHealth)
-        {
-            health = maxHealth;
-        }
     }
 
     void HealthBarFiller()

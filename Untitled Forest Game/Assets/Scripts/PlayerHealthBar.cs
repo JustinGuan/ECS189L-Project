@@ -8,42 +8,41 @@ public class PlayerHealthBar : MonoBehaviour
 {
     public TextMeshProUGUI healthText;
     public Image healthBar;
-    float health = 100.0f;
-    float maxHealth = 100.0f;
+    [SerializeField] private float health = 100.0f;
+    [SerializeField] private float maxHealth = 100.0f;
     float lerpSpeed;
 
-    // Start is called before the first frame update
-    private void Start()
-    {
-        health = maxHealth;
+    private void Awake()
+    {   
+        this.health = maxHealth;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (health <= 0)
+        if (this.health <= 0)
         {
-            health = 0;
+            this.health = 0;
         }
 
-        if (health > maxHealth)
+        if (this.health > maxHealth)
         {
-            health = maxHealth;
+            this.health = maxHealth;
         }
 
         healthText.text = health + "/100";
         HealthBarFiller();
         lerpSpeed = 5.0f * Time.deltaTime;
 
-        // // Testing.
-        // if(Input.GetButtonDown("Jump"))
-        // {
-        //     Damage(20.0f);
-        // }
-        // if (Input.GetButtonDown("Fire1"))
-        // {
-        //     Heal(10.0f);
-        // }
+        //Testing.
+        if(Input.GetButtonDown("Jump"))
+        {
+             Damage(20.0f);
+        }
+        if (Input.GetButtonDown("Fire1"))
+        {
+             Heal(10.0f);
+        }
     }
 
     void HealthBarFiller()
@@ -65,5 +64,10 @@ public class PlayerHealthBar : MonoBehaviour
         {
             health += healAmount;
         }
+    }
+
+    public float GetPlayerHealth()
+    {
+        return this.health;
     }
 }

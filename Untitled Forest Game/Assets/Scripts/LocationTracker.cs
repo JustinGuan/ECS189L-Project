@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LocationTracker : MonoBehaviour
 {
-    [SerializeField] public GameObject player;
-    [SerializeField] public GameObject fireplace;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject fireplace;
 
     public Vector3 GetPlayerPos() {
         return player.transform.position;
@@ -13,5 +13,15 @@ public class LocationTracker : MonoBehaviour
 
     public Vector3 GetFireplacePos() {
         return fireplace.transform.position;
+    }
+
+    public void SetPlayer(GameObject go)
+    {
+        this.player = go;
+    }
+
+    public void SetFire(GameObject go)
+    {
+        this.fireplace = go;
     }
 }

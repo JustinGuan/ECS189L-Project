@@ -4,7 +4,7 @@ namespace Embers
 {
     public class AttackBehavior : EnemyController
     {
-        [SerializeField] public float attackDamage = 10f;
+        [SerializeField] public int attackDamage = 10;
         [SerializeField] public float attackCooldown = 2f;
         [SerializeField] public float attackRange = 2f;
         private bool canAttack = true;
@@ -26,6 +26,7 @@ namespace Embers
         {
             // Apply damage to the player or trigger any desired attack behavior
             //DamagePlayer(attackDamage); (Implement)
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().TakeDamage(attackDamage);
 
             // Set attack on cooldown
             canAttack = false;

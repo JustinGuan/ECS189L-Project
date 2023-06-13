@@ -15,16 +15,16 @@ public class WoodCollision : MonoBehaviour
         spawner = GameObject.Find("Floor").GetComponent<WoodSpawner>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Testing
-        if (Input.GetButtonDown("Fire2"))
-        {
-            this.branches++;
-            woodText.text = branches.ToString();
-        }
-    }
+    // // Update is called once per frame
+    // void Update()
+    // {
+    //     // Testing
+    //     if (Input.GetButtonDown("Fire2"))
+    //     {
+    //         this.branches++;
+    //         woodText.text = branches.ToString();
+    //     }
+    // }
 
     // Detects if it has collided with the box collider of wood and 
     // destroys it if so.

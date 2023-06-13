@@ -29,15 +29,15 @@ public class PlayerHealthBar : MonoBehaviour
         HealthBarFiller();
         lerpSpeed = 5.0f * Time.deltaTime;
 
-        // Testing.
-        if(Input.GetButtonDown("Jump"))
-        {
-            Damage(20.0f);
-        }
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Heal(10.0f);
-        }
+        // // Testing.
+        // if(Input.GetButtonDown("Jump"))
+        // {
+        //     Damage(20.0f);
+        // }
+        // if (Input.GetButtonDown("Fire1"))
+        // {
+        //     Heal(10.0f);
+        // }
 
         if (health > maxHealth)
         {

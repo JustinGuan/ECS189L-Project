@@ -18,6 +18,12 @@ public class WoodCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Testing
+        if (Input.GetButtonDown("Fire2"))
+        {
+            this.branches++;
+            woodText.text = "x" + branches.ToString();
+        }
     }
 
     // Detects if it has collided with the box collider of wood and 
@@ -30,7 +36,7 @@ public class WoodCollision : MonoBehaviour
             Destroy(collision.gameObject);
             this.branches++;
             spawner.DestroyWood();
-            woodText.text = "Wood: " + branches.ToString();
+            woodText.text = "x" + branches.ToString();
             Debug.Log(branches);
         }
     }

@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e6fbcfecd78aabd479d7ec65f0b0634f, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e6fbcfecd78aabd479d7ec65f0b0634f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -83,7 +83,31 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e6fbcfecd78aabd479d7ec65f0b0634f, type: 3}
       insertIndex: -1
       addedObject: {fileID: -6737923624762026470}
+    - targetCorrespondingSourceObject: {fileID: 4424396828587804706, guid: e6fbcfecd78aabd479d7ec65f0b0634f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5798589071530884231}
   m_SourcePrefab: {fileID: 100100000, guid: e6fbcfecd78aabd479d7ec65f0b0634f, type: 3}
+--- !u!1 &1830280724558221161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4424396828587804706, guid: e6fbcfecd78aabd479d7ec65f0b0634f, type: 3}
+  m_PrefabInstance: {fileID: 2594332759713302347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &5798589071530884231
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830280724558221161}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 2785684801261577502, guid: e6fbcfecd78aabd479d7ec65f0b0634f, type: 3}
+  m_Animations:
+  - {fileID: 2785684801261577502, guid: e6fbcfecd78aabd479d7ec65f0b0634f, type: 3}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 1
+  m_CullingType: 0
 --- !u!1 &2936771607706991130 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e6fbcfecd78aabd479d7ec65f0b0634f, type: 3}
@@ -101,6 +125,7 @@ Animation:
   m_Animation: {fileID: 6218104116403020177, guid: e6fbcfecd78aabd479d7ec65f0b0634f, type: 3}
   m_Animations:
   - {fileID: 6218104116403020177, guid: e6fbcfecd78aabd479d7ec65f0b0634f, type: 3}
+  - {fileID: 2785684801261577502, guid: e6fbcfecd78aabd479d7ec65f0b0634f, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 1

@@ -23,7 +23,7 @@ public class WoodSpawner : MonoBehaviour
 
     void Start()
     {
-        Invoke("SpawnWood", 5);
+        Invoke("SpawnWood", 3);
     }
 
     void Update()
@@ -46,7 +46,7 @@ public class WoodSpawner : MonoBehaviour
         for (int i = 1; i <= numRegions; i++)
         {
             // Random scaler for now on how much wood to spawn.
-            float woodToSpawn = i * 1;
+            float woodToSpawn = i * 50;
             this.numWood += woodToSpawn;
             // Our max and min radius will change as needed.
             float r1 = (this.maxRadius / numRegions) * i;

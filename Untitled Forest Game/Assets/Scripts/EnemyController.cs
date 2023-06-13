@@ -1,14 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-/*
-To-do:
-(Fixed?) Enemy doesn't switch to chase speed in chase mode.
-(Fixed?  (Need reference to flame health.) Enemy doesn't avoid flame radius.
-(Fixed?) (Needs reference to player health.  Put this in player controller.) Enemy doesn't do damage.  (Create setter function.)
-The patrol points need to be placed around the spawners.
-*/
-
 namespace Embers
 {
     public class EnemyController : MonoBehaviour
@@ -24,7 +16,17 @@ namespace Embers
             Idle
         }
         public EnemyState currentState;
-        public NavMeshAgent agent;
+
+        public enum EnemyTypes
+        {
+            White,
+            Red,
+            Blue,
+            Green,
+            Purple,
+            Boss
+        }
+        public EnemyTypes enemyType;
 
         // Flame detection
         public float flameHeath;
@@ -41,12 +43,17 @@ namespace Embers
         public Transform playerTransform;
         public LayerMask playerLayer;
 
+        public NavMeshAgent agent;
+
         private void Start()
         {
             // Get references to the PatrolBehavior, ChaseBehavior, and AttackBehavior components
             patrolBehavior = GetComponent<PatrolBehavior>();
             chaseBehavior = GetComponent<ChaseBehavior>();
             attackBehavior = GetComponent<AttackBehavior>();
+
+            // Get enemy type
+            enemyType = GetEnemyType();
 
             agent = GetComponent<NavMeshAgent>();
 
@@ -96,6 +103,37 @@ namespace Embers
             }
         }
 
+        public EnemyTypes GetEnemyType()
+        {
+            EnemyTypes type;
+            if (gameObject.tag == "White Enemy")
+            {
+                type = EnemyTypes.White;
+            }
+            else if (gameObject.tag == "Red Enemy")
+            {
+                type = EnemyTypes.Red;
+            }
+            else if (gameObject.tag == "Blue Enemy")
+            {
+                type = EnemyTypes.Blue;
+            }
+            else if (gameObject.tag == "Green Enemy")
+            {
+                type = EnemyTypes.Green;
+            }
+            else if (gameObject.tag == "Purple Enemy")
+            {
+                type = EnemyTypes.Purple;
+            }
+            else
+            {
+                type = EnemyTypes.Boss;
+            }
+
+            return type;
+        }
+
         public bool IsPlayerInSight()
         {
             // Check if the player is within detection range
@@ -123,57 +161,5 @@ namespace Embers
 
             return false;
         }
-
-        /*
-        private void SetPatrolPoints(GameObject enemy)
-        {
-            // List to hold our new patrol points.
-            Transform[] patrolPoints = new Transform[4];
-            // get our spawner's and fire's x and z coords.
-            float spawnerX = this.transform.position.x;
-            float spawnerZ = this.transform.position.z;
-            float fireX = tracker.GetFireplacePos().x;
-            float fireZ = tracker.GetFireplacePos().z;
-            // Get the fire's radius.
-            float curFireRadius = fireMechanic.GetFireRadius();
-            // Set the 4 patrol points around the spawner.
-            // The radii will be set at 0, pi/2, pi, and 3pi/2 degrees.
-            for(int i = 0; i < 4; i++)
-            {
-                // There will be 4 patrol points, each at 2/3 of its max radius spawn.
-                float patrolRadius = this.maxRadius * 0.67f;
-                float theta = ((float)i * Mathf.PI) / 2.0f;
-                float x = spawnerX + (patrolRadius * Mathf.Cos(theta));
-                float z = spawnerZ + (patrolRadius * Mathf.Sin(theta));
-                // Edge case: patrol point is within the fire radius, change the value accordingly.
-                Vector3 newPatrolPoint = new Vector3(x, this.transform.position.y, z);
-                // If our patrol point falls within the fire's safe zone, change either x or z value.
-                if(Vector3.Distance(newPatrolPoint, tracker.GetFireplacePos()) <= curFireRadius)
-                {
-                    // Update the patrol radius, so that it's at the edge of the fire radius.
-                    patrolRadius -= curFireRadius;
-                    // Determine which value (x or z) needs to be modfied.
-                    if(Mathf.Abs(fireX - spawnerX) > Mathf.Abs(fireZ - spawnerZ))
-                    {
-                        x = spawnerX + (patrolRadius * Mathf.Cos(theta));
-                    }
-                    else
-                    {
-                        z = spawnerZ + (patrolRadius * Mathf.Sin(theta));
-                    }
-                    // Re-initialize one of our patrol points.
-                    newPatrolPoint = new Vector3(x, this.transform.position.y, z);
-                }
-                // Create a new gameobject, and grab it's transform.
-                var patrolPoint = new GameObject().transform;
-                // Set the new game object's transform to the newly created patrol point.
-                patrolPoint.localPosition = newPatrolPoint;
-                // Store that value into our Transform[].
-                patrolPoints[i] = patrolPoint;
-            }
-            // Initialize the enemy's patrol points.
-            enemy.GetComponent<EnemyController>().patrolBehavior.SetPatrol(patrolPoints);
-        }
-        */
     }
 }

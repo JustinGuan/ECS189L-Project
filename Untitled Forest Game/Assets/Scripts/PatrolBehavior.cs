@@ -12,6 +12,12 @@ namespace Embers
 
         private void Start()
         {
+            patrolPoints = new Transform[4];
+            for (int i = 0; i < 4; i++)
+            {
+                patrolPoints[i] = GameObject.FindGameObjectWithTag("World Generator").GetComponent<WorldGenerator>().patrolPoints[(int)enemyType, i];
+            }
+
             SetDestinationToNextPatrolPoint();
         }
 

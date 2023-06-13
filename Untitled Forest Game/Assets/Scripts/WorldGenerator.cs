@@ -21,12 +21,16 @@ public class WorldGenerator : MonoBehaviour
     public GameObject[] grassPrefab;
     public GameObject[] passivePrefab;
     public GameObject flamePrefab;
-    public int spawnerDistance = 100;
     public int maxTrees = 100;
     public int maxRocks = 100;
     public int maxMushrooms = 100;
     public int maxGrass = 100;
     public int maxPassives = 100;
+
+    // Enemy spawners and patrol points
+    public int spawnerDistance = 100;
+    public int patrolPointDistance = 10;
+    public Transform[,] patrolPoints;
 
     private void Start()
     {
@@ -40,6 +44,8 @@ public class WorldGenerator : MonoBehaviour
         GenerateObjects(grassPrefab, maxGrass);
         GenerateObjects(passivePrefab, maxPassives);
         GenerateFlame();
+
+        patrolPoints = new Transform[5, 4];
         GenerateSpawners();
     }
 
@@ -144,14 +150,87 @@ public class WorldGenerator : MonoBehaviour
         // Generate enemy spawners
         for (int n = 0; n < enemySpawners.Length; n++)
         {
-            float angle = (float)(n * Mathf.PI / 180 * 72); // 72 degree rotations. A pentagon of spawners
+            float spawnAngle = (float)(n * Mathf.PI / 180 * 72); // 72 degree rotations. A pentagon of spawners
             
-            float x = -spawnerDistance * Mathf.Sin(angle);
-            float z = spawnerDistance * Mathf.Cos(angle);
-            float y = Terrain.activeTerrain.SampleHeight(new Vector3(x, 0f, z));
-            Vector3 spawnerPosition = new Vector3(x, y, z);
+            float spawnX = -spawnerDistance * Mathf.Sin(spawnAngle);
+            float spawnZ = spawnerDistance * Mathf.Cos(spawnAngle);
+            float spawnY = Terrain.activeTerrain.SampleHeight(new Vector3(spawnX, 0f, spawnZ));
+            Vector3 spawnerPosition = new Vector3(spawnX, spawnY, spawnZ);
 
             Instantiate(enemySpawners[n], spawnerPosition, Quaternion.identity);
+            // Create patrol points
+            for (int i = 0; i < 4; i++)
+            {
+                float angle = (float)(n * Mathf.PI / 180 * 90); // 90 degree rotations. A diamond of patrol point
+
+                float x = spawnX - patrolPointDistance * Mathf.Sin(angle);
+                float z = spawnY + patrolPointDistance * Mathf.Cos(angle);
+                float y = Terrain.activeTerrain.SampleHeight(new Vector3(x, 0f, z));
+                patrolPoints[n, i].position = new Vector3(x, y, z);
+            }
         }
     }
+
+    /*
+    private void SetPatrolPoints(GameObject enemy)
+    {
+        // List to hold our new patrol points.
+        Transform[] patrolPoints = new Transform[4];
+
+        // get our spawner's and fire's x and z coords.
+        float spawnerX = this.transform.position.x;
+        float spawnerZ = this.transform.position.z;
+        float fireX = tracker.GetFireplacePos().x;
+        float fireZ = tracker.GetFireplacePos().z;
+        
+        // Get the fire's radius.
+        float curFireRadius = fireMechanic.GetFireRadius();
+        
+        // Set the 4 patrol points around the spawner.
+        // The radii will be set at 0, pi/2, pi, and 3pi/2 degrees.
+        for (int i = 0; i < 4; i++)
+        {
+            // There will be 4 patrol points, each at 2/3 of its max radius spawn.
+            float patrolRadius = this.maxRadius * 0.67f;
+            float theta = ((float)i * Mathf.PI) / 2.0f;
+            float x = spawnerX + (patrolRadius * Mathf.Cos(theta));
+            float z = spawnerZ + (patrolRadius * Mathf.Sin(theta));
+
+            // Edge case: patrol point is within the fire radius, change the value accordingly.
+            Vector3 newPatrolPoint = new Vector3(x, this.transform.position.y, z);
+
+            // If our patrol point falls within the fire's safe zone, change either x or z value.
+            if (Vector3.Distance(newPatrolPoint, tracker.GetFireplacePos()) <= curFireRadius)
+            {
+                // Update the patrol radius, so that it's at the edge of the fire radius.
+                patrolRadius -= curFireRadius;
+                
+                // Determine which value (x or z) needs to be modfied.
+                if(Mathf.Abs(fireX - spawnerX) > Mathf.Abs(fireZ - spawnerZ))
+                {
+                    x = spawnerX + (patrolRadius * Mathf.Cos(theta));
+                }
+                else
+                {
+                    z = spawnerZ + (patrolRadius * Mathf.Sin(theta));
+                }
+                
+                // Re-initialize one of our patrol points.
+                newPatrolPoint = new Vector3(x, this.transform.position.y, z);
+            }
+
+            // Create a new gameobject, and grab it's transform.
+            var patrolPoint = new GameObject().transform;
+            
+            // Set the new game object's transform to the newly created patrol point.
+            patrolPoint.localPosition = newPatrolPoint;
+            
+            // Store that value into our Transform[].
+            patrolPoints[i] = patrolPoint;
+        }
+
+        // Initialize the enemy's patrol points.
+        enemy.GetComponent<EnemyController>().patrolBehavior.SetPatrol(patrolPoints);
+    }
+    */
 }

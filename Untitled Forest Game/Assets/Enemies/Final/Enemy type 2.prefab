@@ -70,7 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3789586283822372580, guid: da059820cf295ac4a9ca60791e4d9bfa, type: 3}
       propertyPath: m_Name
-      value: Humanoid_textured Variant
+      value: Enemy type 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789586283822372580, guid: da059820cf295ac4a9ca60791e4d9bfa, type: 3}
+      propertyPath: m_TagString
+      value: Red Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

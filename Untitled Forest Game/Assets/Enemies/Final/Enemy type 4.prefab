@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5887812680635575895, guid: 3542ba5439b8933458c18d14210db023, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5887812680635575895, guid: 3542ba5439b8933458c18d14210db023, type: 3}
       propertyPath: m_LocalPosition.x
@@ -58,7 +58,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 6277f8ac9f1383f429f108d12025a466, type: 2}
     - target: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
       propertyPath: m_Name
-      value: Humanoid_textured (2) Variant
+      value: Enemy type 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+      propertyPath: m_TagString
+      value: Green Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy type 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3789586283822372580, guid: da059820cf295ac4a9ca60791e4d9bfa, type: 3}
+      propertyPath: m_TagString
+      value: White Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -191,6 +195,7 @@ MonoBehaviour:
   attackBehavior: {fileID: 0}
   currentState: 0
   agent: {fileID: 0}
+  flameHeath: 0
   distanceToFlame: 0
   patrolLock: 0
   patrolLockDuration: 3
@@ -225,6 +230,7 @@ MonoBehaviour:
   attackBehavior: {fileID: 0}
   currentState: 0
   agent: {fileID: 0}
+  flameHeath: 0
   distanceToFlame: 0
   patrolLock: 0
   patrolLockDuration: 3
@@ -256,6 +262,7 @@ MonoBehaviour:
   attackBehavior: {fileID: 3838817585917314936}
   currentState: 0
   agent: {fileID: 0}
+  flameHeath: 0
   distanceToFlame: 0
   patrolLock: 0
   patrolLockDuration: 3
@@ -288,6 +295,7 @@ MonoBehaviour:
   attackBehavior: {fileID: 0}
   currentState: 0
   agent: {fileID: 0}
+  flameHeath: 0
   distanceToFlame: 0
   patrolLock: 0
   patrolLockDuration: 3

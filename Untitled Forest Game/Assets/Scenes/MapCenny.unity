@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -751,7 +751,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346906853}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0689064, y: 3.1589615, z: -2.9293766}
+  m_LocalPosition: {x: 0.8607355, y: 3.1589615, z: -2.9293766}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1116,7 +1116,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495446634}
   m_LocalRotation: {x: 0.32326594, y: 0, z: 0, w: 0.94630814}
-  m_LocalPosition: {x: 1.0689064, y: 3.1589615, z: -2.9293766}
+  m_LocalPosition: {x: 0.8607355, y: 3.1589615, z: -2.9293766}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1707,7 +1707,7 @@ RectTransform:
   - {fileID: 63711402}
   - {fileID: 1540153368}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1945,7 +1945,7 @@ RectTransform:
   - {fileID: 1925657652}
   - {fileID: 1758069040}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2721,7 +2721,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708142892}
   m_LocalRotation: {x: 0.122611515, y: -0.55352056, z: 0.08280736, w: 0.819588}
-  m_LocalPosition: {x: 0.34384355, y: 3.2865138, z: -1.8474641}
+  m_LocalPosition: {x: 0.27687955, y: 3.2865138, z: -1.8474641}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3509,6 +3509,7 @@ MonoBehaviour:
   - {fileID: 3225090813816685675, guid: bebf0578287738943978c1d1d59e9d12, type: 3}
   grassPrefab:
   - {fileID: 5863130029983618753, guid: 59cd35a0b4eb9174aa11b2010824ac17, type: 3}
+  passivePrefab: []
   flamePrefab: {fileID: 6552518781143865606, guid: bc5937d7b1224914aa3572e9fce3297f, type: 3}
   spawnerDistance: 100
   maxTrees: 200
@@ -3762,7 +3763,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055577283950708195, guid: 5f3dd3f9b124a88468a44967cfda188a, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2055577283950708195, guid: 5f3dd3f9b124a88468a44967cfda188a, type: 3}
       propertyPath: m_LocalPosition.x

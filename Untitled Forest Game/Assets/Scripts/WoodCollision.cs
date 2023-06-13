@@ -12,7 +12,7 @@ public class WoodCollision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawner = GameObject.Find("Floor").GetComponent<WoodSpawner>();
+        spawner = GameObject.Find("World Generator").GetComponent<WoodSpawner>();
     }
 
     // // Update is called once per frame

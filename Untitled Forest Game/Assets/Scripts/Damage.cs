@@ -6,7 +6,7 @@ public class Damage : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             Health health = collision.gameObject.GetComponent<Health>();
             if (health != null)

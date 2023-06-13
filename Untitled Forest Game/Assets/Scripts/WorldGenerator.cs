@@ -65,9 +65,20 @@ public class WorldGenerator : MonoBehaviour
                 heightmap[x + mapEdge, z + mapEdge] = height; 
             }
         }
-        
-        // Set heights of the terrain
-        terrainData.SetHeights(0, 0, heightmap);
+
+        for (int x = -mapEdge; x < mapEdge; x++)
+        {
+            heightmap[x + mapEdge, worldSize - 1] = 100f;
+            heightmap[x + mapEdge, 0] = 100f;
+        }
+        for (int z = -mapEdge; z < mapEdge; z++)
+        {
+            heightmap[worldSize - 1, z + mapEdge] = 100f;
+            heightmap[0, z + mapEdge] = 100f;
+        }
+
+            // Set heights of the terrain
+            terrainData.SetHeights(0, 0, heightmap);
 
         // Assign TerrainData to TerrainCollider
         TerrainCollider terrainCollider = GetComponent<TerrainCollider>();

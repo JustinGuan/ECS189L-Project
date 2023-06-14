@@ -177,11 +177,15 @@ After keeping the flame alive, the player has to fight the final boss. The cutsc
 
 ## Press Kit and Trailer
 
-**Include links to your presskit materials and trailer.**
+[Link of the press kit.](https://www.figma.com/file/bps5q7KrN68TXJorjc8XPU/Embers-Press-Kit?type=design&node-id=0%3A1&t=vp82sXinprTWfBmX-1)
+
+[Link of the trailer.](https://youtu.be/n0eca8oGFrA)
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
 
+When making the trailer, I wanted to showcase the core gameplay mechanics, so I put in shots of the actual gameplay. I also wanted to showcase the visuals of our game that **Trina** created, so I put in clips she made that showcased that. 
 
+For the press kit, I designed it based on the colors of our main menu and used icons that I utilized in our game such as the wood and heart. I chose those specific screenshots because I believe that one of our strong points is the visuals of the world, and I wanted to showcase the main spots of the fire, wood, and the enemy. 
 
 ## Game Feel - Hung Liu
 

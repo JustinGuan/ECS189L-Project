@@ -74,17 +74,8 @@ public class SpawnEnemy : MonoBehaviour
             float theta = Random.Range(0, 2.0f * Mathf.PI);
             float x = spawnerPos.x + (r1 * Mathf.Cos(theta));
             float z = spawnerPos.z + (r1 * Mathf.Sin(theta));
-            // Prevents enemy from spawning near (or too far from) the fireplace.
-            while ((Vector3.Distance(new Vector3(x, 0, z), firePos) < 10.0f) || (Vector3.Distance(new Vector3(x, 0, z), firePos) >= this.maxRadius))
-            {
-                // Recalculate our values until we get something not in range of the fire.
-                // this recalculates the distance at which the enemy spawns at to be less than our worldsize.
-                r1 = this.maxRadius * Random.Range(0, 1);
-                theta = Random.Range(0, 2.0f * Mathf.PI);
-                x = spawnerPos.x + (r1 * Mathf.Cos(theta));
-                z = spawnerPos.z + (r1 * Mathf.Sin(theta));
-            }
-            Instantiate(enemyPrefab, new Vector3(x, wg.GetRandomPosition().y, z), Quaternion.identity, this.transform);
+            float y = Terrain.activeTerrain.SampleHeight(new Vector3(x, 0f, z));
+            Instantiate(enemyPrefab, new Vector3(x, y, z), Quaternion.identity, this.transform);
         }
         this.numEnemies += enemiesLeft;
     }

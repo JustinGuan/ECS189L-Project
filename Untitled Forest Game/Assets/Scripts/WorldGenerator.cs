@@ -144,8 +144,7 @@ public class WorldGenerator : MonoBehaviour
         float flameHeight = Terrain.activeTerrain.SampleHeight(new Vector3(0f, 0f, 0f));
         Vector3 flamePosition = new Vector3(0f, flameHeight, 0f);
         GameObject go = Instantiate(flamePrefab, flamePosition, Quaternion.identity, this.transform);
-        GetComponent<LocationTracker>().SetFire(go);
-        GetComponent<LevelManager>().SetFire(go);
+        GetComponent<LocationTracker>().fireplace = go;
     }
 
     private void GenerateSpawners()

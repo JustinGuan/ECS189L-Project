@@ -1,6 +1,5 @@
 using Unity.AI.Navigation;
 using UnityEngine;
-using Unity.AI.Navigation;
 
 public class WorldGenerator : MonoBehaviour
 {

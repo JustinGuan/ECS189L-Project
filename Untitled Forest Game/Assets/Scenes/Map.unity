@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.055255607, g: 0.052068338, b: 0.097931035, a: 1}
+  m_IndirectSpecularColor: {r: 0.05536904, g: 0.0519673, b: 0.09782134, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -675,7 +675,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346906853}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.94542825, y: 3.1589615, z: -2.9293766}
+  m_LocalPosition: {x: 0.8623235, y: 3.1589615, z: -2.9293766}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -964,7 +964,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495446634}
   m_LocalRotation: {x: 0.32326594, y: 0, z: 0, w: 0.94630814}
-  m_LocalPosition: {x: 0.94542825, y: 3.1589615, z: -2.9293766}
+  m_LocalPosition: {x: 0.8623235, y: 3.1589615, z: -2.9293766}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2814,7 +2814,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708142892}
   m_LocalRotation: {x: 0.122611515, y: -0.55352056, z: 0.08280736, w: 0.819588}
-  m_LocalPosition: {x: 0.30412334, y: 3.2865138, z: -1.8474641}
+  m_LocalPosition: {x: 0.2773904, y: 3.2865138, z: -1.8474641}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3549,6 +3549,7 @@ GameObject:
   - component: {fileID: 1996729596}
   - component: {fileID: 1996729597}
   - component: {fileID: 1996729598}
+  - component: {fileID: 1996729599}
   m_Layer: 0
   m_Name: World Generator
   m_TagString: Untagged
@@ -3608,12 +3609,13 @@ MonoBehaviour:
   - {fileID: 427965700714601196, guid: 052c4a00897c8d243963c059408df1ad, type: 3}
   - {fileID: 8644318972552099178, guid: 2727f93be03505c4dbd2ea705c289d99, type: 3}
   flamePrefab: {fileID: 6552518781143865606, guid: bc5937d7b1224914aa3572e9fce3297f, type: 3}
-  spawnerDistance: 50
   maxTrees: 1000
   maxRocks: 1000
   maxMushrooms: 1000
   maxGrass: 1000
   maxPassives: 100
+  spawnerDistance: 50
+  patrolPointDistance: 10
 --- !u!4 &1996729593
 Transform:
   m_ObjectHideFlags: 0
@@ -3812,6 +3814,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1996729599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996729591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 0069c490bfef8af4a8e568d1a93fff83, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &2020730191
 GameObject:
   m_ObjectHideFlags: 0

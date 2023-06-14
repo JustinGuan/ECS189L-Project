@@ -4,11 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Script Home
   - Wood
   - Flame
   - FairyRing
   - Enemy
+  - World Generator
+  - FlameUI
+  - Green Enemy
+  - Blue Enemy
+  - Purple Enemy
   layers:
   - Default
   - TransparentFX

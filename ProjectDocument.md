@@ -122,7 +122,7 @@ Our team had an idea where, as the fire grew weaker, the radius of the fire woul
 
 **Document the sound style.** 
 
-## Gameplay Testing
+## Gameplay Testing - Cenny Rangel
 
 Unfortunately, I was not able to conduct any play testing.
 

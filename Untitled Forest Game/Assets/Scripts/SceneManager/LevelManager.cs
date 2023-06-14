@@ -52,7 +52,7 @@ public class LevelManager : MonoBehaviour
         // Victory Conditions.
         if(timeSinceCheck >= timer)
         {
-            sm.LoadVictoryScreen();
+            sm.LoadBossCutscene();
         }
     }
     /*

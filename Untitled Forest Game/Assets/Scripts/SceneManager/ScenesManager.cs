@@ -7,15 +7,17 @@ public class ScenesManager : MonoBehaviour
 {
     public enum SceneType
     {
-        MainMenuTesting,
+        MainMenu1,
+        Opening,
         Map,
         VictoryTest,
-        GameOverTest
+        GameOverTest,
+        BossCutscene
     }
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadSceneAsync(SceneType.MainMenuTesting.ToString(), LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync(SceneType.MainMenu1.ToString(), LoadSceneMode.Single);
     }
 
     public void LoadGameLevel()
@@ -31,6 +33,11 @@ public class ScenesManager : MonoBehaviour
     public void LoadGameOver()
     {
         SceneManager.LoadSceneAsync(SceneType.GameOverTest.ToString(), LoadSceneMode.Single);
+    }
+
+    public void LoadBossCutscene()
+    {
+        SceneManager.LoadSceneAsync(SceneType.BossCutscene.ToString(), LoadSceneMode.Single);
     }
 
     public void QuitGame()

@@ -54,6 +54,7 @@ The final feature I added to the map was a NavMeshSurface for the enemy AI.  Thi
 ## User Interface
 
 **Main Menu**
+
 When the player first opens the game, the main menu shows up. It has a visual created by **Trina** that was shifted to the right of the screen, the title, Embers, and the Play and Quit button on the left of the image. 
 
 The title was created on Figma. I wanted to give off the feeling of the glow of *fire* because the core gameplay of our game is to keep the fire alive, which is the heart of the forest, so I used two colors (yellow and orange) to make that glow. The Play button is also a shade of orange to follow the theme, and it is a different color from the Quit button because I want players to click towards *Play* more often than *Quit,* so I made it stand out more. 
@@ -63,9 +64,11 @@ When the player clicks *Play*, it takes them to the next scene in Unity’s buil
 [Here is the video I used as reference.](https://www.youtube.com/watch?v=pcyiub1hz20&list=PLFd_7LxN8iPbH5NqiMwIl96IyG6TIDnV0&index=2&t=653s).
 
 **HUD**
+
 These are elements that I deemed to be important to show at all times in order to help the player out when navigating through the game and its core gameplay. Here is a [link to the Figma to view the variants of each of the elements!](https://www.figma.com/proto/wX1A7DqmV5fxkBkhqliCo1/Embers-UI-Design?type=design&node-id=33-37&scaling=min-zoom&page-id=0%3A1)
 
 **Player Health Bar**
+
 There were several designs that I went through before deciding on the final health bar that is currently shown in our game. I played around with different ways of outlining the health bar and the heart icon. 
 
 The health bar for the player is composed of three images–the background oat color, the border that surrounds the bar, and the heart itself. The bar was an image within unity, where I changed its *Image Type* to Filled horizontally to the left. There is also a text on how much health the player has out of 100 to prevent any guessing. The background oat color was also created in Figma.
@@ -77,6 +80,7 @@ The intended behavior of the health bar is assigned the [maximum health of the p
 [Here is the video I used as reference.](https://www.youtube.com/watch?v=ZzkIn41DFFo&list=PLFd_7LxN8iPbH5NqiMwIl96IyG6TIDnV0&index=5).
 
 **Wood Counting**
+
 There were also several designs I went through in order to stay consistent with the design of the health bar. 
 
 The wood counting UI is composed of 2 images–the wood icon, and the background oat color. Unfortunately, I could not find the original source of the wood icon, but I modified it by adding more lines through the wood as well as adding an outline similar to all of the other icons used in the HUD all through Figma. The background oat color was also created in Figma.
@@ -88,6 +92,7 @@ The wood is detected through a [collision](https://github.com/JustinGuan/ECS189L
 [Here is the video I used as reference.](https://www.youtube.com/watch?v=6iSJ_jh6Rdo&list=PLFd_7LxN8iPbH5NqiMwIl96IyG6TIDnV0&index=1).
 
 **Fire Health**
+
 The fire icon is composed of two images–the fire icon and the background color. The icon I used is from [Flaticon](https://www.flaticon.com/free-icon/flame_426833?term=fire&page=1&position=3&origin=search&related_id=426833) and here is its [attribution](<a href="https://www.flaticon.com/free-icons/fire" title="fire icons">Fire icons created by Vectors Market - Flaticon</a>). Similar to all of the other icons, I added an outline around the icon through Figma. The background oat color was also created in Figma.
 
 Originally, the fire health is supposed to look exactly like the player health bar, but with different colors to match the fire and its health shown in a percentage. However, due to time, I could not figure out the bug that prevents the bar from filling correctly, so I changed it to a UI similar to the wood counting. 
@@ -99,17 +104,21 @@ The logic for the [text updating is the same as player health bar](https://githu
 [Here is the video I used as reference](https://www.youtube.com/watch?v=ZzkIn41DFFo&list=PLFd_7LxN8iPbH5NqiMwIl96IyG6TIDnV0&index=5).
 
 **Next Steps**
+
 Due to time constraints, some ideas I had were not able to be implemented. Here is what I would like to accomplish next as the UI developer for this project:
 
 **Tutorial Screen**
+
 I believe having a tutorial screen would be very helpful for new players playing the screen!
 
 I did create a placeholder tutorial scene to be used for the tutorial, and my idea was to have a gif that plays to show the player how the main parts of our game works. For the gif/video playing idea in that scene, I [referenced from](https://www.youtube.com/watch?v=L6-vAtuN0h8&list=PLFd_7LxN8iPbH5NqiMwIl96IyG6TIDnV0&index=3) and [from](https://www.youtube.com/watch?v=VKckKdTdDJA&list=PLFd_7LxN8iPbH5NqiMwIl96IyG6TIDnV0&index=4).
 
 **Update the Main Menu**
+
 I would like to create a visually more appealing button design for the **Play and Quit buttons** and update the logo of our title, Embers. 
 
 **Fixing the bug for the flame health**
+
 Since the original flame health included a bar similar to the player health, I want to spend even more time figuring out how to make it fill properly. I did encounter a bug for updating the text when the player adds wood into the fire, where it would not update, but I was able to solve it.
 
  I believe the visual of the bar depleting and also the text would give the player a greater sense of urgency in keeping the flame alive. 

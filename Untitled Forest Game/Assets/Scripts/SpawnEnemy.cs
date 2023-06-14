@@ -19,17 +19,21 @@ public class SpawnEnemy : MonoBehaviour
     void Awake()
     {
         tracker = GameObject.Find("World Generator").GetComponent<LocationTracker>();
-        sCollider = GetComponent<SphereCollider>();
         wg = GameObject.Find("World Generator").GetComponent<WorldGenerator>();
     }
 
     void Start()
     {
-        this.maxRadius = wg.worldSize / 2;
+        this.maxRadius = wg.worldSize / 4;
     }
 
     void Update()
     {
+        if(tracker.fireplace == null)
+        {
+            tracker = GameObject.Find("World Generator").GetComponent<LocationTracker>();
+            return;
+        }
         // If the player is not inside the radius or numEnemies is reached, do nothing.
         if (!inRange || numEnemies == maxEnemies)
         {
@@ -70,9 +74,8 @@ public class SpawnEnemy : MonoBehaviour
             float theta = Random.Range(0, 2.0f * Mathf.PI);
             float x = spawnerPos.x + (r1 * Mathf.Cos(theta));
             float z = spawnerPos.z + (r1 * Mathf.Sin(theta));
-            // Prevents enemy from spawning near (or too far from) the fireplace.
-            
-            Instantiate(enemyPrefab, new Vector3(x, wg.GetRandomPosition().y, z), Quaternion.identity, this.transform);
+            float y = Terrain.activeTerrain.SampleHeight(new Vector3(x, 0f, z));
+            Instantiate(enemyPrefab, new Vector3(x, y, z), Quaternion.identity, this.transform);
         }
         this.numEnemies += enemiesLeft;
     }

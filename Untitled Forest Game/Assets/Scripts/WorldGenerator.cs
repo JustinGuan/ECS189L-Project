@@ -1,5 +1,6 @@
 using Unity.AI.Navigation;
 using UnityEngine;
+using Unity.AI.Navigation;
 
 public class WorldGenerator : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class WorldGenerator : MonoBehaviour
     public float lacunarity = 2f;
     // Useful for calculations
     private int mapEdge;
+    private NavMeshSurface navMeshSurface;
 
     // Prefabs to spawn in
     public GameObject[] enemySpawners;
@@ -22,6 +24,7 @@ public class WorldGenerator : MonoBehaviour
     public GameObject[] grassPrefab;
     public GameObject[] passivePrefab;
     public GameObject flamePrefab;
+    public int spawnerDistance = 250;
     public int maxTrees = 100;
     public int maxRocks = 100;
     public int maxMushrooms = 100;
@@ -50,11 +53,9 @@ public class WorldGenerator : MonoBehaviour
 
         // Access the NavMeshSurface component
         navMeshSurface = GetComponent<NavMeshSurface>();
-
         // Call the Bake function to update the NavMesh
         navMeshSurface.BuildNavMesh();
-
-        patrolPoints = new GameObject[5, 4];
+        
         GenerateSpawners();
     }
 
@@ -70,9 +71,9 @@ public class WorldGenerator : MonoBehaviour
 
         float[,] heightmap = new float[worldSize, worldSize];
 
-        for (int x = -mapEdge; x < mapEdge; x++)
+        for (int x = -mapEdge; x <= mapEdge; x++)
         {
-            for (int z = -mapEdge; z < mapEdge; z++)
+            for (int z = -mapEdge; z <= mapEdge; z++)
             {
                 // Calculate height using Perlin noise
                 float height = CalculateHeight(x, z);
@@ -156,6 +157,7 @@ public class WorldGenerator : MonoBehaviour
 
     private void GenerateSpawners()
     {
+        float angle = (float)((2 * Mathf.PI) / 5);
         // Generate enemy spawners
         for (int n = 0; n < enemySpawners.Length; n++)
         {

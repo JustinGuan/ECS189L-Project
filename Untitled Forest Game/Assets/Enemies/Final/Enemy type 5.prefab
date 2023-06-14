@@ -64,8 +64,178 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Purple Enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1061676168296156914, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+    - {fileID: -2484955325535349143, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+    - {fileID: 3838817585917314936, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+    - {fileID: 4276226070251146387, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+    - {fileID: 315971233489776985, guid: 3542ba5439b8933458c18d14210db023, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3043637953535340126}
+    - targetCorrespondingSourceObject: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1984325935703283039}
+    - targetCorrespondingSourceObject: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -821915395290307837}
+    - targetCorrespondingSourceObject: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3026842938092111268}
+    - targetCorrespondingSourceObject: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 142926863504680187}
   m_SourcePrefab: {fileID: 100100000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+--- !u!1 &1862526193213584062 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+  m_PrefabInstance: {fileID: 5659592469245010534}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-3043637953535340126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862526193213584062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 486b954a3b7bc8b42aee37b2694d5f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolBehavior: {fileID: -3043637953535340126}
+  chaseBehavior: {fileID: 0}
+  attackBehavior: {fileID: 0}
+  currentState: 0
+  agent: {fileID: 6812053540373862086}
+  distanceToFlame: 0
+  patrolLock: 0
+  patrolLockDuration: 3
+  patrolLockCurrent: 0
+  flameTransform: {fileID: 0}
+  flameRadius: 0
+  detectionRange: 10
+  fieldOfViewAngle: 60
+  playerTransform: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  patrolSpeed: 4.72
+--- !u!114 &1984325935703283039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862526193213584062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 508138041c17a334ea6b85595e41adaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolBehavior: {fileID: 0}
+  chaseBehavior: {fileID: 1984325935703283039}
+  attackBehavior: {fileID: 0}
+  currentState: 0
+  agent: {fileID: 6812053540373862086}
+  distanceToFlame: 0
+  patrolLock: 0
+  patrolLockDuration: 3
+  patrolLockCurrent: 0
+  flameTransform: {fileID: 0}
+  flameRadius: 0
+  detectionRange: 10
+  fieldOfViewAngle: 180
+  playerTransform: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  chaseSpeed: 8.4
+  outOfSightDuration: 3
+--- !u!114 &-821915395290307837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862526193213584062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c7abba80e6fa44986567f5f9c95f2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolBehavior: {fileID: 0}
+  chaseBehavior: {fileID: 0}
+  attackBehavior: {fileID: -821915395290307837}
+  currentState: 0
+  agent: {fileID: 6812053540373862086}
+  distanceToFlame: 0
+  patrolLock: 0
+  patrolLockDuration: 3
+  patrolLockCurrent: 0
+  flameTransform: {fileID: 0}
+  flameRadius: 0
+  detectionRange: 10
+  fieldOfViewAngle: 180
+  playerTransform: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  attackDamage: 10
+  attackCooldown: 2
+  attackRange: 2
+--- !u!114 &3026842938092111268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862526193213584062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e2000e5830e331459ead3ebf6744798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolBehavior: {fileID: 0}
+  chaseBehavior: {fileID: 0}
+  attackBehavior: {fileID: 0}
+  currentState: 0
+  agent: {fileID: 6812053540373862086}
+  distanceToFlame: 0
+  patrolLock: 0
+  patrolLockDuration: 3
+  patrolLockCurrent: 0
+  flameTransform: {fileID: 0}
+  flameRadius: 0
+  detectionRange: 10
+  fieldOfViewAngle: 180
+  playerTransform: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &142926863504680187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862526193213584062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4683138d9a5aa2c48b72bb2687d0e0fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currHealth: 100
+--- !u!195 &6812053540373862086 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: -8069412837979704160, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+  m_PrefabInstance: {fileID: 5659592469245010534}
+  m_PrefabAsset: {fileID: 0}

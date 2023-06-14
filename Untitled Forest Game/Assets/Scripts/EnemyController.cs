@@ -1,13 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-/*
-To-do:
-(Fixed?) Enemy doesn't switch to chase speed in chase mode.
-(Fixed?  (Need reference to flame health.) Enemy doesn't avoid flame radius.
-(Fixed?) (Needs reference to player health.  Put this in player controller.) Enemy doesn't do damage.  (Create setter function.)
-The patrol points need to be placed around the spawners.
-*/
 
 namespace Embers
 {
@@ -27,7 +20,6 @@ namespace Embers
 
 		public EnemyState currentState;
 
-		//[SerializeField] public float enemyHealth = 100;
 		public NavMeshAgent agent;
 
 		// Flame detection
@@ -147,28 +139,5 @@ namespace Embers
 
 			return false;
 		}
-
-		/*
-		public void DamageEnemy(int damageAmount)
-		{
-				enemyHealth -= damageAmount;
-				if (enemyHealth <= 0)
-				{
-						// Call a method to handle enemy death or despawning
-						Die();
-				}
-		}
-
-		public void Die()
-		{
-				// Perform any necessary cleanup or death-related logic
-				// For example, we might play an animation, trigger particle effects, or update the game state
-
-				// Destroy the enemy object
-				Destroy(gameObject);
-		}
-		*/
-
-
 	}
 }

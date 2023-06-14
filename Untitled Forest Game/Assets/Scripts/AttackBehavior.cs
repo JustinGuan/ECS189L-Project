@@ -28,6 +28,7 @@ namespace Embers
 			// Apply damage to the player or trigger any desired attack behavior
 			enemyController.GetComponent<Animator>().Play("Attack");
 			//DamagePlayer(attackDamage); (Implement)
+			GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthBar>().Damage(attackDamage);
 
 			// Set attack on cooldown
 			canAttack = false;

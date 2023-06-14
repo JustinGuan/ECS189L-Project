@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject fire;
+    [SerializeField] private GameObject flameUI;
     [SerializeField] private float timer = 90.0f;
     private ScenesManager sm;
     private FireplaceMechanic fm;
@@ -32,11 +32,11 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         timeSinceCheck += Time.deltaTime;
-        // If the either the fire or player is null, dont update.
-        if(fire == null || player == null) return;
         // Lose Conditions.
-        playerHP = _playerHealthBar.GetPlayerHealth();
-        fireHP = fm.GetFireHealth();
+        playerHP = player.GetComponent<PlayerHealthBar>().GetPlayerHealth();
+        Debug.Log(playerHP);
+        fireHP = flameUI.GetComponent<FlameHealth>().health;
+        Debug.Log(fireHP);
         if(playerHP <= 0.0f || fireHP <= 0.0f)
         {
             if(playerHP <= 0.0f)
@@ -55,10 +55,11 @@ public class LevelManager : MonoBehaviour
             sm.LoadVictoryScreen();
         }
     }
-
+    /*
     public void SetFire(GameObject go)
     {
         this.fire = go;
         this.fm = go.GetComponent<FireplaceMechanic>();
     }
+    */
 }

@@ -67,9 +67,26 @@ The final feature I added to the map was a NavMeshSurface for the enemy AI.  Thi
 
 ## Input
 
-**Describe the default input configuration.**
+***Input Configuration***
+Our game currently supports Windows and we have plans to expand its accessibility by implementing a console version that allows players to use a controller. In the current version, players can control the character's movement using either the WASD keys or the arrow keys, providing flexibility in input options. The character is capable of performing various actions, such as jumping with the space key and sprinting by holding down the shift key while moving.
 
-**Add an entry for each platform or input style your project supports.**
+To enhance the aiming experience, players can zoom in on the camera by holding the left control key, allowing for more precise targeting. The mouse input is utilized for additional actions: the left click button triggers a melee attack with the staff, while the right click button launches a projectile from the staff, adding diversity to the gameplay mechanics.
+
+
+***Input implementation***
+
+*Movement system*
+The basic character movements are done in the [CharacterMovement.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/CharacterMovement.cs) script which was developed by George. The aim left control is a script called [ActiveOnKeypress.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/ActivateOnKeypress.cs) which checks if the left control key is pressed, it then triggers the Cinemachine third-person camera to transition into an aiming mode, providing players with enhanced precision.
+
+*Combat system*
+Our combat mechanics in the game encompass both melee attacks and projectile abilities, which have been intuitively mapped to the mouse controls for simplicity and ease of use.
+
+To execute the melee attack, we have implemented the [melee.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/Melee.cs) script. When the player presses the left mouse button, the attack method is triggered. This method checks if any enemies are within the staff's range and deal damage accordingly. By referencing the [Health.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/Health.cs) script, the attack method assesses the enemy's health and destroys them if their health drops to zero or below.
+
+For the projectile attack, we rely on the [ThirdPersonShooterController.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/ThirdPersonShooterController.cs) script. By pressing the right mouse button, players activate the script, enabling them to fire a projectile in the direction of their crosshair. The position of the screen center is determined using a ray cast function, while the crosshair is designed using Unity's canvas to provide visual feedback on the target's location.
+
+To facilitate the projectile mechanics, we utilize an iceball object that Trina implemented. The [Projectile.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/Projectile.cs) script controls the speed and interactions of the projectile. If the projectile collides with an enemy or the ground, it is destroyed. When interacting with an enemy, the [Damage.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/Damage.cs) script calculates and applies the appropriate damage.
+
 
 ## Game Logic
 

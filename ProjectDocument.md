@@ -37,7 +37,17 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Producer
 
-**Describe the steps you took in your role as producer. Typical items include group scheduling mechanism, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, depedency/task tracking, Gantt charts, etc.), and repository management methodology.**
+***Producer*** - As producer, I directed group meetings making sure we covered everything we needed to discuss.  We met about once a week and more frequently at the end of the quarter.  To give us direction, I used ChatGPT to generate a development timeline for our game.  We tailored this and used it to divide up the workload.  This timeline was included in our Initial Plan document, and I updated it as we completed tasks.  Later in the quarter, I also wrote a Progress Report for us.  It was cancelled as an assignment, but it turned out to be very helpful, so I wrote it anyway.  We also had one document of ideas and notes, which we created after forming our group: https://docs.google.com/document/d/1bNIOD9RLAmvgB8VPDfi_Uz9kx2FsmbONeRTFGd4-l48/edit?usp=sharing.
+
+Fortunately, we had an amazing group, where everyone was committed to the project and there were no freeloaders; thus, my role as producer was a less important.  My biggest contributions were the enemy AI and the procedural world generation.
+
+***Enemy AI*** – ChatGPT is incredible.  I had no idea how enemy AI works, but through a quarter-long conversation with ChatGPT I was able to figure it out.  I created a two-state system: Patrolling and Chasing.  The enemies use a NavMesh to travel to different destinations on the map.  By default, the enemies patrol by navigating to various patrol points around the map.  When a player gets too close, the enemy switches to chase mode and begins navigating toward the player.  Once the enemy is close enough, it will attack the player.
+
+Early in the game development, I had this behavior working in a small test scene.  However, our world map and playable character were not ready for a long time, so I did not test it further.  Sadly, when we had all the necessary components (the final enemy and player models, the world map, and the enemy spawners), the enemy AI did not carry over.  The attack behavior work as intended, but the patrol and chase behaviors were broken.  I was unable to fix this, but the legends George and Hung were able to swoop in and get it working.  All behaviors are functional in the final game.
+
+***Procedural Map Generation*** – Here also, I had no idea how this worked, but with ChatGPT I was able implement it into our game.  The world is generated according to the WorldGeneration.cs script.  The initial map is simply a flat square.  Then the script uses Perlin noise to adjust the height of each coordinate.  This essentially adds random deformations (hills) to the map.  Aside from the script logic, getting the hills to look natural required a lot of parameter fine-tuning.  The script uses the function GenerateObjects() to spawn objects (trees, mushrooms, etc.) throughout the world.
+
+The final feature I added to the map was a NavMeshSurface for the enemy AI.  This was a little tricky since I the NavMesh could not be baked ahead of time.  The map is not generated until the game starts, so I had to bake it from within WorldGenerator.cs after the game started.  This allowed the NavMesh to conform to the hills of the terrain.
 
 ## User Interface
 

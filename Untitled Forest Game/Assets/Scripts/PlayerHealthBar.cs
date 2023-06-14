@@ -35,6 +35,7 @@ public class PlayerHealthBar : MonoBehaviour
         lerpSpeed = 5.0f * Time.deltaTime;
 
         //Testing.
+        /*
         if(Input.GetButtonDown("Jump"))
         {
              Damage(20.0f);
@@ -43,6 +44,7 @@ public class PlayerHealthBar : MonoBehaviour
         {
              Heal(10.0f);
         }
+        */
     }
 
     void HealthBarFiller()

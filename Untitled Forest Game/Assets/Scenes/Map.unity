@@ -3770,9 +3770,9 @@ MonoBehaviour:
   grassPrefab:
   - {fileID: 5863130029983618753, guid: 59cd35a0b4eb9174aa11b2010824ac17, type: 3}
   passivePrefab:
-  - {fileID: 2936771607706991130, guid: 493adc9735795b1418c3000230eb12c3, type: 3}
-  - {fileID: 427965700714601196, guid: 052c4a00897c8d243963c059408df1ad, type: 3}
-  - {fileID: 8644318972552099178, guid: 2727f93be03505c4dbd2ea705c289d99, type: 3}
+  - {fileID: 802748953946212601, guid: f1ac1be18cff7d24e82c916ed227ac94, type: 3}
+  - {fileID: 2936771607706991130, guid: c9e5bd77eab183841a162aa6016df655, type: 3}
+  - {fileID: 6401093563098967773, guid: d45fce9ab3dff4c4ab2b496203ba7953, type: 3}
   flamePrefab: {fileID: 6552518781143865606, guid: bc5937d7b1224914aa3572e9fce3297f, type: 3}
   spawnerDistance: 100
   maxTrees: 4000

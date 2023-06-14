@@ -14,4 +14,14 @@ public class LocationTracker : MonoBehaviour
     public Vector3 GetFireplacePos() {
         return fireplace.transform.position;
     }
+
+    public void SetPlayer(GameObject go)
+    {
+        this.player = go;
+    }
+
+    public void SetFire(GameObject go)
+    {
+        this.fireplace = go;
+    }
 }

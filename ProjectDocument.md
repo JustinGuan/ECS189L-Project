@@ -6,10 +6,19 @@ Embers is an immersive and thrilling fantasy action game where you embody a myst
 
 ## Gameplay Explanation ##
 
-**In this section, explain how the game should be played. Treat this as a manual within a game. It is encouraged to explain the button mappings and the most optimal gameplay strategy.**
+Move with WASD or arrow keys
 
+Space to jump
 
-**If you did work that should be factored in to your grade that does not fit easily into the proscribed roles, add it here! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
+Shift to sprint
+
+Left click to melee attack
+
+Right click to shoot
+
+Keep the flame alive.  The central flame has health that is continuously decreasing.  You must search the forest to collect wood.  You feed this to the flame to restore its health (Not implemented).  You lose the game if you or the flame die (Not implemented).  To win, you must keep the flame alive for a certain amount of time.
+
+As you search for wood, enemies patrol the forest searching for you.  They will chase you once they see you, so you must stay out of sight or fight.  Your attack options are a melee attack and a magic projectile.
 
 # Main Roles #
 

@@ -2,7 +2,9 @@
 
 ## Summary ##
 
-Embers is an immersive and thrilling fantasy action game where you embody a mystical forest spirit that is entrusted with a crucial task of protecting the sacred flame that is the heart of the magical forest. The flame serves as a lifeline of the forest, warding off evil spirits that want to engulf this place with darkness. As the forest spirit, your primary objective is to gather wood around the forest to sustain the flame’s radiant power. However, the further you venture into the forest the more risks occur. The game’s narrative is set in a mystical world on the brink of darkness. The spirit's effort in trying to revitalize the forest by awaiting for the sun’s rays of light. Embers offers an engaging user experience by combining elements of exploration, resource management, and tactical combat. 
+A great wicked spirit has descended upon the mystical forest and seeks to engulf it.  She is only held back by the mystical flame at the forest’s heart.  She sends hordes of minions to destroy it, but your friend, Mystic Hare, guards it using the magic of the flame.  As long as the strength of the flame endures, the forest and its inhabitants will be protected.
+
+You must search the forest collecting wood to fuel the flame.  If you keep the flame alive long enough, the wicked spirit will exhaust all her strength.  Then she will be forced to withdraw her minions and flee. 
 
 ## Gameplay Explanation ##
 
@@ -18,9 +20,9 @@ Right click to shoot
 
 Z to deposit wood in flame
 
-Keep the flame alive.  The central flame has health that is continuously decreasing.  You must search the forest to collect wood.  You feed this to the flame to restore its health.  You lose the game if you or the flame die.  To win, you must keep the flame alive for a certain amount of time.
+Keep the flame alive. The central flame has health that is continuously decreasing. You must search the forest to collect wood and feed this to the flame to restore its health. You lose the game if you or the flame die. To win, you must keep the flame alive for 10 minutes.
 
-As you search for wood, enemies patrol the forest searching for you.  They will chase you once they see you, so you must stay out of sight or fight.  Your attack options are a melee attack and a magic projectile.  Good luck
+As you search for wood, enemies patrol the forest searching for you. They will chase you once you get close enough, so you must stay out of sight or fight. Your attack options are a melee attack and a magic projectile. Good luck…
 
 # Main Roles #
 

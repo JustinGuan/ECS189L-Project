@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4405237472128394829, guid: 34f7339e75b79a343b9ff134f6fcf370, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5029133819400624453, guid: 34f7339e75b79a343b9ff134f6fcf370, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -84,6 +88,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4405237472128394829, guid: 34f7339e75b79a343b9ff134f6fcf370, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5839253078520873789}
+    - targetCorrespondingSourceObject: {fileID: 4405237472128394829, guid: 34f7339e75b79a343b9ff134f6fcf370, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1531323497116634052}
   m_SourcePrefab: {fileID: 100100000, guid: 34f7339e75b79a343b9ff134f6fcf370, type: 3}
 --- !u!1 &3795559361302821857 stripped
 GameObject:
@@ -178,6 +185,13 @@ MonoBehaviour:
   chaseBehavior: {fileID: 0}
   attackBehavior: {fileID: 0}
   currentState: 0
+  agent: {fileID: 0}
+  distanceToFlame: 0
+  patrolLock: 0
+  patrolLockDuration: 3
+  patrolLockCurrent: 0
+  flameTransform: {fileID: 0}
+  flameRadius: 0
   detectionRange: 10
   fieldOfViewAngle: 60
   playerTransform: {fileID: 0}
@@ -205,6 +219,13 @@ MonoBehaviour:
   chaseBehavior: {fileID: 3063702646916090214}
   attackBehavior: {fileID: 0}
   currentState: 0
+  agent: {fileID: 0}
+  distanceToFlame: 0
+  patrolLock: 0
+  patrolLockDuration: 3
+  patrolLockCurrent: 0
+  flameTransform: {fileID: 0}
+  flameRadius: 0
   detectionRange: 10
   fieldOfViewAngle: 180
   playerTransform: {fileID: 0}
@@ -229,6 +250,13 @@ MonoBehaviour:
   chaseBehavior: {fileID: 0}
   attackBehavior: {fileID: 6015391877817873917}
   currentState: 0
+  agent: {fileID: 0}
+  distanceToFlame: 0
+  patrolLock: 0
+  patrolLockDuration: 3
+  patrolLockCurrent: 0
+  flameTransform: {fileID: 0}
+  flameRadius: 0
   detectionRange: 10
   fieldOfViewAngle: 180
   playerTransform: {fileID: 0}
@@ -254,6 +282,13 @@ MonoBehaviour:
   chaseBehavior: {fileID: 0}
   attackBehavior: {fileID: 0}
   currentState: 0
+  agent: {fileID: 0}
+  distanceToFlame: 0
+  patrolLock: 0
+  patrolLockDuration: 3
+  patrolLockCurrent: 0
+  flameTransform: {fileID: 0}
+  flameRadius: 0
   detectionRange: 10
   fieldOfViewAngle: 180
   playerTransform: {fileID: 0}
@@ -281,3 +316,17 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-1531323497116634052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3795559361302821857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4683138d9a5aa2c48b72bb2687d0e0fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 150
+  currHealth: 0

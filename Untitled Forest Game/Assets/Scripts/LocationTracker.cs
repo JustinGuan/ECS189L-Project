@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LocationTracker : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
-    [SerializeField] private GameObject fireplace;
+    public GameObject player;
+    public GameObject fireplace;
 
     public Vector3 GetPlayerPos() {
         return player.transform.position;

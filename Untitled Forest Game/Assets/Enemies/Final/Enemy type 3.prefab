@@ -58,10 +58,180 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3794677478e894a4ca461b7a17a80fcf, type: 2}
     - target: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
       propertyPath: m_Name
-      value: Humanoid_textured (3) Variant
+      value: Enemy type 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1061676168296156914, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+    - {fileID: -2484955325535349143, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+    - {fileID: 3838817585917314936, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+    - {fileID: 4276226070251146387, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+    - {fileID: 315971233489776985, guid: 3542ba5439b8933458c18d14210db023, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5627436362346575620}
+    - targetCorrespondingSourceObject: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8071226377010191432}
+    - targetCorrespondingSourceObject: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -9217775160676388116}
+    - targetCorrespondingSourceObject: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6516401988666824080}
+    - targetCorrespondingSourceObject: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2291364855266619787}
   m_SourcePrefab: {fileID: 100100000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+--- !u!195 &1317847716508839066 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: -8069412837979704160, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+  m_PrefabInstance: {fileID: 165014993206483002}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6132122214208080098 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+  m_PrefabInstance: {fileID: 165014993206483002}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-5627436362346575620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6132122214208080098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 486b954a3b7bc8b42aee37b2694d5f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolBehavior: {fileID: -5627436362346575620}
+  chaseBehavior: {fileID: 0}
+  attackBehavior: {fileID: 0}
+  currentState: 0
+  agent: {fileID: 1317847716508839066}
+  distanceToFlame: 0
+  patrolLock: 0
+  patrolLockDuration: 3
+  patrolLockCurrent: 0
+  flameTransform: {fileID: 0}
+  flameRadius: 0
+  detectionRange: 10
+  fieldOfViewAngle: 60
+  playerTransform: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  patrolSpeed: 4.72
+--- !u!114 &8071226377010191432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6132122214208080098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 508138041c17a334ea6b85595e41adaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolBehavior: {fileID: 0}
+  chaseBehavior: {fileID: 8071226377010191432}
+  attackBehavior: {fileID: 0}
+  currentState: 0
+  agent: {fileID: 1317847716508839066}
+  distanceToFlame: 0
+  patrolLock: 0
+  patrolLockDuration: 3
+  patrolLockCurrent: 0
+  flameTransform: {fileID: 0}
+  flameRadius: 0
+  detectionRange: 10
+  fieldOfViewAngle: 180
+  playerTransform: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  chaseSpeed: 8.4
+  outOfSightDuration: 3
+--- !u!114 &-9217775160676388116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6132122214208080098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c7abba80e6fa44986567f5f9c95f2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolBehavior: {fileID: 0}
+  chaseBehavior: {fileID: 0}
+  attackBehavior: {fileID: -9217775160676388116}
+  currentState: 0
+  agent: {fileID: 1317847716508839066}
+  distanceToFlame: 0
+  patrolLock: 0
+  patrolLockDuration: 3
+  patrolLockCurrent: 0
+  flameTransform: {fileID: 0}
+  flameRadius: 0
+  detectionRange: 10
+  fieldOfViewAngle: 180
+  playerTransform: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  attackDamage: 10
+  attackCooldown: 2
+  attackRange: 2
+--- !u!114 &6516401988666824080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6132122214208080098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e2000e5830e331459ead3ebf6744798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolBehavior: {fileID: 0}
+  chaseBehavior: {fileID: 0}
+  attackBehavior: {fileID: 0}
+  currentState: 0
+  agent: {fileID: 1317847716508839066}
+  distanceToFlame: 0
+  patrolLock: 0
+  patrolLockDuration: 3
+  patrolLockCurrent: 0
+  flameTransform: {fileID: 0}
+  flameRadius: 0
+  detectionRange: 10
+  fieldOfViewAngle: 180
+  playerTransform: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &-2291364855266619787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6132122214208080098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4683138d9a5aa2c48b72bb2687d0e0fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currHealth: 100

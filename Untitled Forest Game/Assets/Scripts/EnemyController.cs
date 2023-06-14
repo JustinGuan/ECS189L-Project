@@ -69,6 +69,15 @@ namespace Embers
                 //patrolLock = true;    (Implement)
                 //currentState = EnemyState.Patrolling; (Implement)
             //} (Implement)
+            if(patrolBehavior == null || chaseBehavior == null || attackBehavior == null || agent == null)
+            {
+                // Get references to the PatrolBehavior, ChaseBehavior, and AttackBehavior components
+                patrolBehavior = GetComponent<PatrolBehavior>();
+                chaseBehavior = GetComponent<ChaseBehavior>();
+                attackBehavior = GetComponent<AttackBehavior>();
+                agent = GetComponent<NavMeshAgent>();
+                return;
+            }
 
             switch (currentState)
             {

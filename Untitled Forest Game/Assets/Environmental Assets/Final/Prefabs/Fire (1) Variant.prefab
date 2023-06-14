@@ -96,6 +96,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire (1) Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fa829d5ca73c3974aac66113f00ea504, type: 3}
+      propertyPath: m_TagString
+      value: Flame
+      objectReference: {fileID: 0}
     - target: {fileID: 928911833541816158, guid: fa829d5ca73c3974aac66113f00ea504, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -149,6 +153,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fa829d5ca73c3974aac66113f00ea504, type: 3}
       insertIndex: -1
       addedObject: {fileID: -8855894670881874116}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fa829d5ca73c3974aac66113f00ea504, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1620321399379427560}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fa829d5ca73c3974aac66113f00ea504, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2072927971960296326}
     - targetCorrespondingSourceObject: {fileID: -5568371526223589888, guid: fa829d5ca73c3974aac66113f00ea504, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7167320632842040734}
@@ -266,20 +276,41 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5791890808167602697
+--- !u!135 &1620321399379427560
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6552518781143865606}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-2072927971960296326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6552518781143865606}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb0faa10dae5e544b08d41e13b33ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCapacity: 100
-  extinguishRate: 0
+  maxCapacity: 200
+  extinguishRate: 10
   currentCapacity: 0
   maxRadius: 10
   curRadius: 0

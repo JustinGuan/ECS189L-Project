@@ -58,10 +58,180 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 6277f8ac9f1383f429f108d12025a466, type: 2}
     - target: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
       propertyPath: m_Name
-      value: Humanoid_textured (2) Variant
+      value: Enemy type 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1061676168296156914, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+    - {fileID: -2484955325535349143, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+    - {fileID: 3838817585917314936, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+    - {fileID: 4276226070251146387, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+    - {fileID: 315971233489776985, guid: 3542ba5439b8933458c18d14210db023, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8578280506238047124}
+    - targetCorrespondingSourceObject: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7843973368434322954}
+    - targetCorrespondingSourceObject: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8811726619405517818}
+    - targetCorrespondingSourceObject: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3907744885869110673}
+    - targetCorrespondingSourceObject: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4936573149043169477}
   m_SourcePrefab: {fileID: 100100000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+--- !u!1 &4039427908702954944 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6292633590065271000, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+  m_PrefabInstance: {fileID: 8024573061544146200}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-8578280506238047124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039427908702954944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 486b954a3b7bc8b42aee37b2694d5f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolBehavior: {fileID: -8578280506238047124}
+  chaseBehavior: {fileID: 0}
+  attackBehavior: {fileID: 0}
+  currentState: 0
+  agent: {fileID: 9177963761166696888}
+  distanceToFlame: 0
+  patrolLock: 0
+  patrolLockDuration: 3
+  patrolLockCurrent: 0
+  flameTransform: {fileID: 0}
+  flameRadius: 0
+  detectionRange: 10
+  fieldOfViewAngle: 60
+  playerTransform: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  patrolSpeed: 4.72
+--- !u!114 &7843973368434322954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039427908702954944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 508138041c17a334ea6b85595e41adaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolBehavior: {fileID: 0}
+  chaseBehavior: {fileID: 7843973368434322954}
+  attackBehavior: {fileID: 0}
+  currentState: 0
+  agent: {fileID: 9177963761166696888}
+  distanceToFlame: 0
+  patrolLock: 0
+  patrolLockDuration: 3
+  patrolLockCurrent: 0
+  flameTransform: {fileID: 0}
+  flameRadius: 0
+  detectionRange: 10
+  fieldOfViewAngle: 180
+  playerTransform: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  chaseSpeed: 8.4
+  outOfSightDuration: 3
+--- !u!114 &-8811726619405517818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039427908702954944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c7abba80e6fa44986567f5f9c95f2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolBehavior: {fileID: 0}
+  chaseBehavior: {fileID: 0}
+  attackBehavior: {fileID: -8811726619405517818}
+  currentState: 0
+  agent: {fileID: 9177963761166696888}
+  distanceToFlame: 0
+  patrolLock: 0
+  patrolLockDuration: 3
+  patrolLockCurrent: 0
+  flameTransform: {fileID: 0}
+  flameRadius: 0
+  detectionRange: 10
+  fieldOfViewAngle: 180
+  playerTransform: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  attackDamage: 10
+  attackCooldown: 2
+  attackRange: 2
+--- !u!114 &3907744885869110673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039427908702954944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e2000e5830e331459ead3ebf6744798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolBehavior: {fileID: 0}
+  chaseBehavior: {fileID: 0}
+  attackBehavior: {fileID: 0}
+  currentState: 0
+  agent: {fileID: 9177963761166696888}
+  distanceToFlame: 0
+  patrolLock: 0
+  patrolLockDuration: 3
+  patrolLockCurrent: 0
+  flameTransform: {fileID: 0}
+  flameRadius: 0
+  detectionRange: 10
+  fieldOfViewAngle: 180
+  playerTransform: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &4936573149043169477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039427908702954944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4683138d9a5aa2c48b72bb2687d0e0fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currHealth: 100
+--- !u!195 &9177963761166696888 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: -8069412837979704160, guid: 3542ba5439b8933458c18d14210db023, type: 3}
+  m_PrefabInstance: {fileID: 8024573061544146200}
+  m_PrefabAsset: {fileID: 0}

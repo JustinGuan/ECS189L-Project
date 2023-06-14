@@ -17,16 +17,9 @@ namespace Embers
         }
         public EnemyState currentState;
 
-        public enum EnemyTypes
-        {
-            White,
-            Red,
-            Blue,
-            Green,
-            Purple,
-            Boss
-        }
-        public EnemyTypes enemyType;
+        // For patrol points
+        public GameObject[] spawners;
+        public int enemyType;
 
         // Flame detection
         public float flameHeath;
@@ -53,6 +46,7 @@ namespace Embers
             attackBehavior = GetComponent<AttackBehavior>();
 
             // Get enemy type
+            spawners = GameObject.FindGameObjectWithTag("World Generator").GetComponent<WorldGenerator>().enemySpawners;
             enemyType = GetEnemyType();
 
             agent = GetComponent<NavMeshAgent>();
@@ -103,35 +97,22 @@ namespace Embers
             }
         }
 
-        public EnemyTypes GetEnemyType()
+        public int GetEnemyType()
         {
-            EnemyTypes type;
-            if (gameObject.tag == "White Enemy")
+            float shortestDistance = Vector3.Distance(transform.position, spawners[0].transform.position);
+            int shortestDistanceIndex = 0;
+            for (int i = 1; i < spawners.Length; i++)
             {
-                type = EnemyTypes.White;
-            }
-            else if (gameObject.tag == "Red Enemy")
-            {
-                type = EnemyTypes.Red;
-            }
-            else if (gameObject.tag == "Blue Enemy")
-            {
-                type = EnemyTypes.Blue;
-            }
-            else if (gameObject.tag == "Green Enemy")
-            {
-                type = EnemyTypes.Green;
-            }
-            else if (gameObject.tag == "Purple Enemy")
-            {
-                type = EnemyTypes.Purple;
-            }
-            else
-            {
-                type = EnemyTypes.Boss;
+                if (Vector3.Distance(transform.position, spawners[i].transform.position) < shortestDistance)
+                {
+                    shortestDistance = Vector3.Distance(transform.position, spawners[i].transform.position);
+                    shortestDistanceIndex = i;
+                }
             }
 
-            return type;
+            enemyType = shortestDistanceIndex;
+
+            return enemyType;
         }
 
         public bool IsPlayerInSight()

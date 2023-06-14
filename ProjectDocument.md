@@ -61,7 +61,7 @@ The title was created on Figma. I wanted to give off the feeling of the glow of 
 
 When the player clicks *Play*, it takes them to the next scene in Unity’s build settings by [adding one](). When the player clicks *Quit*, the intended behavior is for it to [quit the application]().
 
-[Here is the video I used as reference.](https://www.youtube.com/watch?v=pcyiub1hz20&list=PLFd_7LxN8iPbH5NqiMwIl96IyG6TIDnV0&index=2&t=653s).
+[Here is the video I used as reference](https://www.youtube.com/watch?v=pcyiub1hz20&list=PLFd_7LxN8iPbH5NqiMwIl96IyG6TIDnV0&index=2&t=653s).
 
 **HUD**
 
@@ -77,7 +77,7 @@ The images were all created on Figma. The heart icon that I used is from a plugi
 
 The intended behavior of the health bar is assigned the [maximum health of the player](https://github.com/JustinGuan/ECS189L-Project/blob/56076fa56acdf6c6d53070cf9485f679dbb26843/Untitled%20Forest%20Game/Assets/Scripts/PlayerHealthBar.cs#L12), and [the current health the player has](https://github.com/JustinGuan/ECS189L-Project/blob/56076fa56acdf6c6d53070cf9485f679dbb26843/Untitled%20Forest%20Game/Assets/Scripts/PlayerHealthBar.cs#L11). That is how the bar decides how much to fill using the [HealthBarFIller() function](https://github.com/JustinGuan/ECS189L-Project/blob/56076fa56acdf6c6d53070cf9485f679dbb26843/Untitled%20Forest%20Game/Assets/Scripts/PlayerHealthBar.cs#L48). For the smooth filling of the health bar, I used [lerp](https://github.com/JustinGuan/ECS189L-Project/blob/56076fa56acdf6c6d53070cf9485f679dbb26843/Untitled%20Forest%20Game/Assets/Scripts/PlayerHealthBar.cs#L50). For updating the text, I made a [TextMeshProGUI variable](https://github.com/JustinGuan/ECS189L-Project/blob/56076fa56acdf6c6d53070cf9485f679dbb26843/Untitled%20Forest%20Game/Assets/Scripts/PlayerHealthBar.cs#L9) to access its text, and appended the [current health to “/100”](https://github.com/JustinGuan/ECS189L-Project/blob/56076fa56acdf6c6d53070cf9485f679dbb26843/Untitled%20Forest%20Game/Assets/Scripts/PlayerHealthBar.cs#L33).
 
-[Here is the video I used as reference.](https://www.youtube.com/watch?v=ZzkIn41DFFo&list=PLFd_7LxN8iPbH5NqiMwIl96IyG6TIDnV0&index=5).
+[Here is the video I used as reference](https://www.youtube.com/watch?v=ZzkIn41DFFo&list=PLFd_7LxN8iPbH5NqiMwIl96IyG6TIDnV0&index=5).
 
 **Wood Counting**
 
@@ -89,7 +89,7 @@ The behavior of the wood counting UI is that the text goes up as the player coll
 
 The wood is detected through a [collision](https://github.com/JustinGuan/ECS189L-Project/blob/56076fa56acdf6c6d53070cf9485f679dbb26843/Untitled%20Forest%20Game/Assets/Scripts/WoodCollision.cs#L31), and when it collides, it gets [destroyed](https://github.com/JustinGuan/ECS189L-Project/blob/56076fa56acdf6c6d53070cf9485f679dbb26843/Untitled%20Forest%20Game/Assets/Scripts/WoodCollision.cs#L34), and the [branch variable updates](https://github.com/JustinGuan/ECS189L-Project/blob/56076fa56acdf6c6d53070cf9485f679dbb26843/Untitled%20Forest%20Game/Assets/Scripts/WoodCollision.cs#L35). 
 
-[Here is the video I used as reference.](https://www.youtube.com/watch?v=6iSJ_jh6Rdo&list=PLFd_7LxN8iPbH5NqiMwIl96IyG6TIDnV0&index=1).
+[Here is the video I used as reference](https://www.youtube.com/watch?v=6iSJ_jh6Rdo&list=PLFd_7LxN8iPbH5NqiMwIl96IyG6TIDnV0&index=1).
 
 **Fire Health**
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Unity.AI.Navigation;
 
 public class WorldGenerator : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class WorldGenerator : MonoBehaviour
     public float lacunarity = 2f;
     // Useful for calculations
     private int mapEdge;
+    private NavMeshSurface navMeshSurface;
 
     // Prefabs to spawn in
     public GameObject[] enemySpawners;
@@ -21,7 +23,7 @@ public class WorldGenerator : MonoBehaviour
     public GameObject[] grassPrefab;
     public GameObject[] passivePrefab;
     public GameObject flamePrefab;
-    public int spawnerDistance = 100;
+    public int spawnerDistance = 250;
     public int maxTrees = 100;
     public int maxRocks = 100;
     public int maxMushrooms = 100;
@@ -40,6 +42,12 @@ public class WorldGenerator : MonoBehaviour
         GenerateObjects(grassPrefab, maxGrass);
         GenerateObjects(passivePrefab, maxPassives);
         GenerateFlame();
+
+        // Access the NavMeshSurface component
+        navMeshSurface = GetComponent<NavMeshSurface>();
+        // Call the Bake function to update the NavMesh
+        navMeshSurface.BuildNavMesh();
+        
         GenerateSpawners();
     }
 
@@ -55,9 +63,9 @@ public class WorldGenerator : MonoBehaviour
 
         float[,] heightmap = new float[worldSize, worldSize];
 
-        for (int x = -mapEdge; x < mapEdge; x++)
+        for (int x = -mapEdge; x <= mapEdge; x++)
         {
-            for (int z = -mapEdge; z < mapEdge; z++)
+            for (int z = -mapEdge; z <= mapEdge; z++)
             {
                 // Calculate height using Perlin noise
                 float height = CalculateHeight(x, z);
@@ -141,13 +149,13 @@ public class WorldGenerator : MonoBehaviour
 
     private void GenerateSpawners()
     {
+        float angle = (float)((2 * Mathf.PI) / 5);
         // Generate enemy spawners
         for (int n = 0; n < enemySpawners.Length; n++)
         {
-            float angle = (float)(n * Mathf.PI / 180 * 72); // 72 degree rotations. A pentagon of spawners
             
-            float x = -spawnerDistance * Mathf.Sin(angle);
-            float z = spawnerDistance * Mathf.Cos(angle);
+            float x = spawnerDistance * Mathf.Sin(angle * n);
+            float z = spawnerDistance * Mathf.Cos(angle * n);
             float y = Terrain.activeTerrain.SampleHeight(new Vector3(x, 0f, z));
             Vector3 spawnerPosition = new Vector3(x, y, z);
 

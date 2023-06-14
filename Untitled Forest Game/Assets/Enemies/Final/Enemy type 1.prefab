@@ -194,7 +194,7 @@ MonoBehaviour:
   chaseBehavior: {fileID: 0}
   attackBehavior: {fileID: 0}
   currentState: 0
-  agent: {fileID: 0}
+  agent: {fileID: -8069412837979704160}
   distanceToFlame: 0
   patrolLock: 0
   patrolLockDuration: 3
@@ -228,7 +228,7 @@ MonoBehaviour:
   chaseBehavior: {fileID: -2484955325535349143}
   attackBehavior: {fileID: 0}
   currentState: 0
-  agent: {fileID: 0}
+  agent: {fileID: -8069412837979704160}
   distanceToFlame: 0
   patrolLock: 0
   patrolLockDuration: 3
@@ -259,7 +259,7 @@ MonoBehaviour:
   chaseBehavior: {fileID: 0}
   attackBehavior: {fileID: 3838817585917314936}
   currentState: 0
-  agent: {fileID: 0}
+  agent: {fileID: -8069412837979704160}
   distanceToFlame: 0
   patrolLock: 0
   patrolLockDuration: 3
@@ -291,7 +291,7 @@ MonoBehaviour:
   chaseBehavior: {fileID: 0}
   attackBehavior: {fileID: 0}
   currentState: 0
-  agent: {fileID: 0}
+  agent: {fileID: -8069412837979704160}
   distanceToFlame: 0
   patrolLock: 0
   patrolLockDuration: 3

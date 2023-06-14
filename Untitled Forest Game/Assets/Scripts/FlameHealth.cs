@@ -9,7 +9,7 @@ public class FlameHealth : MonoBehaviour
     public TextMeshProUGUI flameText;
     public Image healthBar;
     public WoodCollision branch;
-    public float health = 100.0f;
+    public float health = 200.0f;
     public float maxHealth = 200.0f;
     private const float healthRate = 2.0f;
     private float currentTime;
@@ -20,7 +20,7 @@ public class FlameHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 100.0f;
+        health = 200.0f;
     }
 
     // Update is called once per frame

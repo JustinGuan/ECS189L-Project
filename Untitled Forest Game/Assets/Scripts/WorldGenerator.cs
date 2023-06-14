@@ -1,3 +1,4 @@
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class WorldGenerator : MonoBehaviour
@@ -27,6 +28,8 @@ public class WorldGenerator : MonoBehaviour
     public int maxGrass = 100;
     public int maxPassives = 100;
 
+    private NavMeshSurface navMeshSurface;
+
     // Enemy spawners and patrol points
     public int spawnerDistance = 100;
     public int patrolPointDistance = 10;
@@ -44,6 +47,14 @@ public class WorldGenerator : MonoBehaviour
         GenerateObjects(grassPrefab, maxGrass);
         GenerateObjects(passivePrefab, maxPassives);
         GenerateFlame();
+
+        // Access the NavMeshSurface component
+        navMeshSurface = GetComponent<NavMeshSurface>();
+
+        // Modify your terrain here
+
+        // Call the Bake function to update the NavMesh
+        navMeshSurface.BuildNavMesh();
 
         patrolPoints = new Transform[5, 4];
         GenerateSpawners();

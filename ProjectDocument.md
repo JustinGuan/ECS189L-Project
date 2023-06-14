@@ -77,9 +77,7 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Gameplay Testing
 
-**Add a link to the full results of your gameplay tests.**
-
-**Summarize the key findings from your gameplay tests.**
+Unfortunately, I was not able to conduct any play testing.
 
 ## Narrative Design
 

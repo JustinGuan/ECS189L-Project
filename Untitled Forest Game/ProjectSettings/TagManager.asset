@@ -9,6 +9,7 @@ TagManager:
   - Flame
   - FairyRing
   - Enemy
+  - Ground
   layers:
   - Default
   - TransparentFX

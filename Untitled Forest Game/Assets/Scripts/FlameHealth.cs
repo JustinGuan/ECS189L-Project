@@ -42,7 +42,7 @@ public class FlameHealth : MonoBehaviour
             }
             if (withinFlame == true)
             {
-                if (branch.branches != 0 && Input.GetKeyDown(KeyCode.Z))
+                if (branch.branches > 0 && Input.GetKeyDown(KeyCode.Z))
                 {
                     branch.branches -= 1;
                     branch.woodText.text = branch.branches.ToString();

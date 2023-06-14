@@ -675,7 +675,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346906853}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.94542825, y: 3.1589615, z: -2.9293766}
+  m_LocalPosition: {x: 0.7545287, y: 3.1589615, z: -2.9293766}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -964,7 +964,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495446634}
   m_LocalRotation: {x: 0.32326594, y: 0, z: 0, w: 0.94630814}
-  m_LocalPosition: {x: 0.94542825, y: 3.1589615, z: -2.9293766}
+  m_LocalPosition: {x: 0.7545287, y: 3.1589615, z: -2.9293766}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1644,6 +1644,7 @@ GameObject:
   - component: {fileID: 1174681633}
   - component: {fileID: 1174681632}
   - component: {fileID: 1174681631}
+  - component: {fileID: 1174681636}
   m_Layer: 5
   m_Name: FlameUI
   m_TagString: Untagged
@@ -1663,8 +1664,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1ce60e7b3934868901e0abc4e72f0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthText: {fileID: 281751085}
+  flameText: {fileID: 281751085}
   healthBar: {fileID: 1550344786}
+  branch: {fileID: 1174681636}
   health: 0
   maxHealth: 200
 --- !u!114 &1174681632
@@ -1754,6 +1756,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1174681636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174681630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3a7922c4f34740feb33ad0f90769f9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  branches: 0
+  flameHealth: {fileID: 1174681631}
+  woodText: {fileID: 1925657650}
 --- !u!1 &1225935418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1919,6 +1936,7 @@ GameObject:
   - component: {fileID: 1253430865}
   - component: {fileID: 1253430864}
   - component: {fileID: 1253430863}
+  - component: {fileID: 1253430868}
   m_Layer: 5
   m_Name: WoodUI
   m_TagString: Untagged
@@ -1938,6 +1956,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a7922c4f34740feb33ad0f90769f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  branches: 0
+  flameHealth: {fileID: 1253430868}
   woodText: {fileID: 1925657650}
 --- !u!114 &1253430864
 MonoBehaviour:
@@ -2025,6 +2045,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1253430868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253430862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1ce60e7b3934868901e0abc4e72f0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flameText: {fileID: 281751085}
+  healthBar: {fileID: 1550344786}
+  branch: {fileID: 1253430863}
+  health: 100
+  maxHealth: 200
 --- !u!1 &1345943449
 GameObject:
   m_ObjectHideFlags: 0
@@ -2206,6 +2243,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7578612851689078403, guid: ee97d85537bc72b4b8160ef9b2d878eb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1461226021}
+    - targetCorrespondingSourceObject: {fileID: 7578612851689078403, guid: ee97d85537bc72b4b8160ef9b2d878eb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1461226023}
   m_SourcePrefab: {fileID: 100100000, guid: ee97d85537bc72b4b8160ef9b2d878eb, type: 3}
 --- !u!4 &1406653549 stripped
 Transform:
@@ -2520,7 +2560,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!95 &1461226017
 Animator:
@@ -2555,6 +2595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a7922c4f34740feb33ad0f90769f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  branches: 0
+  flameHealth: {fileID: 1461226023}
   woodText: {fileID: 1925657650}
 --- !u!114 &1461226021
 MonoBehaviour:
@@ -2573,6 +2615,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   attackRange: 2.5
+--- !u!114 &1461226023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461226009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1ce60e7b3934868901e0abc4e72f0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flameText: {fileID: 281751085}
+  healthBar: {fileID: 1550344786}
+  branch: {fileID: 1461226019}
+  health: 100
+  maxHealth: 200
 --- !u!1 &1550344785
 GameObject:
   m_ObjectHideFlags: 0
@@ -2814,7 +2873,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708142892}
   m_LocalRotation: {x: 0.122611515, y: -0.55352056, z: 0.08280736, w: 0.819588}
-  m_LocalPosition: {x: 0.30412334, y: 3.2865138, z: -1.8474641}
+  m_LocalPosition: {x: 0.24271518, y: 3.2865138, z: -1.8474641}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3551,7 +3610,7 @@ GameObject:
   - component: {fileID: 1996729598}
   m_Layer: 0
   m_Name: World Generator
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3569,7 +3628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldTransform: {fileID: 1996729593}
-  worldSize: 1000
+  worldSize: 1025
   scale: 0.01
   heightMultiplier: 0.1
   octaves: 3
@@ -3608,7 +3667,7 @@ MonoBehaviour:
   - {fileID: 427965700714601196, guid: 052c4a00897c8d243963c059408df1ad, type: 3}
   - {fileID: 8644318972552099178, guid: 2727f93be03505c4dbd2ea705c289d99, type: 3}
   flamePrefab: {fileID: 6552518781143865606, guid: bc5937d7b1224914aa3572e9fce3297f, type: 3}
-  spawnerDistance: 50
+  spawnerDistance: 250
   maxTrees: 1000
   maxRocks: 1000
   maxMushrooms: 1000

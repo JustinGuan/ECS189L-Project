@@ -213,7 +213,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
-  agent: {fileID: 0}
+  agent: {fileID: -8069412837979704160}
   patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -251,7 +251,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
-  agent: {fileID: 0}
+  agent: {fileID: -8069412837979704160}
   chaseSpeed: 8.4
   outOfSightDuration: 3
 --- !u!114 &3838817585917314936
@@ -285,7 +285,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
-  agent: {fileID: 0}
+  agent: {fileID: -8069412837979704160}
   attackDamage: 10
   attackCooldown: 2
   attackRange: 2
@@ -320,7 +320,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
-  agent: {fileID: 0}
+  agent: {fileID: -8069412837979704160}
 --- !u!114 &315971233489776985
 MonoBehaviour:
   m_ObjectHideFlags: 0

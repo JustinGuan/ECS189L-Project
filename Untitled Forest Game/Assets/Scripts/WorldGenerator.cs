@@ -33,7 +33,7 @@ public class WorldGenerator : MonoBehaviour
     // Enemy spawners and patrol points
     public int spawnerDistance = 100;
     public int patrolPointDistance = 10;
-    public Transform[,] patrolPoints;
+    public GameObject[,] patrolPoints;
 
     private void Start()
     {
@@ -54,7 +54,7 @@ public class WorldGenerator : MonoBehaviour
         // Call the Bake function to update the NavMesh
         navMeshSurface.BuildNavMesh();
 
-        patrolPoints = new Transform[5, 4];
+        patrolPoints = new GameObject[5, 4];
         GenerateSpawners();
     }
 
@@ -175,7 +175,9 @@ public class WorldGenerator : MonoBehaviour
                 float x = spawnX - patrolPointDistance * Mathf.Sin(angle);
                 float z = spawnY + patrolPointDistance * Mathf.Cos(angle);
                 float y = Terrain.activeTerrain.SampleHeight(new Vector3(x, 0f, z));
-                patrolPoints[n, i].position = new Vector3(x, y, z);
+                
+                patrolPoints[n,i] = new GameObject();
+                patrolPoints[n, i].transform.position = new Vector3(x, y, z);
             }
         }
     }

@@ -4,14 +4,14 @@ namespace Embers
 {
     public class PatrolBehavior : EnemyController
     {
-        [SerializeField] private Transform[] patrolPoints;
+        [SerializeField] private GameObject[] patrolPoints;
         private int currentPatrolIndex = 0;
         [SerializeField] private float patrolSpeed = 2f;
 
 
         private void Start()
         {
-            patrolPoints = new Transform[4];
+            patrolPoints = new GameObject[4];
             for (int i = 0; i < 4; i++)
             {
                 patrolPoints[i] = GameObject.FindGameObjectWithTag("World Generator").GetComponent<WorldGenerator>().patrolPoints[enemyType, i];
@@ -49,7 +49,7 @@ namespace Embers
                 return;
             }
 
-            agent.destination = patrolPoints[currentPatrolIndex].position;
+            agent.destination = patrolPoints[currentPatrolIndex].transform.position;
             // Loops through the patrol points
             currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
             agent.speed = patrolSpeed;

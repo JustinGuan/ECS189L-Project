@@ -19,7 +19,9 @@ public class WoodCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Debug.Log(flameHealth.health);
         flameHealth.flameText.text = (flameHealth.health / flameHealth.maxHealth) * 100 + "%";
+        // flameHealth.HealthBarFiller();
     }
 
     // Detects if it has collided with the box collider of wood and 

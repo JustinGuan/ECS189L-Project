@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu 1.unity
+    path: Assets/Scenes/MAIN SCENE.unity
     guid: cb69b4a9e41f94ccdb9d37aa46a1ef9b
   - enabled: 1
     path: Assets/Scenes/Opening.unity
@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/TestLevelChanges/GameOverTest.unity
     guid: 36af2da869b7b2b41af2e35a10784eed
   - enabled: 1
-    path: Assets/Scenes/Boss Cutscene.unity
+    path: Assets/Scenes/BossCutscene.unity
     guid: 03617379c03aecc44baabc525a3bd501
   m_configObjects: {}

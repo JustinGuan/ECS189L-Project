@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Embers
 {
     public class PatrolBehavior : EnemyController
     {
-        [SerializeField] private GameObject[] patrolPoints;
+        [SerializeField] private Transform[] patrolPoints;
         private int currentPatrolIndex = 0;
         [SerializeField] private float patrolSpeed = 2f;
         private LocationTracker tracker;
@@ -55,7 +56,7 @@ namespace Embers
                 return;
             }
 
-            agent.destination = patrolPoints[currentPatrolIndex].transform.position;
+            agent.destination = patrolPoints[currentPatrolIndex].position;
             // Loops through the patrol points
             currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
             agent.speed = patrolSpeed;

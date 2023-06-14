@@ -24,19 +24,16 @@ public class WorldGenerator : MonoBehaviour
     public GameObject[] grassPrefab;
     public GameObject[] passivePrefab;
     public GameObject flamePrefab;
-    public int spawnerDistance = 250;
     public int maxTrees = 100;
     public int maxRocks = 100;
     public int maxMushrooms = 100;
     public int maxGrass = 100;
     public int maxPassives = 100;
 
-    private NavMeshSurface navMeshSurface;
-
     // Enemy spawners and patrol points
     public int spawnerDistance = 100;
     public int patrolPointDistance = 10;
-    public GameObject[,] patrolPoints;
+    public Transform[,] patrolPoints;
 
     private void Start()
     {
@@ -157,7 +154,6 @@ public class WorldGenerator : MonoBehaviour
 
     private void GenerateSpawners()
     {
-        float angle = (float)((2 * Mathf.PI) / 5);
         // Generate enemy spawners
         for (int n = 0; n < enemySpawners.Length; n++)
         {
@@ -178,8 +174,8 @@ public class WorldGenerator : MonoBehaviour
                 float z = spawnY + patrolPointDistance * Mathf.Cos(angle);
                 float y = Terrain.activeTerrain.SampleHeight(new Vector3(x, 0f, z));
                 
-                patrolPoints[n,i] = new GameObject();
-                patrolPoints[n, i].transform.position = new Vector3(x, y, z);
+                patrolPoints[n,i] = new GameObject().transform;
+                patrolPoints[n, i].position = new Vector3(x, y, z);
             }
         }
     }

@@ -67,13 +67,46 @@ The final feature I added to the map was a NavMeshSurface for the enemy AI.  Thi
 
 ## Input
 
-**Describe the default input configuration.**
+***Input Configuration***
+Our game currently supports Windows and we have plans to expand its accessibility by implementing a console version that allows players to use a controller. In the current version, players can control the character's movement using either the WASD keys or the arrow keys, providing flexibility in input options. The character is capable of performing various actions, such as jumping with the space key and sprinting by holding down the shift key while moving.
 
-**Add an entry for each platform or input style your project supports.**
+To enhance the aiming experience, players can zoom in on the camera by holding the left control key, allowing for more precise targeting. The mouse input is utilized for additional actions: the left click button triggers a melee attack with the staff, while the right click button launches a projectile from the staff, adding diversity to the gameplay mechanics.
 
-## Game Logic
 
-**Document what game states and game data you managed and what design patterns you used to complete your task.**
+***Input implementation***
+
+*Movement system*
+The basic character movements are done in the [CharacterMovement.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/CharacterMovement.cs) script which was developed by George. The aim left control is a script called [ActiveOnKeypress.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/ActivateOnKeypress.cs) which checks if the left control key is pressed, it then triggers the Cinemachine third-person camera to transition into an aiming mode, providing players with enhanced precision.
+
+*Combat system*
+Our combat mechanics in the game encompass both melee attacks and projectile abilities, which have been intuitively mapped to the mouse controls for simplicity and ease of use.
+
+To execute the melee attack, we have implemented the [melee.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/Melee.cs) script. When the player presses the left mouse button, the attack method is triggered. This method checks if any enemies are within the staff's range and deal damage accordingly. By referencing the [Health.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/Health.cs) script, the attack method assesses the enemy's health and destroys them if their health drops to zero or below.
+
+For the projectile attack, we rely on the [ThirdPersonShooterController.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/ThirdPersonShooterController.cs) script. By pressing the right mouse button, players activate the script, enabling them to fire a projectile in the direction of their crosshair. The position of the screen center is determined using a ray cast function, while the crosshair is designed using Unity's canvas to provide visual feedback on the target's location.
+
+To facilitate the projectile mechanics, we utilize an iceball object that Trina implemented. The [Projectile.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/Projectile.cs) script controls the speed and interactions of the projectile. If the projectile collides with an enemy or the ground, it is destroyed. When interacting with an enemy, the [Damage.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/Damage.cs) script calculates and applies the appropriate damage.
+
+
+## Game Logic - Hung Liu
+
+***General Logic***
+
+Overall, the game mainly runs through a script called SceneManager.cs. This script mainly handles the calling of the SceneManager.LoadSceneAsync() to transition our game into its different scenes (main menu, play menu, victory menu, and game over menu). The main menu, victory menu, and game over menu utilizes OnClick() functions, found within the button component in the inspector view of Unity, to help with the transitions within the game.
+Within the level, I implanted a script LevelManager.cs to handle the win and lose conditions of the game. This required the script to keep track of player health, a timer with unknown time (gives a sense of difficulty because player doesn’t know how long left to survive), and the health of the fire. Depending on the condition, this script would reference SceneManager.cs to load different scenes.
+Spawning Enemies
+I had also created a system that allows for the spawning of enemies (SpawnEnemy.cs). To keep the code KISS, I simply used the fire as our central point, and created enemy spawners (GameObject) that are located at the vertices of a pentagon. All enemy spawners that are created function the same with a minor tweak to the type of enemy being spawned. These spawners utilize a radius (set at a quarter of the map’s size) that determines where within the circle are these enemies allowed to spawn. In doing so, some regions of the map will spawn two and maybe even three different types of enemies. These enemies are 
+also instantiated as a child of the spawner to simplify their behavior in the next section. The spawning of the enemies functions similarly to the Pikmini spawner from exercise 3.
+
+***Enemy AI***
+
+Towards the final weeks of the project, I had begun to work with Cenny, a bit, on the enemy AI, primarily the issue with getting the enemies to patrol properly. The issue that we had found was the NavMeshSurface being generated incorrectly. We had generated the NavMeshSurface pre-runtime with the “World Generator” game object as our surface. This had resulted in the NavMeshSurface becoming a flat plane, and as result, none of our enemies (NavMeshAgent) was being recognized. This issue was fixed simply by re-baking the NavMeshSurface after the terrain has been generated (discovered by Cenny as soon as this issue was pointed out).
+For the specific enemy behavior that I had helped Cenny with was the patrol behavior. At that point, Cenny had already written out the complete logic for the patrolling behavior of the enemies. I had simply set up the patrol points where the enemy would patrol. As stated earlier, the enemies are a child of the spawner they come from, which allows the patrol points to be set up easily. As of now, the patrol points are set at the vertices of a square, with the parent as the center. These points are also altered depending on the fire’s radius, preventing enemies from patrolling near the fire. The code, found within PatrolBehavior.cs, can be altered easily to increase or decrease the number of patrol points.
+
+***Future Additions***
+
+Our team had an idea where, as the fire grew weaker, the radius of the fire would drop. As the radius decreases, the enemies would get closer to the fire, threatening the player a lot more. Another idea that failed to make it into the final product was the usage of fairy rings to heal the player as they are within it. This would give the player an effective way to heal the damage they have taken. Unfortunately, neither didn’t make it into the game due to time constraints and the solving of other crucial bugs. Because of that, adding this mechanic would make the game more challenging.
+
 
 # Sub-Roles
 
@@ -105,6 +138,6 @@ Unfortunately, I was not able to conduct any play testing.
 
 
 
-## Game Feel
+## Game Feel - Hung Liu
 
-**Document what you added to and how you tweaked your game to improve its game feel.**
+As found within the summary of our game, Embers is set within a mystical forest. As a result, the color schemes we had decided on tend to be a bit more vibrant. The vibrant colors of the player, trees, etc. contrast greatly with the sky and enemies that spawn. Enemies feature a darker color scheme that allows players to easily identify its hostility towards the player. The ominous sky also contrasts with the other environment to indicate that a problem is occurring within the forest. We had also decided to utilize a 3rd person camera to assist the player as they play the game. This effectively increases their FOV, and may assist in noticing enemies coming from behind them.

@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class WoodCollision : MonoBehaviour
 {
-    private int branches = 0;
+    public int branches = 0;
     private WoodSpawner spawner;
+    public FlameHealth flameHealth;
     public TextMeshProUGUI woodText;
 
     // Start is called before the first frame update
@@ -15,16 +16,11 @@ public class WoodCollision : MonoBehaviour
         spawner = GameObject.Find("World Generator").GetComponent<WoodSpawner>();
     }
 
-    // // Update is called once per frame
-    // void Update()
-    // {
-    //     // Testing
-    //     if (Input.GetButtonDown("Fire2"))
-    //     {
-    //         this.branches++;
-    //         woodText.text = branches.ToString();
-    //     }
-    // }
+    // Update is called once per frame
+    void Update()
+    {
+        flameHealth.flameText.text = (flameHealth.health / flameHealth.maxHealth) * 100 + "%";
+    }
 
     // Detects if it has collided with the box collider of wood and 
     // destroys it if so.

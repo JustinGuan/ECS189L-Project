@@ -51,8 +51,6 @@ public class WorldGenerator : MonoBehaviour
         // Access the NavMeshSurface component
         navMeshSurface = GetComponent<NavMeshSurface>();
 
-        // Modify your terrain here
-
         // Call the Bake function to update the NavMesh
         navMeshSurface.BuildNavMesh();
 

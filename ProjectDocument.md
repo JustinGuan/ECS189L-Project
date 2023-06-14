@@ -51,7 +51,7 @@ Early in the game development, I had this behavior working in a small test scene
 
 The final feature I added to the map was a NavMeshSurface for the enemy AI.  This was a little tricky since I the NavMesh could not be baked ahead of time.  The map is not generated until the game starts, so I had to bake it from within WorldGenerator.cs after the game started.  This allowed the NavMesh to conform to the hills of the terrain.
 
-[My conversation with ChatGPT]([https://chat.openai.com/share/fb5411fb-17ab-4050-bfd0-4fa96058e08d](https://chat.openai.com/share/d8702232-02db-43a9-820f-4a9e7ce31e4f))
+[My conversation with ChatGPT](https://chat.openai.com/share/2ee12586-5ca0-4272-9318-635191c0eb20)
 
 ## User Interface
 

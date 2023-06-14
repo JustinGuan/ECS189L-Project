@@ -117,8 +117,15 @@ To facilitate the projectile mechanics, we utilize an iceball object that Trina 
 ***General Logic***
 
 Overall, the game mainly runs through a script called SceneManager.cs. This script mainly handles the calling of the SceneManager.LoadSceneAsync() to transition our game into its different scenes (main menu, play menu, victory menu, and game over menu). The main menu, victory menu, and game over menu utilizes OnClick() functions, found within the button component in the inspector view of Unity, to help with the transitions within the game.
-Within the level, I implanted a script LevelManager.cs to handle the win and lose conditions of the game. This required the script to keep track of player health, a timer with unknown time (gives a sense of difficulty because player doesn’t know how long left to survive), and the health of the fire. Depending on the condition, this script would reference SceneManager.cs to load different scenes.
-Spawning Enemies
+Within the level, I implanted a script LevelManager.cs to handle the win and lose conditions of the game. This required the script to keep track of player health, a timer with unknown time (gives a sense of 
+difficulty because player doesn’t know how long left to survive), and the health of the fire. Depending on the condition, this script would reference SceneManager.cs to load different scenes.
+
+
+***Spawning Wood***
+
+An essenntial game mechanic is the feeding of wood into the fire. As such, we need to spawn wood into the game. The code, WoodSpawner.cs, functions by first generating n rings around the center of the map. These rings have a minimum and maximum radius to determine between which two distance from the fire are the woods able to spawn. From there it generates a random value for theta and our distance from the fire, but still within the min and max radius. Theses random values will then act as the new spawn point for our wood. To incentivize the player to stray further away from the fire, more wood is generated in the outer rings. The spawning of the wood also acts similar to our Exercise 3 (Pikmini Spawner) but with a bit more complexity to it.
+
+***Spawning Enemies***
 I had also created a system that allows for the spawning of enemies (SpawnEnemy.cs). To keep the code KISS, I simply used the fire as our central point, and created enemy spawners (GameObject) that are located at the vertices of a pentagon. All enemy spawners that are created function the same with a minor tweak to the type of enemy being spawned. These spawners utilize a radius (set at a quarter of the map’s size) that determines where within the circle are these enemies allowed to spawn. In doing so, some regions of the map will spawn two and maybe even three different types of enemies. These enemies are 
 also instantiated as a child of the spawner to simplify their behavior in the next section. The spawning of the enemies functions similarly to the Pikmini spawner from exercise 3.
 

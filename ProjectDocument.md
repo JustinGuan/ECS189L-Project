@@ -59,11 +59,32 @@ The final feature I added to the map was a NavMeshSurface for the enemy AI.  Thi
 
 **Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
 
-## Animation and Visuals
+## Animation and Visuals - Trina Sagar
 
 **List your assets including their sources and licenses.**
+List your assets including their sources and licenses:
+Skybox asset: https://assetstore.unity.com/packages/2d/textures-materials/sky/tgu-skybox-pack-96433 
+Source: Babycake Studio
+License agreement
+Standard Unity Asset Store EULA : https://unity.com/legal/as-terms 
+License type: Extension Asset
+File size: 20.6 MB
+Latest version: 1.0
+Latest release date: Mar 13, 2018
+Original Unity version: 2017.3.0 or higher
+
+
+Projectile asset:
+https://assetstore.unity.com/packages/vfx/particles/particle-pack-127325#content 
+Source: Unity Technologies
+
+
+Cinemachine and Timeline are packages that are included in the unity engine
+
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
+Besides the projectiles and the skybox, I created the models, animations, and textures for the game. The models and animations were created in Blender and the textures were created in Procreate. The art style is inspired by games such as Hollow Knight and Rain World and is meant to resemble a mystical forest untouched by humanity. It is meant to be serene and calming to look at. The style consists of a mostly dark color palette with glowing accents, such as the patterns under the tall trees and the patterns on the player’s clothing. When designing the models, I made them low-poly and gave them flat shading so that they looked simplistic and sharp. Most of the textures included darker backgrounds accented by brightly colored patterns. Overall, the visuals are meant to be alluring without being too overstimulating to look at. 
+When designing the enemies, I wanted them to appear tall and thin in order to appear distinct from the player. I gave them simplistic bodies and masks so that they looked eerie without appearing awkward. The way they move is meant to look unnatural and aggressive, since they are evil spirits. The final boss is meant to resemble the enemies except its mask is more detailed and its body resembles a mermaid. It is meant to look more beautiful than the regular enemies as well as more powerful. It never touches the ground, making it appear otherworldly. 
 
 ## Input - Justin Guan
 
@@ -140,9 +161,12 @@ We plan to implement more music and sound effects in the future as the game is s
 
 Unfortunately, I was not able to conduct any play testing.
 
-## Narrative Design
+## Narrative Design - Trina Sagar
 
 **Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
+The bunny-like creatures were the original inhabitants of the forest, but they were threatened by evil spirits. The player is a benevolent spirit sent to protect the forest by keeping a flame alive at the forest’s center until the enemies are vanquished. The player must collect wood to keep the flame alive, and the absence of a map as well as the display of the fire's size is meant to make the game feel more intense.
+In the opening cutscene (located in a scene named “Opening”), the player is seen battling an evil spirit in order to protect one of the creatures.
+After keeping the flame alive, the player has to fight the final boss. The cutscene that plays before fighting the final boss is located in a scene called “Boss_cutscene”. The cutscenes are meant to be dramatic and motivate the player to protect the forest. 
 
 ## Press Kit and Trailer
 

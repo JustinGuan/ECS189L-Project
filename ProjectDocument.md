@@ -116,11 +116,18 @@ Our team had an idea where, as the fire grew weaker, the radius of the fire woul
 
 ## Audio
 
-**List your assets including their sources and licenses.**
+***Background Music***
+To create an immersive atmosphere throughout the entire game map, a carefully selected [forest sound](https://pixabay.com/sound-effects/forest-with-small-river-birds-and-nature-field-recording-6735/) was chosen as the background music. This choice was made to align with the game's theme and enhance the player's overall experience. The forest sound is integrated into the game by assigning it to an audio source component within the World Generator game object. By utilizing an audio source, the background music plays continuously, ensuring consistent and captivating gameplay.
 
-**Describe the implementation of your audio system.**
+***Sound Effects***
+To enhance specific game elements and interactions, distinct sound effects were carefully implemented. Notably, the campfire, which serves as the main objective in the game, features a unique sound effect. When the player character is within range of the campfire, a captivating [campfire sound](https://pixabay.com/sound-effects/campfire-crackling-fireplace-sound-119594/) immerses the player in the warmth and crackling flames of the campfire itself. Furthermore, an [firing sound effect](https://pixabay.com/sound-effects/fire-magic-6947/) accompanies the release of the ice projectile from the staff. This sound effect provides auditory feedback to the user, signaling the moment when the projectile is being launched.
 
-**Document the sound style.** 
+***Audio Manager***
+To streamline and manage the audio elements efficiently, an [Audio Manager script](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/AudioManager.cs) was created. This script acts as a centralized hub for audio control, utilizing the properties defined in the [Sound.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/Sound.cs) script to create instances of audio sources. Through the implementation of the Audio Manager, playing music tracks and sound effects becomes a straightforward task using the provided methods, such as PlayMusicTrack and PlaySoundEffect. Additionally, the StopSoundEffect method allows for the convenient cessation of specific sound effects when required.
+
+***Future Additions***
+We plan to implement more music and sound effects in the future as the game is still not fully developed.
+
 
 ## Gameplay Testing - Cenny Rangel
 

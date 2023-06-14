@@ -68,6 +68,7 @@ The final feature I added to the map was a NavMeshSurface for the enemy AI.  Thi
 ## Input - Justin Guan
 
 ***Input Configuration***
+
 Our game currently supports Windows and we have plans to expand its accessibility by implementing a console version that allows players to use a controller. In the current version, players can control the character's movement using either the WASD keys or the arrow keys, providing flexibility in input options. The character is capable of performing various actions, such as jumping with the space key and sprinting by holding down the shift key while moving.
 
 To enhance the aiming experience, players can zoom in on the camera by holding the left control key, allowing for more precise targeting. The mouse input is utilized for additional actions: the left click button triggers a melee attack with the staff, while the right click button launches a projectile from the staff, adding diversity to the gameplay mechanics.
@@ -76,11 +77,9 @@ To enhance the aiming experience, players can zoom in on the camera by holding t
 ***Input implementation***
 
 *Movement system*
-
 The basic character movements are done in the [CharacterMovement.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/CharacterMovement.cs) script which was developed by George. The aim left control is a script called [ActiveOnKeypress.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/ActivateOnKeypress.cs) which checks if the left control key is pressed, it then triggers the Cinemachine third-person camera to transition into an aiming mode, providing players with enhanced precision.
 
 *Combat system*
-
 Our combat mechanics in the game encompass both melee attacks and projectile abilities, which have been intuitively mapped to the mouse controls for simplicity and ease of use.
 
 To execute the melee attack, we have implemented the [melee.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/Melee.cs) script. When the player presses the left mouse button, the attack method is triggered. This method checks if any enemies are within the staff's range and deal damage accordingly. By referencing the [Health.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/Health.cs) script, the attack method assesses the enemy's health and destroys them if their health drops to zero or below.
@@ -119,19 +118,15 @@ Our team had an idea where, as the fire grew weaker, the radius of the fire woul
 ## Audio - Justin Guan
 
 ***Background Music***
-
 To create an immersive atmosphere throughout the entire game map, a carefully selected [forest sound](https://pixabay.com/sound-effects/forest-with-small-river-birds-and-nature-field-recording-6735/) was chosen as the background music. This choice was made to align with the game's theme and enhance the player's overall experience. The forest sound is integrated into the game by assigning it to an audio source component within the World Generator game object. By utilizing an audio source, the background music plays continuously, ensuring consistent and captivating gameplay.
 
 ***Sound Effects***
-
 To enhance specific game elements and interactions, distinct sound effects were carefully implemented. Notably, the campfire, which serves as the main objective in the game, features a unique sound effect. When the player character is within range of the campfire, a captivating [campfire sound](https://pixabay.com/sound-effects/campfire-crackling-fireplace-sound-119594/) immerses the player in the warmth and crackling flames of the campfire itself. Furthermore, an [firing sound effect](https://pixabay.com/sound-effects/fire-magic-6947/) accompanies the release of the ice projectile from the staff. This sound effect provides auditory feedback to the user, signaling the moment when the projectile is being launched.
 
 ***Audio Manager***
-
 To streamline and manage the audio elements efficiently, an [Audio Manager script](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/AudioManager.cs) was created. This script acts as a centralized hub for audio control, utilizing the properties defined in the [Sound.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/Sound.cs) script to create instances of audio sources. Through the implementation of the Audio Manager, playing music tracks and sound effects becomes a straightforward task using the provided methods, such as PlayMusicTrack and PlaySoundEffect. Additionally, the StopSoundEffect method allows for the convenient cessation of specific sound effects when required.
 
 ***Future Additions***
-
 We plan to implement more music and sound effects in the future as the game is still not fully developed.
 
 

@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map.unity
     guid: 9a838fde81d42d94b9d48abce7ac2909
+  - enabled: 1
+    path: Assets/Scenes/TestLevelChanges/VictoryTest.unity
+    guid: c5aa046205c2ad040835285b69b54b2d
+  - enabled: 1
+    path: Assets/Scenes/TestLevelChanges/GameOverTest.unity
+    guid: 36af2da869b7b2b41af2e35a10784eed
   m_configObjects: {}

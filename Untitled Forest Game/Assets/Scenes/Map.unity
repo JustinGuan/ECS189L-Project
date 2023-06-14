@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.05536904, g: 0.0519673, b: 0.09782134, a: 1}
+  m_IndirectSpecularColor: {r: 0.055255607, g: 0.052068338, b: 0.097931035, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -512,7 +512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346906853}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8607571, y: 3.1589615, z: -2.9293766}
+  m_LocalPosition: {x: 0.7548518, y: 3.1589615, z: -2.9293766}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -877,7 +877,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495446634}
   m_LocalRotation: {x: 0.32326594, y: 0, z: 0, w: 0.94630814}
-  m_LocalPosition: {x: 0.8607571, y: 3.1589615, z: -2.9293766}
+  m_LocalPosition: {x: 0.7548518, y: 3.1589615, z: -2.9293766}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2731,7 +2731,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708142892}
   m_LocalRotation: {x: 0.122611515, y: -0.55352056, z: 0.08280736, w: 0.819588}
-  m_LocalPosition: {x: 0.27688652, y: 3.2865138, z: -1.8474641}
+  m_LocalPosition: {x: 0.24281912, y: 3.2865138, z: -1.8474641}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3711,10 +3711,12 @@ GameObject:
   - component: {fileID: 1996729592}
   - component: {fileID: 1996729595}
   - component: {fileID: 1996729594}
-  - component: {fileID: 1996729596}
-  - component: {fileID: 1996729597}
   - component: {fileID: 1996729598}
   - component: {fileID: 1996729599}
+  - component: {fileID: 1996729596}
+  - component: {fileID: 1996729597}
+  - component: {fileID: 1996729600}
+  - component: {fileID: 1996729601}
   m_Layer: 0
   m_Name: World Generator
   m_TagString: Ground
@@ -4009,6 +4011,33 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 73815ca48405b2b45b8475910b52f999, type: 2}
   m_BuildHeightMesh: 0
+--- !u!114 &1996729600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996729591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bab9843ae60e7042b549e4c20ed1e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1461226009}
+  flameUI: {fileID: 884969000}
+  timer: 15
+--- !u!114 &1996729601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996729591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5475aa0df4104343818a70d84fd67ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2072167511
 GameObject:
   m_ObjectHideFlags: 0

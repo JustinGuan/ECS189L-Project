@@ -8,7 +8,7 @@ public class ScenesManager : MonoBehaviour
     public enum SceneType
     {
         MainMenuTesting,
-        MapTest,
+        Map,
         VictoryTest,
         GameOverTest
     }
@@ -20,7 +20,7 @@ public class ScenesManager : MonoBehaviour
 
     public void LoadGameLevel()
     {
-        SceneManager.LoadSceneAsync(SceneType.MapTest.ToString(), LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync(SceneType.Map.ToString(), LoadSceneMode.Single);
     }
 
     public void LoadVictoryScreen()

@@ -2,7 +2,7 @@
 
 ## Summary ##
 
-**A paragraph-length pitch for your game.**
+Embers is an immersive and thrilling fantasy action game where you embody a mystical forest spirit that is entrusted with a crucial task of protecting the sacred flame that is the heart of the magical forest. The flame serves as a lifeline of the forest, warding off evil spirits that want to engulf this place with darkness. As the forest spirit, your primary objective is to gather wood around the forest to sustain the flame’s radiant power. However, the further you venture into the forest the more risks occur. The game’s narrative is set in a mystical world on the brink of darkness. The spirit's effort in trying to revitalize the forest by awaiting for the sun’s rays of light. Embers offers an engaging user experience by combining elements of exploration, resource management, and tactical combat. 
 
 ## Gameplay Explanation ##
 

@@ -72,10 +72,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4731831580082160016, guid: da059820cf295ac4a9ca60791e4d9bfa, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3789586283822372580, guid: da059820cf295ac4a9ca60791e4d9bfa, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 357641809003208038}
     - targetCorrespondingSourceObject: {fileID: 3789586283822372580, guid: da059820cf295ac4a9ca60791e4d9bfa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7019143317728056478}
@@ -106,6 +113,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3789586283822372580, guid: da059820cf295ac4a9ca60791e4d9bfa, type: 3}
   m_PrefabInstance: {fileID: 7189077942635644476}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &357641809003208038
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6292633590065271000}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: bbc50375d39b3e7419bd46fe29436472, type: 3}
+  m_Controller: {fileID: 9100000, guid: 54b5c7725d0c8f7488e5a72bcade78a4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 1
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!54 &7019143317728056478
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -131,8 +159,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
+  m_Constraints: 96
+  m_CollisionDetection: 1
 --- !u!136 &6768195224459238395
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -190,23 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486b954a3b7bc8b42aee37b2694d5f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolBehavior: {fileID: 1061676168296156914}
-  chaseBehavior: {fileID: 0}
-  attackBehavior: {fileID: 0}
-  currentState: 0
-  agent: {fileID: -8069412837979704160}
-  distanceToFlame: 0
-  patrolLock: 0
-  patrolLockDuration: 3
-  patrolLockCurrent: 0
-  flameTransform: {fileID: 0}
-  flameRadius: 0
-  detectionRange: 10
-  fieldOfViewAngle: 60
-  playerTransform: {fileID: 0}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 256
+  enemyController: {fileID: 4276226070251146387}
   patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -224,23 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508138041c17a334ea6b85595e41adaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolBehavior: {fileID: 0}
-  chaseBehavior: {fileID: -2484955325535349143}
-  attackBehavior: {fileID: 0}
-  currentState: 0
-  agent: {fileID: -8069412837979704160}
-  distanceToFlame: 0
-  patrolLock: 0
-  patrolLockDuration: 3
-  patrolLockCurrent: 0
-  flameTransform: {fileID: 0}
-  flameRadius: 0
-  detectionRange: 10
-  fieldOfViewAngle: 180
-  playerTransform: {fileID: 0}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 256
+  enemyController: {fileID: 4276226070251146387}
   chaseSpeed: 8.4
   outOfSightDuration: 3
 --- !u!114 &3838817585917314936
@@ -255,23 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c7abba80e6fa44986567f5f9c95f2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolBehavior: {fileID: 0}
-  chaseBehavior: {fileID: 0}
-  attackBehavior: {fileID: 3838817585917314936}
-  currentState: 0
-  agent: {fileID: -8069412837979704160}
-  distanceToFlame: 0
-  patrolLock: 0
-  patrolLockDuration: 3
-  patrolLockCurrent: 0
-  flameTransform: {fileID: 0}
-  flameRadius: 0
-  detectionRange: 10
-  fieldOfViewAngle: 180
-  playerTransform: {fileID: 0}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 256
+  enemyController: {fileID: 4276226070251146387}
   attackDamage: 10
   attackCooldown: 2
   attackRange: 2
@@ -287,10 +267,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e2000e5830e331459ead3ebf6744798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolBehavior: {fileID: 0}
-  chaseBehavior: {fileID: 0}
-  attackBehavior: {fileID: 0}
-  currentState: 0
+  animator: {fileID: 357641809003208038}
+  patrolBehavior: {fileID: 1061676168296156914}
+  chaseBehavior: {fileID: -2484955325535349143}
+  attackBehavior: {fileID: 3838817585917314936}
+  currentState: 1
   agent: {fileID: -8069412837979704160}
   distanceToFlame: 0
   patrolLock: 0

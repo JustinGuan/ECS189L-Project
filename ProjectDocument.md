@@ -136,7 +136,7 @@ For the specific enemy behavior that I had helped Cenny with was the patrol beha
 
 ***Future Additions***
 
-Our team had an idea where, as the fire grew weaker, the radius of the fire would drop. As the radius decreases, the enemies would get closer to the fire, threatening the player a lot more. Another idea that failed to make it into the final product was the usage of fairy rings to heal the player as they are within it. This would give the player an effective way to heal the damage they have taken. Unfortunately, neither didn’t make it into the game due to time constraints and the solving of other crucial bugs. Because of that, adding this mechanic would make the game more challenging.
+Our team had an idea where, as the fire grew weaker, the radius of the fire would drop. As the radius decreases, the enemies would get closer to the fire, threatening the player a lot more. Another idea that failed to make it into the final product was the usage of fairy rings to heal the player as they are within it. This would give the player an effective way to heal the damage they have taken. Unfortunately, neither made it into the game due to time constraints and the solving of other crucial bugs. Because of that, adding this mechanic would make the game more challenging.
 
 
 # Sub-Roles

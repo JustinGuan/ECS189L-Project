@@ -18,7 +18,7 @@ Right click to shoot
 
 Z to deposit wood in flame
 
-Keep the flame alive.  The central flame has health that is continuously decreasing.  You must search the forest to collect wood.  You feed this to the flame to restore its health.  You lose the game if you or the flame die (Not implemented).  To win, you must keep the flame alive for a certain amount of time.
+Keep the flame alive.  The central flame has health that is continuously decreasing.  You must search the forest to collect wood.  You feed this to the flame to restore its health.  You lose the game if you or the flame die.  To win, you must keep the flame alive for a certain amount of time.
 
 As you search for wood, enemies patrol the forest searching for you.  They will chase you once they see you, so you must stay out of sight or fight.  Your attack options are a melee attack and a magic projectile.  Good luck
 
@@ -35,7 +35,7 @@ Here is an example:
 
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
-## Producer
+## Producer - Cenny Rangel
 
 ***Producer*** - As producer, I directed group meetings making sure we covered everything we needed to discuss.  We met about once a week and more frequently at the end of the quarter.  To give us direction, I used ChatGPT to generate a development timeline for our game.  We tailored this and used it to divide up the workload.  This timeline was included in our Initial Plan document, and I updated it as we completed tasks.  Later in the quarter, I also wrote a Progress Report for us.  It was cancelled as an assignment, but it turned out to be very helpful, so I wrote it anyway.  We also had one document of ideas and notes, which we created after forming our group: https://docs.google.com/document/d/1bNIOD9RLAmvgB8VPDfi_Uz9kx2FsmbONeRTFGd4-l48/edit?usp=sharing.
 

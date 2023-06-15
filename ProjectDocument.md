@@ -8,6 +8,8 @@ You must search the forest collecting wood to fuel the flame.  If you keep the f
 
 ## Gameplay Explanation ##
 
+To play the game, go to the scenes folder and play MAIN SCENE.
+
 Move with WASD or arrow keys
 
 Space to jump

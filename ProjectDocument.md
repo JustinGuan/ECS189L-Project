@@ -125,9 +125,21 @@ Since the original flame health included a bar similar to the player health, I w
 
  I believe the visual of the bar depleting and also the text would give the player a greater sense of urgency in keeping the flame alive. 
 
-## Movement/Physics
+## Movement/Physics - George Ortega
 
-**Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
+The basic character movements are done in the [CharacterMovement.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/CharacterMovement.cs) script. The aim left control is a script called [ActiveOnKeypress.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/ActivateOnKeypress.cs) which checks if the left control key is pressed, it then triggers the Cinemachine third-person camera to transition into an aiming mode, providing players with enhanced precision.
+
+The player can look around the would using the mouse, which will affect the direction that the player will move.
+
+The player movement coincides with the standard physics model. The player can move using either WASD or the arrow keys around in the environment that is filled with hills and level ground. Holding the `shift` key will allow the player to sprint and move faster. Players can jump using the `space` key, but only when the player is currently on the ground. 
+
+*Combat* 
+
+Attacking enemies will cause the colliders to interact, inflicting damage upon the enemy health and providing some knockback via the RigidBody system. Shooting Projectiles with the `Right Click` action will also deliver damage and cause knockback to enemies. 
+
+***Future Additions***
+
+Their exists an issue where if the user moves too fast and collides with one of the larger hills, the player occasionally falls underneath the floor and out of the game area. Given more time, we would like to address this issue by checking the Terrain Data and collider thickness to see if that would stop the player from phasing through.
 
 ## Animation and Visuals - Trina Sagar
 
@@ -166,10 +178,6 @@ To enhance the aiming experience, players can zoom in on the camera by holding t
 
 
 ***Input implementation***
-
-*Movement system*
-
-The basic character movements are done in the [CharacterMovement.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/CharacterMovement.cs) script which was developed by George. The aim left control is a script called [ActiveOnKeypress.cs](https://github.com/JustinGuan/ECS189L-Project/blob/main/Untitled%20Forest%20Game/Assets/Scripts/ActivateOnKeypress.cs) which checks if the left control key is pressed, it then triggers the Cinemachine third-person camera to transition into an aiming mode, providing players with enhanced precision.
 
 *Combat system*
 

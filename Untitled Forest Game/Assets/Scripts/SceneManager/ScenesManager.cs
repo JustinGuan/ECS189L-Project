@@ -7,7 +7,7 @@ public class ScenesManager : MonoBehaviour
 {
     public enum SceneType
     {
-        MainMenu1,
+        MAINSCENE,
         Opening,
         Map,
         VictoryTest,
@@ -17,7 +17,7 @@ public class ScenesManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadSceneAsync(SceneType.MainMenu1.ToString(), LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync(SceneType.MAINSCENE.ToString(), LoadSceneMode.Single);
     }
 
     public void LoadGameLevel()
